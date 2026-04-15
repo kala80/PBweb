@@ -226,6 +226,21 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 .hero h1 .red::after{
   content:"";position:absolute;right:-.12em;top:.12em;width:.16em;height:.16em;border-radius:50%;background:var(--red);
 }
+.hero h1 .rotator{
+  display:inline-block;position:relative;overflow:hidden;vertical-align:bottom;
+  height:1.05em;
+}
+.hero h1 .rotator .rot-item{
+  display:block;position:absolute;left:0;top:0;width:max-content;
+  transform:translateY(110%);opacity:0;
+  transition:transform .7s var(--ease-out),opacity .5s var(--ease-out);
+}
+.hero h1 .rotator .rot-item.active{
+  position:relative;transform:translateY(0);opacity:1;
+}
+.hero h1 .rotator .rot-item.out{
+  transform:translateY(-110%);opacity:0;
+}
 .hero .below{
   margin-top:48px;display:grid;grid-template-columns:minmax(280px,1.4fr) 1fr 1fr;gap:80px;align-items:end;
 }
@@ -607,12 +622,12 @@ section.sx{padding:100px 0;position:relative}
 .ref:hover .go{background:var(--red)}
 .ref .go svg{width:14px;height:14px}
 
-.ref.r1 .img{background-color:#1a1a1a}
-.ref.r2 .img{background-color:#c8102e}
-.ref.r3 .img{background-color:#e8413c}
-.ref.r4 .img{background-color:#4a6741}
-.ref.r5 .img{background-color:#1a1a1a}
-.ref.r6 .img{background-color:#8b6914}
+.ref.r1 .img{background:url(assets/ref-fotoskoda.png) top center/cover}
+.ref.r2 .img{background:url(assets/ref-dpp.png) top center/cover}
+.ref.r3 .img{background:url(assets/ref-albi.png) top center/cover}
+.ref.r4 .img{background:url(assets/ref-luzkoviny.png) top center/cover}
+.ref.r5 .img{background:url(assets/ref-konsepti.png) top center/cover}
+.ref.r6 .img{background:url(assets/ref-travelfree.png) top center/cover}
 
 /* ===================== CTA STRIP ===================== */
 .cta{padding:100px 0;text-align:center;position:relative;border-top:1px solid var(--ink)}
@@ -741,7 +756,12 @@ footer .base .right{text-align:right}
 
     <h1>
       <span class="ln"><span class="word">Tvoříme eshopy, weby a&nbsp;aplikace,</span></span>
-      <span class="ln"><span class="word">které umí <span class="red">prodávat.</span></span></span>
+      <span class="ln"><span class="word"><span class="rotator">
+        <span class="rot-item active">které umí <span class="red">prodávat.</span></span>
+        <span class="rot-item">které myslí na <span class="red">konverze.</span></span>
+        <span class="rot-item">které otáčejí traffic v&nbsp;<span class="red">zákazníky.</span></span>
+        <span class="rot-item">které posouvají váš byznys <span class="red">dál.</span></span>
+      </span></span></span>
     </h1>
 
     <div class="below">
@@ -1065,7 +1085,7 @@ footer .base .right{text-align:right}
     <div class="ref-grid">
       <a class="ref r1" href="#">
         <div class="mock-bar"><i></i><i></i><i></i><span class="adr">fotoskoda.cz</span></div>
-        <div class="img" data-url="fotoskoda.cz"></div>
+        <div class="img"></div>
         <div class="meta">
           <div>
             <h4>Fotoškoda</h4>
@@ -1076,7 +1096,7 @@ footer .base .right{text-align:right}
       </a>
       <a class="ref r2" href="#">
         <div class="mock-bar"><i></i><i></i><i></i><span class="adr">dpp.cz</span></div>
-        <div class="img" data-url="dpp.cz"></div>
+        <div class="img"></div>
         <div class="meta">
           <div>
             <h4>DPP Praha</h4>
@@ -1087,7 +1107,7 @@ footer .base .right{text-align:right}
       </a>
       <a class="ref r3" href="#">
         <div class="mock-bar"><i></i><i></i><i></i><span class="adr">albi.cz</span></div>
-        <div class="img" data-url="albi.cz"></div>
+        <div class="img"></div>
         <div class="meta">
           <div>
             <h4>Albi</h4>
@@ -1098,7 +1118,7 @@ footer .base .right{text-align:right}
       </a>
       <a class="ref r4" href="#">
         <div class="mock-bar"><i></i><i></i><i></i><span class="adr">mkluzkoviny.cz</span></div>
-        <div class="img" data-url="mkluzkoviny.cz"></div>
+        <div class="img"></div>
         <div class="meta">
           <div>
             <h4>Lůžkoviny</h4>
@@ -1109,7 +1129,7 @@ footer .base .right{text-align:right}
       </a>
       <a class="ref r5" href="#">
         <div class="mock-bar"><i></i><i></i><i></i><span class="adr">konsepti.com</span></div>
-        <div class="img" data-url="konsepti.com"></div>
+        <div class="img"></div>
         <div class="meta">
           <div>
             <h4>Konsepti</h4>
@@ -1120,7 +1140,7 @@ footer .base .right{text-align:right}
       </a>
       <a class="ref r6" href="#">
         <div class="mock-bar"><i></i><i></i><i></i><span class="adr">travelfree.cz</span></div>
-        <div class="img" data-url="travelfree.cz"></div>
+        <div class="img"></div>
         <div class="meta">
           <div>
             <h4>Travel Free</h4>
@@ -1303,6 +1323,21 @@ footer .base .right{text-align:right}
     });
     b.addEventListener('mouseleave',()=>{b.style.transform=''});
   });
+
+  // ======== Hero text rotator ========
+  const rotItems=document.querySelectorAll('.rotator .rot-item');
+  if(rotItems.length>1){
+    let cur=0;
+    setInterval(()=>{
+      const prev=rotItems[cur];
+      cur=(cur+1)%rotItems.length;
+      const next=rotItems[cur];
+      prev.classList.remove('active');
+      prev.classList.add('out');
+      next.classList.add('active');
+      setTimeout(()=>prev.classList.remove('out'),700);
+    },3000);
+  }
 
   // ======== Load website screenshots for ref cards & service thumbs ========
   document.querySelectorAll('.ref .img[data-url], .browser-body[data-url]').forEach(el=>{
