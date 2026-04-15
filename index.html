@@ -227,19 +227,22 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
   content:"";position:absolute;right:-.12em;top:.12em;width:.16em;height:.16em;border-radius:50%;background:var(--red);
 }
 .hero h1 .rotator{
-  display:inline-block;position:relative;overflow:hidden;vertical-align:bottom;
+  display:inline-block;position:relative;vertical-align:bottom;
   height:1.05em;
 }
 .hero h1 .rotator .rot-item{
   display:block;position:absolute;left:0;top:0;width:max-content;
-  transform:translateY(110%);opacity:0;
-  transition:transform .7s var(--ease-out),opacity .5s var(--ease-out);
+  opacity:0;filter:blur(6px);
+  transform:translateY(8px);
+  transition:opacity .8s ease,filter .8s ease,transform .8s ease;
+  pointer-events:none;
 }
 .hero h1 .rotator .rot-item.active{
-  position:relative;transform:translateY(0);opacity:1;
+  position:relative;opacity:1;filter:blur(0);
+  transform:translateY(0);pointer-events:auto;
 }
 .hero h1 .rotator .rot-item.out{
-  transform:translateY(-110%);opacity:0;
+  opacity:0;filter:blur(6px);transform:translateY(-8px);
 }
 .hero .below{
   margin-top:48px;display:grid;grid-template-columns:minmax(280px,1.4fr) 1fr 1fr;gap:80px;align-items:end;
@@ -758,9 +761,9 @@ footer .base .right{text-align:right}
       <span class="ln"><span class="word">Tvoříme eshopy, weby a&nbsp;aplikace,</span></span>
       <span class="ln"><span class="word"><span class="rotator">
         <span class="rot-item active">které umí <span class="red">prodávat.</span></span>
+        <span class="rot-item">které mění návštěvy v&nbsp;<span class="red">zákazníky.</span></span>
+        <span class="rot-item">které posouvají byznys <span class="red">dál.</span></span>
         <span class="rot-item">které myslí na <span class="red">konverze.</span></span>
-        <span class="rot-item">které otáčejí traffic v&nbsp;<span class="red">zákazníky.</span></span>
-        <span class="rot-item">které posouvají váš byznys <span class="red">dál.</span></span>
       </span></span></span>
     </h1>
 
@@ -1330,13 +1333,14 @@ footer .base .right{text-align:right}
     let cur=0;
     setInterval(()=>{
       const prev=rotItems[cur];
-      cur=(cur+1)%rotItems.length;
-      const next=rotItems[cur];
       prev.classList.remove('active');
       prev.classList.add('out');
+      cur=(cur+1)%rotItems.length;
+      const next=rotItems[cur];
+      next.classList.remove('out');
       next.classList.add('active');
-      setTimeout(()=>prev.classList.remove('out'),700);
-    },3000);
+      setTimeout(()=>prev.classList.remove('out'),900);
+    },3500);
   }
 
   // ======== Load website screenshots for ref cards & service thumbs ========
