@@ -442,32 +442,15 @@ section.sx{padding:100px 0;position:relative}
 .srv-row .panel .thumb{
   aspect-ratio:4/3;border-radius:12px;overflow:hidden;
   background:var(--ink);position:relative;
-  box-shadow:0 8px 30px rgba(0,0,0,.15);
+  display:flex;align-items:center;justify-content:center;
 }
-.srv-row .panel .thumb .browser-bar{
-  height:28px;background:#1e1e1e;display:flex;align-items:center;padding:0 12px;gap:6px;
-  border-bottom:1px solid rgba(255,255,255,.06);
+.srv-row .panel .thumb svg.ill{
+  width:60%;height:60%;opacity:.85;
 }
-.srv-row .panel .thumb .browser-bar i{
-  width:8px;height:8px;border-radius:50%;
-}
-.srv-row .panel .thumb .browser-bar i:nth-child(1){background:#ff5f57}
-.srv-row .panel .thumb .browser-bar i:nth-child(2){background:#ffbd2e}
-.srv-row .panel .thumb .browser-bar i:nth-child(3){background:#28c840}
-.srv-row .panel .thumb .browser-bar .url{
-  margin-left:8px;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.35);
-  background:rgba(255,255,255,.06);padding:3px 10px;border-radius:4px;letter-spacing:.02em;
-}
-.srv-row .panel .thumb .browser-body{
-  position:absolute;top:28px;left:0;right:0;bottom:0;
-  background:linear-gradient(135deg,var(--paper-3),var(--paper-2));
-  background-size:cover;background-position:top center;
-}
-.srv-row .panel .thumb .browser-body::after{
-  content:attr(data-label);position:absolute;left:14px;bottom:10px;
+.srv-row .panel .thumb .th-label{
+  position:absolute;left:14px;bottom:12px;
   font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
-  color:rgba(255,255,255,.7);
-  background:rgba(0,0,0,.5);backdrop-filter:blur(6px);padding:4px 10px;border-radius:6px;
+  color:rgba(255,255,255,.5);
 }
 .srv-row:hover h3{transform:translateX(16px);color:var(--red)}
 .srv-row:hover .tags{opacity:1;transform:translateX(0)}
@@ -612,10 +595,11 @@ section.sx{padding:100px 0;position:relative}
 }
 .ref .img{
   aspect-ratio:16/10;position:relative;
-  transition:transform .8s var(--ease);will-change:transform;
+  transition:transform .8s var(--ease),filter .6s var(--ease);will-change:transform,filter;
   background-size:cover;background-position:top center;
+  filter:grayscale(1) brightness(.85);
 }
-.ref:hover .img{transform:scale(1.04)}
+.ref:hover .img{transform:scale(1.04);filter:grayscale(0) brightness(1)}
 .ref .meta{padding:20px 24px;color:#fff;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;background:#1a1a1a}
 .ref h4{font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
 .ref .cat{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
@@ -629,6 +613,74 @@ section.sx{padding:100px 0;position:relative}
 .ref.r4 .img{background:url(assets/ref-luzkoviny.png) top center/cover}
 .ref.r5 .img{background:url(assets/ref-konsepti.png) top center/cover}
 .ref.r6 .img{background:url(assets/ref-travelfree.png) top center/cover}
+
+/* ===================== MASCOT ===================== */
+.mascot-wrap{
+  position:relative;height:120px;overflow:hidden;border-top:1px solid var(--line);
+  background:var(--paper-2);
+}
+.mascot{
+  position:absolute;bottom:0;
+  animation:mascotWalk 12s linear infinite;
+}
+@keyframes mascotWalk{
+  0%{left:-120px}
+  45%{left:calc(50% - 40px)}
+  55%{left:calc(50% - 40px)}
+  100%{left:calc(100% + 120px)}
+}
+.mascot .body{position:relative;width:80px;display:flex;flex-direction:column;align-items:center}
+.mascot .head{
+  width:56px;height:56px;border-radius:50%;overflow:hidden;
+  background:url(assets/mascot-head.png) center/cover;
+  border:2px solid var(--paper);box-shadow:0 2px 12px rgba(0,0,0,.15);
+  position:relative;z-index:2;
+}
+.mascot .torso{
+  width:32px;height:24px;background:var(--ink);
+  border-radius:6px 6px 0 0;margin-top:-4px;position:relative;z-index:1;
+}
+.mascot .arm-l,.mascot .arm-r{
+  position:absolute;top:56px;width:4px;height:22px;
+  background:var(--ink);border-radius:2px;
+  transform-origin:top center;
+}
+.mascot .arm-l{left:14px;animation:armSwing 0.6s ease-in-out infinite alternate}
+.mascot .arm-r{right:14px;animation:armWave 0.4s ease-in-out infinite alternate}
+@keyframes armSwing{0%{transform:rotate(-15deg)}100%{transform:rotate(15deg)}}
+@keyframes armWave{0%{transform:rotate(-40deg)}100%{transform:rotate(30deg)}}
+.mascot .hand{
+  width:10px;height:10px;border-radius:50%;
+  background:#f0c8a0;position:absolute;bottom:-6px;left:-3px;
+}
+.mascot .leg-l,.mascot .leg-r{
+  width:4px;height:20px;background:var(--ink);border-radius:2px;
+  position:absolute;bottom:-20px;
+  transform-origin:top center;
+}
+.mascot .leg-l{left:28px;animation:legWalk .5s ease-in-out infinite alternate}
+.mascot .leg-r{right:28px;animation:legWalk .5s ease-in-out infinite alternate-reverse}
+@keyframes legWalk{0%{transform:rotate(-12deg)}100%{transform:rotate(12deg)}}
+.mascot .foot{
+  width:10px;height:4px;background:var(--ink);border-radius:0 0 2px 2px;
+  position:absolute;bottom:-3px;left:-3px;
+}
+.mascot .speech{
+  position:absolute;top:-10px;right:-80px;
+  background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.03em;
+  padding:6px 12px;border-radius:10px;white-space:nowrap;
+  opacity:0;animation:speechPop 12s linear infinite;
+}
+.mascot .speech::before{
+  content:"";position:absolute;left:-6px;top:50%;transform:translateY(-50%);
+  border:5px solid transparent;border-right-color:var(--ink);
+}
+@keyframes speechPop{
+  0%,40%{opacity:0;transform:translateY(4px)}
+  48%,55%{opacity:1;transform:translateY(0)}
+  58%,100%{opacity:0;transform:translateY(-4px)}
+}
 
 /* ===================== CTA STRIP ===================== */
 .cta{padding:100px 0;text-align:center;position:relative;border-top:1px solid var(--ink)}
@@ -889,8 +941,17 @@ footer .base .right{text-align:right}
             <li><span>Servis 24/7</span><b>✓</b></li>
           </ul>
           <div class="thumb">
-            <div class="browser-bar"><i></i><i></i><i></i><span class="url">parfemy-elnino.cz</span></div>
-            <div class="browser-body" data-label="Elnino, Bestdrive, Konsepti" data-url="parfemy-elnino.cz"></div>
+            <svg class="ill" viewBox="0 0 120 100" fill="none" stroke="#e30613" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="10" y="8" width="100" height="70" rx="6" stroke="rgba(255,255,255,.15)"/>
+              <path d="M10 22h100" stroke="rgba(255,255,255,.1)"/>
+              <circle cx="18" cy="15" r="2" fill="#ff5f57" stroke="none"/><circle cx="25" cy="15" r="2" fill="#ffbd2e" stroke="none"/><circle cx="32" cy="15" r="2" fill="#28c840" stroke="none"/>
+              <path d="M30 45h60l-4 22H34z" stroke-width="1.5"/>
+              <path d="M42 45V35a8 8 0 0 1 16 0v10" opacity=".5"/>
+              <circle cx="38" cy="72" r="3"/><circle cx="82" cy="72" r="3"/>
+              <path d="M25 88h70" stroke="rgba(255,255,255,.08)" stroke-width="6" stroke-linecap="round"/>
+              <path d="M25 95h45" stroke="rgba(255,255,255,.06)" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <div class="th-label">E-commerce platforma</div>
           </div>
         </div>
       </article>
@@ -910,8 +971,20 @@ footer .base .right{text-align:right}
             <li><span>Provoz &amp; monitoring</span><b>✓</b></li>
           </ul>
           <div class="thumb">
-            <div class="browser-bar"><i></i><i></i><i></i><span class="url">albi.cz</span></div>
-            <div class="browser-body" data-label="Albi, Hyundai, Timous" data-url="albi.cz"></div>
+            <svg class="ill" viewBox="0 0 120 100" fill="none" stroke="#e30613" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="6" width="104" height="68" rx="6" stroke="rgba(255,255,255,.15)"/>
+              <path d="M8 20h104" stroke="rgba(255,255,255,.1)"/>
+              <circle cx="16" cy="13" r="2" fill="#ff5f57" stroke="none"/><circle cx="23" cy="13" r="2" fill="#ffbd2e" stroke="none"/><circle cx="30" cy="13" r="2" fill="#28c840" stroke="none"/>
+              <rect x="16" y="28" width="32" height="4" rx="2" fill="rgba(255,255,255,.12)" stroke="none"/>
+              <rect x="16" y="36" width="50" height="3" rx="1.5" fill="rgba(255,255,255,.06)" stroke="none"/>
+              <rect x="16" y="43" width="40" height="3" rx="1.5" fill="rgba(255,255,255,.06)" stroke="none"/>
+              <path d="M16 54l12-8 10 5 14-10 12 6 14-8 16 12" stroke-width="1.5" opacity=".7"/>
+              <circle cx="60" cy="87" r="3" stroke="rgba(255,255,255,.15)"/>
+              <path d="M44 94h32" stroke="rgba(255,255,255,.08)" stroke-width="3" stroke-linecap="round"/>
+              <path d="M80 28h24v12H80z" rx="2" stroke="rgba(255,255,255,.1)" fill="rgba(227,6,19,.15)"/>
+              <path d="M85 34h14" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+            </svg>
+            <div class="th-label">Webové aplikace</div>
           </div>
         </div>
       </article>
@@ -931,8 +1004,23 @@ footer .base .right{text-align:right}
             <li><span>Cross-channel reporty</span><b>✓</b></li>
           </ul>
           <div class="thumb">
-            <div class="browser-bar"><i></i><i></i><i></i><span class="url">travelfree.cz</span></div>
-            <div class="browser-body" data-label="Ekosport, Travel Free, GE" data-url="travelfree.cz"></div>
+            <svg class="ill" viewBox="0 0 120 100" fill="none" stroke="#e30613" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="60" cy="20" rx="40" ry="10" stroke="rgba(255,255,255,.15)"/>
+              <path d="M20 20v18c0 5.5 17.9 10 40 10s40-4.5 40-10V20" stroke="rgba(255,255,255,.12)"/>
+              <ellipse cx="60" cy="38" rx="40" ry="10" stroke="rgba(255,255,255,.1)"/>
+              <path d="M20 38v18c0 5.5 17.9 10 40 10s40-4.5 40-10V38" stroke="rgba(255,255,255,.12)"/>
+              <ellipse cx="60" cy="56" rx="40" ry="10" stroke="rgba(255,255,255,.1)"/>
+              <path d="M20 56v18c0 5.5 17.9 10 40 10s40-4.5 40-10V56" stroke="rgba(255,255,255,.12)"/>
+              <path d="M35 30v40" stroke-width="1.5" opacity=".6"/>
+              <path d="M50 26v48" stroke-width="1.5" opacity=".8"/>
+              <path d="M65 28v44" stroke-width="1.5" opacity=".5"/>
+              <path d="M80 25v50" stroke-width="1.5"/>
+              <circle cx="50" cy="26" r="2.5" fill="#e30613" stroke="none"/>
+              <circle cx="80" cy="25" r="2.5" fill="#e30613" stroke="none"/>
+              <circle cx="35" cy="30" r="2" fill="#e30613" stroke="none" opacity=".6"/>
+              <circle cx="65" cy="28" r="2" fill="#e30613" stroke="none" opacity=".5"/>
+            </svg>
+            <div class="th-label">Data & personalizace</div>
           </div>
         </div>
       </article>
@@ -952,8 +1040,19 @@ footer .base .right{text-align:right}
             <li><span>REST API &amp; widget</span><b>✓</b></li>
           </ul>
           <div class="thumb">
-            <div class="browser-bar"><i></i><i></i><i></i><span class="url">fotoskoda.cz</span></div>
-            <div class="browser-body" data-label="80+ e-shopů používá UpSearch" data-url="fotoskoda.cz"></div>
+            <svg class="ill" viewBox="0 0 120 100" fill="none" stroke="#e30613" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="48" cy="42" r="26" stroke-width="1.8"/>
+              <path d="M66 60l22 22" stroke-width="3" opacity=".8"/>
+              <rect x="18" y="36" width="60" height="5" rx="2.5" fill="rgba(255,255,255,.08)" stroke="none"/>
+              <rect x="22" y="37.5" width="24" height="2" rx="1" fill="rgba(255,255,255,.15)" stroke="none"/>
+              <path d="M30 50h36" stroke="rgba(255,255,255,.1)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M30 56h28" stroke="rgba(255,255,255,.07)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="48" cy="26" r="1.5" fill="#e30613" stroke="none"/>
+              <path d="M48 26v-6" stroke-width="1" opacity=".4"/>
+              <text x="78" y="16" fill="rgba(255,255,255,.12)" font-family="monospace" font-size="7" stroke="none">&lt;50ms</text>
+              <text x="72" y="90" fill="rgba(255,255,255,.1)" font-family="monospace" font-size="6" stroke="none">80+ e-shopů</text>
+            </svg>
+            <div class="th-label">Inteligentní vyhledávání</div>
           </div>
         </div>
       </article>
@@ -1134,6 +1233,21 @@ footer .base .right{text-align:right}
     </div>
   </div>
 </section>
+
+<!-- ===================== MASCOT ===================== -->
+<div class="mascot-wrap">
+  <div class="mascot">
+    <div class="speech">Ahoj! Pojďme něco vytvořit 👋</div>
+    <div class="body">
+      <div class="head"></div>
+      <div class="torso"></div>
+      <div class="arm-l"><div class="hand"></div></div>
+      <div class="arm-r"><div class="hand"></div></div>
+      <div class="leg-l"><div class="foot"></div></div>
+      <div class="leg-r"><div class="foot"></div></div>
+    </div>
+  </div>
+</div>
 
 <!-- ===================== CTA STRIP ===================== -->
 <section class="cta">
