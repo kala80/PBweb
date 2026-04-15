@@ -247,6 +247,76 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 .scroll-hint::before{content:"";display:block;width:1px;height:60px;background:var(--ink);animation:slide 2.5s var(--ease) infinite;transform-origin:top}
 @keyframes slide{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
+/* ===================== AWARD BADGE ===================== */
+.award-float{
+  position:fixed;right:-8px;top:50%;transform:translateY(-50%);z-index:90;
+  writing-mode:vertical-rl;
+}
+.award-float .badge{
+  display:flex;align-items:center;gap:10px;
+  background:var(--ink);color:var(--paper);
+  padding:18px 13px;border-radius:14px 0 0 14px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  box-shadow:-4px 0 30px rgba(0,0,0,.15);
+  cursor:pointer;transition:all .4s var(--ease);
+  border:1px solid rgba(242,236,224,.1);border-right:none;
+}
+.award-float .badge:hover{
+  right:0;padding:18px 16px;
+  background:var(--red);
+  box-shadow:-8px 0 40px rgba(227,6,19,.3);
+}
+.award-float .medal{
+  display:flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,#f5d97e,#d4a12a);
+  color:var(--ink);font-weight:800;font-size:13px;
+  writing-mode:horizontal-tb;
+  box-shadow:0 0 0 2px rgba(245,217,126,.3),inset 0 1px 2px rgba(255,255,255,.4);
+  flex-shrink:0;
+}
+.award-float .txt{
+  display:flex;flex-direction:column;gap:2px;
+}
+.award-float .yr{opacity:.5;font-size:9px}
+.award-float .place{font-weight:700;font-size:11px;letter-spacing:.1em}
+.award-float .what{opacity:.6;font-size:9px}
+
+/* ===================== LOGO STRIP ===================== */
+.logo-strip{
+  padding:80px 0 60px;border-bottom:1px solid var(--line);overflow:hidden;
+}
+.logo-strip .ls-head{
+  text-align:center;margin-bottom:40px;max-width:540px;margin-left:auto;margin-right:auto;
+}
+.logo-strip .ls-head h2{
+  font-size:clamp(24px,3vw,42px);font-weight:700;letter-spacing:-.035em;line-height:.95;margin-bottom:16px;
+}
+.logo-strip .ls-head h2 .red{color:var(--red)}
+.logo-strip .ls-head p{
+  font-size:15px;color:var(--mute);line-height:1.6;letter-spacing:-.01em;
+}
+.logo-strip .logos{
+  display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;
+}
+.logo-strip .cl{
+  font-size:20px;font-weight:700;letter-spacing:-.02em;color:var(--ink);
+  opacity:.18;transition:opacity .5s var(--ease);
+  white-space:nowrap;cursor:default;
+  position:relative;
+}
+.logo-strip .cl:hover{opacity:.7}
+.logo-strip .cl .dot{
+  display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--red);margin-left:1px;vertical-align:super;opacity:0;
+  transition:opacity .3s;
+}
+.logo-strip .cl:hover .dot{opacity:1}
+.logo-strip .cl small{
+  font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--mute);display:block;margin-top:2px;font-family:var(--mono);
+}
+
 /* ===================== MARQUEE ===================== */
 .marquee{
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
@@ -275,10 +345,10 @@ section.sx{padding:100px 0;position:relative}
 .sec-head .aside b{color:var(--ink);font-weight:600}
 
 /* ===================== STATEMENT ===================== */
-.statement{padding:100px 0 70px;position:relative}
+.statement{padding:100px 0 70px;position:relative;text-align:center}
 .statement .big{
   font-size:clamp(25px,3.2vw,49px);font-weight:500;letter-spacing:-.035em;line-height:1.05;
-  max-width:24ch;
+  max-width:30ch;margin:0 auto;
 }
 .statement .big b{font-weight:700}
 .statement .big .red{color:var(--red)}
@@ -291,7 +361,7 @@ section.sx{padding:100px 0;position:relative}
 }
 .statement.on .big .strike::after{transform:scaleX(1)}
 .statement .meta{
-  margin-top:44px;display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;
+  margin-top:44px;display:flex;justify-content:center;gap:40px;align-items:center;
   padding-top:28px;border-top:1px solid var(--line);
 }
 .statement .meta .who{display:flex;align-items:center;gap:16px}
@@ -625,9 +695,9 @@ footer .base .right{text-align:right}
 
     <div class="below">
       <p class="lede reveal d1">
-        Digitální agentura s&nbsp;<b>27 lety zkušeností</b>. Stavíme
+        Digitální agentura s&nbsp;<b>27 lety zkušeností</b>.<br>Stavíme
         <span class="hi">e-shopy, webové aplikace a&nbsp;datové nástroje</span>,
-        které reálně posouvají byznys klientů &mdash; od analýzy po provoz 24/7.
+        které reálně posouvají byznys klientů &mdash; od analýzy po provoz.
       </p>
       <div class="data reveal d2">
         <div class="row"><span>Klientů</span><b>180+</b></div>
@@ -640,7 +710,7 @@ footer .base .right{text-align:right}
           <span class="lbl" data-t="Začněme projekt"><span>Začněme projekt</span></span>
           <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
         </a>
-        <a href="#" class="btn ghost">
+        <a href="reference.html" class="btn ghost">
           <span class="lbl" data-t="Prohlédnout reference"><span>Prohlédnout reference</span></span>
           <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
         </a>
@@ -649,6 +719,18 @@ footer .base .right{text-align:right}
   </div>
   <div class="scroll-hint">Scroll</div>
 </section>
+
+<!-- ===================== AWARD BADGE ===================== -->
+<div class="award-float">
+  <div class="badge">
+    <div class="medal">1</div>
+    <div class="txt">
+      <span class="yr">2025</span>
+      <span class="place">1. místo</span>
+      <span class="what">WebTop100</span>
+    </div>
+  </div>
+</div>
 
 <!-- ===================== MARQUEE ===================== -->
 <div class="marquee" aria-hidden="true">
@@ -668,12 +750,31 @@ footer .base .right{text-align:right}
   </div>
 </div>
 
+<!-- ===================== LOGO STRIP ===================== -->
+<div class="logo-strip reveal">
+  <div class="ls-head">
+    <h2>Pro koho <span class="red">pracujeme</span></h2>
+    <p>Práce na projektech našich klientů vlastně nikdy nekončí. Dlouhodobé vztahy jsou pro nás zárukou úspěchu a&nbsp;na své věrné klienty nedáme dopustit.</p>
+  </div>
+  <div class="logos">
+    <div class="cl">Fotoškoda<span class="dot"></span><small>E-commerce</small></div>
+    <div class="cl">Elnino<span class="dot"></span><small>13 zemí</small></div>
+    <div class="cl">Sparkys<span class="dot"></span><small>Omnichannel</small></div>
+    <div class="cl">DPP<span class="dot"></span><small>Web &amp; systémy</small></div>
+    <div class="cl">Hyundai<span class="dot"></span><small>Firemní web</small></div>
+    <div class="cl">Konsepti<span class="dot"></span><small>B2C design</small></div>
+    <div class="cl">Bushman<span class="dot"></span><small>Fashion</small></div>
+    <div class="cl">BestDrive<span class="dot"></span><small>B2B &amp; ERP</small></div>
+    <div class="cl">Albi<span class="dot"></span><small>Retail</small></div>
+    <div class="cl">Travel Free<span class="dot"></span><small>Loyalty</small></div>
+  </div>
+</div>
+
 <!-- ===================== STATEMENT ===================== -->
 <section class="statement reveal">
   <div class="wrap">
     <p class="big">
       27 let stavíme <span class="red">weby</span>, které nejsou jen vizitka, ale nástroj, který <span class="red">přináší výsledky</span>.
-      Z&nbsp;Karlína, v&nbsp;týmu <b>37 lidí</b>.
     </p>
     <div class="meta">
       <div class="who">
