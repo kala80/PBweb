@@ -581,34 +581,38 @@ section.sx{padding:100px 0;position:relative}
 /* ===================== REFERENCE GRID ===================== */
 .refs{padding:100px 0}
 .ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.ref{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;cursor:none}
-.ref .img{position:absolute;inset:0;transition:transform .8s var(--ease);will-change:transform}
-.ref:hover .img{transform:scale(1.06)}
-.ref .meta{position:absolute;left:0;right:0;bottom:0;padding:24px 28px;color:#fff;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
-.ref .meta::before{content:"";position:absolute;left:0;right:0;bottom:0;height:70%;background:linear-gradient(to top,rgba(0,0,0,.75),transparent);z-index:-1}
-.ref h4{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
-.ref .cat{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
-.ref .go{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;transform:translate(30px,-30px) scale(.5);opacity:0;transition:all .5s var(--ease)}
-.ref:hover .go{transform:translate(0,0) scale(1);opacity:1}
-.ref .go svg{width:16px;height:16px}
+.ref{position:relative;border-radius:16px;overflow:hidden;cursor:none;background:var(--ink);box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.ref .mock-bar{
+  height:26px;background:#1e1e1e;display:flex;align-items:center;padding:0 12px;gap:6px;
+  border-bottom:1px solid rgba(255,255,255,.06);position:relative;z-index:3;
+}
+.ref .mock-bar i{width:7px;height:7px;border-radius:50%}
+.ref .mock-bar i:nth-child(1){background:#ff5f57}
+.ref .mock-bar i:nth-child(2){background:#ffbd2e}
+.ref .mock-bar i:nth-child(3){background:#28c840}
+.ref .mock-bar .adr{
+  margin-left:8px;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.3);
+  background:rgba(255,255,255,.06);padding:2px 10px;border-radius:4px;letter-spacing:.02em;
+}
+.ref .img{
+  aspect-ratio:16/10;position:relative;
+  transition:transform .8s var(--ease);will-change:transform;
+  background-size:cover;background-position:top center;
+}
+.ref:hover .img{transform:scale(1.04)}
+.ref .meta{padding:20px 24px;color:#fff;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;background:#1a1a1a}
+.ref h4{font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.ref .cat{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+.ref .go{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .4s var(--ease)}
+.ref:hover .go{background:var(--red)}
+.ref .go svg{width:14px;height:14px}
 
-.ref.r1 .img{background:#1a1a1a}
-.ref.r2 .img{background:#003366}
-.ref.r3 .img{background:#e8413c}
-.ref.r4 .img{background:#002c5f}
-.ref.r5 .img{background:#2a2a2a}
-.ref.r6 .img{background:#8b6914}
-.ref .img::before{
-  content:attr(data-site);position:absolute;inset:0;z-index:1;
-  display:flex;align-items:center;justify-content:center;
-  font-size:32px;font-weight:800;letter-spacing:-.03em;color:rgba(255,255,255,.12);
-  text-transform:uppercase;
-}
-.ref .img::after{
-  content:attr(data-url);position:absolute;top:16px;right:16px;z-index:1;
-  font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.35);
-  letter-spacing:.04em;padding:4px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;
-}
+.ref.r1 .img{background-color:#f5f0ea}
+.ref.r2 .img{background-color:#003366}
+.ref.r3 .img{background-color:#e8413c}
+.ref.r4 .img{background-color:#002c5f}
+.ref.r5 .img{background-color:#1a1a1a}
+.ref.r6 .img{background-color:#8b6914}
 
 /* ===================== CTA STRIP ===================== */
 .cta{padding:100px 0;text-align:center;position:relative;border-top:1px solid var(--ink)}
@@ -1060,7 +1064,8 @@ footer .base .right{text-align:right}
 
     <div class="ref-grid">
       <a class="ref r1" href="#">
-        <div class="img" data-site="Bushman" data-url="bushman.cz"></div>
+        <div class="mock-bar"><i></i><i></i><i></i><span class="adr">bushman.cz</span></div>
+        <div class="img" data-url="bushman.cz"></div>
         <div class="meta">
           <div>
             <h4>Bushman</h4>
@@ -1070,7 +1075,8 @@ footer .base .right{text-align:right}
         </div>
       </a>
       <a class="ref r2" href="#">
-        <div class="img" data-site="BestDrive" data-url="bestdrive.cz"></div>
+        <div class="mock-bar"><i></i><i></i><i></i><span class="adr">bestdrive.cz</span></div>
+        <div class="img" data-url="bestdrive.cz"></div>
         <div class="meta">
           <div>
             <h4>BestDrive</h4>
@@ -1080,7 +1086,8 @@ footer .base .right{text-align:right}
         </div>
       </a>
       <a class="ref r3" href="#">
-        <div class="img" data-site="Albi" data-url="albi.cz"></div>
+        <div class="mock-bar"><i></i><i></i><i></i><span class="adr">albi.cz</span></div>
+        <div class="img" data-url="albi.cz"></div>
         <div class="meta">
           <div>
             <h4>Albi</h4>
@@ -1090,7 +1097,8 @@ footer .base .right{text-align:right}
         </div>
       </a>
       <a class="ref r4" href="#">
-        <div class="img" data-site="Hyundai" data-url="hyundai.cz"></div>
+        <div class="mock-bar"><i></i><i></i><i></i><span class="adr">hyundai.cz</span></div>
+        <div class="img" data-url="hyundai.cz"></div>
         <div class="meta">
           <div>
             <h4>Hyundai</h4>
@@ -1100,7 +1108,8 @@ footer .base .right{text-align:right}
         </div>
       </a>
       <a class="ref r5" href="#">
-        <div class="img" data-site="Konsepti" data-url="konsepti.com"></div>
+        <div class="mock-bar"><i></i><i></i><i></i><span class="adr">konsepti.com</span></div>
+        <div class="img" data-url="konsepti.com"></div>
         <div class="meta">
           <div>
             <h4>Konsepti</h4>
@@ -1110,7 +1119,8 @@ footer .base .right{text-align:right}
         </div>
       </a>
       <a class="ref r6" href="#">
-        <div class="img" data-site="Travel Free" data-url="travelfree.cz"></div>
+        <div class="mock-bar"><i></i><i></i><i></i><span class="adr">travelfree.cz</span></div>
+        <div class="img" data-url="travelfree.cz"></div>
         <div class="meta">
           <div>
             <h4>Travel Free</h4>
