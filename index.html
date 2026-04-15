@@ -285,37 +285,56 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 /* ===================== LOGO STRIP ===================== */
 .logo-strip{
   padding:80px 0 60px;border-bottom:1px solid var(--line);overflow:hidden;
+  background:var(--ink);color:var(--paper);position:relative;
+}
+.logo-strip::before{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(227,6,19,.12) 0%,transparent 65%);
+  pointer-events:none;
 }
 .logo-strip .ls-head{
-  text-align:center;margin-bottom:40px;max-width:540px;margin-left:auto;margin-right:auto;
+  text-align:center;margin-bottom:48px;max-width:540px;margin-left:auto;margin-right:auto;
+  position:relative;z-index:2;
 }
 .logo-strip .ls-head h2{
   font-size:clamp(24px,3vw,42px);font-weight:700;letter-spacing:-.035em;line-height:.95;margin-bottom:16px;
+  color:var(--paper);
 }
 .logo-strip .ls-head h2 .red{color:var(--red)}
 .logo-strip .ls-head p{
-  font-size:15px;color:var(--mute);line-height:1.6;letter-spacing:-.01em;
+  font-size:15px;color:rgba(242,236,224,.5);line-height:1.6;letter-spacing:-.01em;
 }
 .logo-strip .logos{
-  display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  position:relative;z-index:2;max-width:1100px;margin:0 auto;
 }
 .logo-strip .cl{
-  font-size:20px;font-weight:700;letter-spacing:-.02em;color:var(--ink);
-  opacity:.18;transition:opacity .5s var(--ease);
-  white-space:nowrap;cursor:default;
-  position:relative;
+  text-align:center;padding:28px 16px;
+  border:1px solid rgba(242,236,224,.06);
+  cursor:default;position:relative;
+  transition:all .4s var(--ease);
 }
-.logo-strip .cl:hover{opacity:.7}
+.logo-strip .cl:hover{
+  background:rgba(242,236,224,.04);
+  border-color:rgba(242,236,224,.12);
+}
+.logo-strip .cl .nm{
+  font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--paper);
+  transition:color .3s;
+}
+.logo-strip .cl:hover .nm{color:var(--red)}
 .logo-strip .cl .dot{
-  display:inline-block;width:6px;height:6px;border-radius:50%;
-  background:var(--red);margin-left:1px;vertical-align:super;opacity:0;
-  transition:opacity .3s;
+  display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--red);margin-left:1px;vertical-align:super;
 }
-.logo-strip .cl:hover .dot{opacity:1}
 .logo-strip .cl small{
-  font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--mute);display:block;margin-top:2px;font-family:var(--mono);
+  font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(242,236,224,.3);display:block;margin-top:6px;font-family:var(--mono);
+  transition:color .3s;
 }
+.logo-strip .cl:hover small{color:rgba(242,236,224,.6)}
+
 
 /* ===================== MARQUEE ===================== */
 .marquee{
@@ -406,16 +425,33 @@ section.sx{padding:100px 0;position:relative}
 .srv-row .panel .list li b{color:var(--ink);font-weight:600}
 .srv-row .panel .thumb{
   aspect-ratio:4/3;border-radius:12px;overflow:hidden;
+  background:var(--ink);position:relative;
+  box-shadow:0 8px 30px rgba(0,0,0,.15);
+}
+.srv-row .panel .thumb .browser-bar{
+  height:28px;background:#1e1e1e;display:flex;align-items:center;padding:0 12px;gap:6px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.srv-row .panel .thumb .browser-bar i{
+  width:8px;height:8px;border-radius:50%;
+}
+.srv-row .panel .thumb .browser-bar i:nth-child(1){background:#ff5f57}
+.srv-row .panel .thumb .browser-bar i:nth-child(2){background:#ffbd2e}
+.srv-row .panel .thumb .browser-bar i:nth-child(3){background:#28c840}
+.srv-row .panel .thumb .browser-bar .url{
+  margin-left:8px;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.35);
+  background:rgba(255,255,255,.06);padding:3px 10px;border-radius:4px;letter-spacing:.02em;
+}
+.srv-row .panel .thumb .browser-body{
+  position:absolute;top:28px;left:0;right:0;bottom:0;
   background:linear-gradient(135deg,var(--paper-3),var(--paper-2));
-  border:1px solid var(--line);position:relative;
+  background-size:cover;background-position:top center;
 }
-.srv-row .panel .thumb::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at 30% 30%,rgba(227,6,19,.25),transparent 55%);
-}
-.srv-row .panel .thumb::after{
-  content:attr(data-label);position:absolute;left:18px;bottom:16px;
-  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);
+.srv-row .panel .thumb .browser-body::after{
+  content:attr(data-label);position:absolute;left:14px;bottom:10px;
+  font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);
+  background:rgba(0,0,0,.5);backdrop-filter:blur(6px);padding:4px 10px;border-radius:6px;
 }
 .srv-row:hover h3{transform:translateX(16px);color:var(--red)}
 .srv-row:hover .tags{opacity:1;transform:translateX(0)}
@@ -686,7 +722,7 @@ footer .base .right{text-align:right}
   </ul>
   <div class="meta">
     <span><span class="dot"></span>Přijímáme projekty Q3/26</span>
-    <a href="#" class="btn sm">
+    <a href="https://pbweb-jet.vercel.app/kontakt.html" class="btn sm">
       <span class="lbl" data-t="Napište nám"><span>Napište nám</span></span>
       <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
     </a>
@@ -768,16 +804,16 @@ footer .base .right{text-align:right}
     <p>Práce na projektech našich klientů vlastně nikdy nekončí. Dlouhodobé vztahy jsou pro nás zárukou úspěchu a&nbsp;na své věrné klienty nedáme dopustit.</p>
   </div>
   <div class="logos">
-    <div class="cl">Fotoškoda<span class="dot"></span><small>E-commerce</small></div>
-    <div class="cl">Elnino<span class="dot"></span><small>13 zemí</small></div>
-    <div class="cl">Sparkys<span class="dot"></span><small>Omnichannel</small></div>
-    <div class="cl">DPP<span class="dot"></span><small>Web &amp; systémy</small></div>
-    <div class="cl">Hyundai<span class="dot"></span><small>Firemní web</small></div>
-    <div class="cl">Konsepti<span class="dot"></span><small>B2C design</small></div>
-    <div class="cl">Bushman<span class="dot"></span><small>Fashion</small></div>
-    <div class="cl">BestDrive<span class="dot"></span><small>B2B &amp; ERP</small></div>
-    <div class="cl">Albi<span class="dot"></span><small>Retail</small></div>
-    <div class="cl">Travel Free<span class="dot"></span><small>Loyalty</small></div>
+    <div class="cl"><div class="nm">Fotoškoda<span class="dot"></span></div><small>E-commerce</small></div>
+    <div class="cl"><div class="nm">Elnino<span class="dot"></span></div><small>13 zemí</small></div>
+    <div class="cl"><div class="nm">Sparkys<span class="dot"></span></div><small>Omnichannel</small></div>
+    <div class="cl"><div class="nm">DPP<span class="dot"></span></div><small>Web &amp; systémy</small></div>
+    <div class="cl"><div class="nm">Hyundai<span class="dot"></span></div><small>Firemní web</small></div>
+    <div class="cl"><div class="nm">Konsepti<span class="dot"></span></div><small>B2C design</small></div>
+    <div class="cl"><div class="nm">Bushman<span class="dot"></span></div><small>Fashion</small></div>
+    <div class="cl"><div class="nm">BestDrive<span class="dot"></span></div><small>B2B &amp; ERP</small></div>
+    <div class="cl"><div class="nm">Albi<span class="dot"></span></div><small>Retail</small></div>
+    <div class="cl"><div class="nm">Travel Free<span class="dot"></span></div><small>Loyalty</small></div>
   </div>
 </div>
 
@@ -827,7 +863,10 @@ footer .base .right{text-align:right}
             <li><span>B2B role, ceníky, schvalování</span><b>✓</b></li>
             <li><span>Servis 24/7</span><b>✓</b></li>
           </ul>
-          <div class="thumb" data-label="Elnino, Bestdrive, Konsepti"></div>
+          <div class="thumb">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="url">parfemy-elnino.cz</span></div>
+            <div class="browser-body" data-label="Elnino, Bestdrive, Konsepti" data-url="parfemy-elnino.cz"></div>
+          </div>
         </div>
       </article>
 
@@ -845,7 +884,10 @@ footer .base .right{text-align:right}
             <li><span>SSO, audit, bezpečnost</span><b>✓</b></li>
             <li><span>Provoz &amp; monitoring</span><b>✓</b></li>
           </ul>
-          <div class="thumb" data-label="Albi, Hyundai, Timous"></div>
+          <div class="thumb">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="url">albi.cz</span></div>
+            <div class="browser-body" data-label="Albi, Hyundai, Timous" data-url="albi.cz"></div>
+          </div>
         </div>
       </article>
 
@@ -863,7 +905,10 @@ footer .base .right{text-align:right}
             <li><span>Automatizace martechu</span><b>✓</b></li>
             <li><span>Cross-channel reporty</span><b>✓</b></li>
           </ul>
-          <div class="thumb" data-label="Ekosport, Travel Free, GE"></div>
+          <div class="thumb">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="url">travelfree.cz</span></div>
+            <div class="browser-body" data-label="Ekosport, Travel Free, GE" data-url="travelfree.cz"></div>
+          </div>
         </div>
       </article>
 
@@ -881,7 +926,10 @@ footer .base .right{text-align:right}
             <li><span>TOP / boost výsledky</span><b>✓</b></li>
             <li><span>REST API &amp; widget</span><b>✓</b></li>
           </ul>
-          <div class="thumb" data-label="80+ e-shopů používá UpSearch"></div>
+          <div class="thumb">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="url">fotoskoda.cz</span></div>
+            <div class="browser-body" data-label="80+ e-shopů používá UpSearch" data-url="fotoskoda.cz"></div>
+          </div>
         </div>
       </article>
     </div>
@@ -962,7 +1010,7 @@ footer .base .right{text-align:right}
             </div>
           </div>
           <div class="actions">
-            <a href="#" class="btn red">
+            <a href="elnino.html" class="btn red">
               <span class="lbl" data-t="Celá case study"><span>Celá case study</span></span>
               <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
             </a>
@@ -1246,8 +1294,8 @@ footer .base .right{text-align:right}
     b.addEventListener('mouseleave',()=>{b.style.transform=''});
   });
 
-  // ======== Load website screenshots for ref cards ========
-  document.querySelectorAll('.ref .img[data-url]').forEach(el=>{
+  // ======== Load website screenshots for ref cards & service thumbs ========
+  document.querySelectorAll('.ref .img[data-url], .browser-body[data-url]').forEach(el=>{
     const url=el.dataset.url;
     const img=new Image();
     img.src='https://image.thum.io/get/width/600/crop/400/https://'+url;
