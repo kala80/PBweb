@@ -224,24 +224,13 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 .hero h1 .word.on{transform:translateY(0);transition:transform 1.1s var(--ease-out)}
 .hero h1 .red{color:var(--red);position:relative;display:inline-block}
 .hero h1 .red::after{display:none}
-.hero h1 .rotator{
-  display:inline-block;position:relative;vertical-align:bottom;
-  height:1.05em;
+.hero h1 .typewriter{display:inline-block;position:relative}
+.hero h1 .typewriter .tw-caret{
+  display:inline-block;width:3px;height:.85em;background:var(--red);
+  vertical-align:-10%;margin-left:4px;
+  animation:twBlink 1s step-end infinite;
 }
-.hero h1 .rotator .rot-item{
-  display:block;position:absolute;left:0;top:0;width:max-content;
-  opacity:0;filter:blur(6px);
-  transform:translateY(8px);
-  transition:opacity .8s ease,filter .8s ease,transform .8s ease;
-  pointer-events:none;
-}
-.hero h1 .rotator .rot-item.active{
-  position:relative;opacity:1;filter:blur(0);
-  transform:translateY(0);pointer-events:auto;
-}
-.hero h1 .rotator .rot-item.out{
-  opacity:0;filter:blur(6px);transform:translateY(-8px);
-}
+@keyframes twBlink{50%{opacity:0}}
 .hero .below{
   margin-top:48px;display:grid;grid-template-columns:minmax(280px,1.4fr) 1fr 1fr;gap:80px;align-items:end;
 }
@@ -265,38 +254,57 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 
 /* ===================== AWARD BADGE ===================== */
 .award-float{
-  position:fixed;right:-8px;top:50%;transform:translateY(-50%);z-index:90;
+  position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:90;
   writing-mode:vertical-rl;
 }
 .award-float .badge{
-  display:flex;align-items:center;gap:10px;
-  background:var(--ink);color:var(--paper);
-  padding:18px 13px;border-radius:14px 0 0 14px;
-  font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-  box-shadow:-4px 0 30px rgba(0,0,0,.15);
+  display:flex;align-items:center;gap:12px;
+  background:var(--red);color:#fff;
+  padding:22px 16px;border-radius:16px 0 0 16px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  box-shadow:-6px 0 24px rgba(227,6,19,.35),-2px 0 8px rgba(0,0,0,.2);
   cursor:pointer;transition:all .4s var(--ease);
-  border:1px solid rgba(242,236,224,.1);border-right:none;
+  animation:awardPulse 2.6s ease-in-out infinite;
+}
+@keyframes awardPulse{
+  0%,100%{box-shadow:-6px 0 24px rgba(227,6,19,.35),-2px 0 8px rgba(0,0,0,.2)}
+  50%{box-shadow:-6px 0 40px rgba(227,6,19,.6),-2px 0 8px rgba(0,0,0,.2)}
 }
 .award-float .badge:hover{
-  right:0;padding:18px 16px;
-  background:var(--red);
-  box-shadow:-8px 0 40px rgba(227,6,19,.3);
+  padding:22px 22px 22px 20px;
+  transform:translateX(-4px);
+  animation:none;
+  box-shadow:-10px 0 50px rgba(227,6,19,.5),-3px 0 12px rgba(0,0,0,.3);
 }
 .award-float .medal{
   display:flex;align-items:center;justify-content:center;
-  width:28px;height:28px;border-radius:50%;
-  background:linear-gradient(135deg,#f5d97e,#d4a12a);
-  color:var(--ink);font-weight:800;font-size:13px;
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,#ffe18a,#d4a12a);
+  color:var(--ink);font-weight:800;font-size:16px;
   writing-mode:horizontal-tb;
-  box-shadow:0 0 0 2px rgba(245,217,126,.3),inset 0 1px 2px rgba(255,255,255,.4);
-  flex-shrink:0;
+  box-shadow:0 0 0 3px rgba(255,225,138,.35),inset 0 2px 3px rgba(255,255,255,.5),0 2px 6px rgba(0,0,0,.2);
+  flex-shrink:0;position:relative;
+}
+.award-float .medal::before{
+  content:"★";position:absolute;top:-10px;right:-8px;font-size:14px;color:#ffe18a;
+  text-shadow:0 0 8px rgba(255,225,138,.8);
+  writing-mode:horizontal-tb;
+  animation:starTwinkle 1.8s ease-in-out infinite;
+}
+@keyframes starTwinkle{
+  0%,100%{opacity:.5;transform:scale(.9) rotate(0deg)}
+  50%{opacity:1;transform:scale(1.1) rotate(20deg)}
 }
 .award-float .txt{
-  display:flex;flex-direction:column;gap:2px;
+  display:flex;flex-direction:column;gap:3px;
 }
-.award-float .yr{opacity:.5;font-size:9px}
-.award-float .place{font-weight:700;font-size:11px;letter-spacing:.1em}
-.award-float .what{opacity:.6;font-size:9px}
+.award-float .yr{opacity:.75;font-size:10px;font-weight:500}
+.award-float .place{font-weight:800;font-size:13px;letter-spacing:.12em}
+.award-float .what{opacity:.85;font-size:10px;font-weight:500}
+
+@media (max-width:960px){
+  .award-float{display:none}
+}
 
 /* ===================== LOGO STRIP ===================== */
 .logo-strip{
@@ -335,6 +343,12 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
   background:rgba(242,236,224,.04);
   border-color:rgba(242,236,224,.12);
 }
+.logo-strip .cl .lg{
+  display:block;width:100%;max-width:140px;height:auto;
+  margin:0 auto 10px;
+  opacity:.75;transition:opacity .3s;
+}
+.logo-strip .cl:hover .lg{opacity:1}
 .logo-strip .cl .nm{
   font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--paper);
   transition:color .3s;
@@ -355,16 +369,16 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 /* ===================== MARQUEE ===================== */
 .marquee{
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:28px 0;overflow:hidden;
-  display:flex;gap:80px;align-items:center;white-space:nowrap;
+  padding:18px 0;overflow:hidden;
+  display:flex;gap:60px;align-items:center;white-space:nowrap;
 }
 .marquee .track{
-  display:flex;gap:80px;animation:roll 40s linear infinite;
-  font-size:34px;font-weight:700;letter-spacing:-.035em;color:var(--ink);
+  display:flex;gap:60px;animation:roll 40s linear infinite;
+  font-size:22px;font-weight:700;letter-spacing:-.025em;color:var(--ink);
 }
 .marquee:hover .track{animation-play-state:paused}
-.marquee .track span{display:inline-flex;align-items:center;gap:80px;transition:opacity .3s}
-.marquee .track span::after{content:"";display:block;width:10px;height:10px;border-radius:50%;background:var(--red);flex-shrink:0}
+.marquee .track span{display:inline-flex;align-items:center;gap:60px;transition:opacity .3s}
+.marquee .track span::after{content:"";display:block;width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0}
 .marquee:hover .track span{opacity:.35}
 .marquee:hover .track span:hover{opacity:1}
 @keyframes roll{to{transform:translateX(-50%)}}
@@ -381,6 +395,12 @@ section.sx{padding:100px 0;position:relative}
 
 /* ===================== STATEMENT ===================== */
 .statement{padding:100px 0 70px;position:relative;text-align:center}
+.statement .statement-tag{
+  display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--mute);
+  padding:8px 18px;border:1px solid var(--line);border-radius:999px;
+  margin-bottom:32px;
+}
 .statement .big{
   font-size:clamp(25px,3.2vw,49px);font-weight:500;letter-spacing:-.035em;line-height:1.05;
   max-width:30ch;margin:0 auto;
@@ -809,12 +829,7 @@ footer .base .right{text-align:right}
 
     <h1>
       <span class="ln"><span class="word">Tvoříme eshopy, weby a&nbsp;aplikace,</span></span>
-      <span class="ln"><span class="word"><span class="rotator">
-        <span class="rot-item active">které umí <span class="red">prodávat.</span></span>
-        <span class="rot-item">které tvoří <span class="red">zákazníky.</span></span>
-        <span class="rot-item">které posouvají <span class="red">byznys</span> <span class="red">dál.</span></span>
-        <span class="rot-item">které myslí na <span class="red">konverze.</span></span>
-      </span></span></span>
+      <span class="ln"><span class="word">které <span class="typewriter" data-words='["umí &lt;span class=\"red\"&gt;prodávat.&lt;/span&gt;","tvoří &lt;span class=\"red\"&gt;zákazníky.&lt;/span&gt;","posouvají &lt;span class=\"red\"&gt;byznys dál.&lt;/span&gt;","myslí na &lt;span class=\"red\"&gt;konverze.&lt;/span&gt;"]'><span class="tw-text">umí <span class="red">prodávat.</span></span><span class="tw-caret"></span></span></span></span>
     </h1>
 
     <div class="below">
@@ -881,24 +896,90 @@ footer .base .right{text-align:right}
     <p>Práce na projektech našich klientů vlastně nikdy nekončí. Dlouhodobé vztahy jsou pro nás zárukou úspěchu a&nbsp;na své věrné klienty nedáme dopustit.</p>
   </div>
   <div class="logos">
-    <div class="cl"><div class="nm">Fotoškoda<span class="dot"></span></div><small>E-commerce</small></div>
-    <div class="cl"><div class="nm">MK Lůžkoviny<span class="dot"></span></div><small>E-shop</small></div>
-    <div class="cl"><div class="nm">Sparkys<span class="dot"></span></div><small>Omnichannel</small></div>
-    <div class="cl"><div class="nm">DPP<span class="dot"></span></div><small>Web &amp; systémy</small></div>
-    <div class="cl"><div class="nm">Hyundai<span class="dot"></span></div><small>Firemní web</small></div>
-    <div class="cl"><div class="nm">Konsepti<span class="dot"></span></div><small>B2C design</small></div>
-    <div class="cl"><div class="nm">Kinoko<span class="dot"></span></div><small>E-commerce</small></div>
-    <div class="cl"><div class="nm">Harfa Sport<span class="dot"></span></div><small>Retail</small></div>
-    <div class="cl"><div class="nm">Albi<span class="dot"></span></div><small>Retail</small></div>
-    <div class="cl"><div class="nm">Travel Free<span class="dot"></span></div><small>Loyalty</small></div>
+    <div class="cl">
+      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="26" font-family="Arial Black,Arial,sans-serif" font-size="22" font-weight="900" fill="#fff" letter-spacing="-0.5">Foto</text>
+        <text x="48" y="26" font-family="Georgia,serif" font-style="italic" font-size="22" font-weight="700" fill="#fff" letter-spacing="-0.5">škoda</text>
+      </svg>
+      <small>E-commerce</small>
+    </div>
+    <div class="cl">
+      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="16" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#fff" letter-spacing="2">MK</text>
+        <text x="0" y="34" font-family="Georgia,serif" font-size="20" font-weight="700" font-style="italic" fill="#fff" letter-spacing="-0.3">Lůžkoviny</text>
+      </svg>
+      <small>E-shop</small>
+    </div>
+    <div class="cl">
+      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="8,8 16,8 12,32" fill="#fff"/>
+        <text x="24" y="28" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="#fff" letter-spacing="2">SPARKYS</text>
+      </svg>
+      <small>Omnichannel</small>
+    </div>
+    <div class="cl">
+      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="20" r="12" fill="none" stroke="#fff" stroke-width="2.5"/>
+        <text x="14" y="26" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#fff">D</text>
+        <text x="38" y="16" font-family="Arial,sans-serif" font-size="10" font-weight="500" fill="#fff" letter-spacing="1">DOPRAVNÍ</text>
+        <text x="38" y="28" font-family="Arial,sans-serif" font-size="10" font-weight="500" fill="#fff" letter-spacing="1">PODNIK</text>
+        <text x="38" y="38" font-family="Arial,sans-serif" font-size="8" font-weight="400" fill="#fff" opacity=".7" letter-spacing="1">hl. m. Prahy</text>
+      </svg>
+      <small>Web &amp; systémy</small>
+    </div>
+    <div class="cl">
+      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="28" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#fff" letter-spacing="2">HYUNDAI</text>
+      </svg>
+      <small>Firemní web</small>
+    </div>
+    <div class="cl">
+      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="28" font-family="Arial,sans-serif" font-size="22" font-weight="300" fill="#fff" letter-spacing="4">KONSEPTI</text>
+      </svg>
+      <small>B2C design</small>
+    </div>
+    <div class="cl">
+      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="20" r="9" fill="#fff"/>
+        <circle cx="12" cy="20" r="4" fill="#1a1a1a"/>
+        <text x="28" y="28" font-family="Georgia,serif" font-size="22" font-weight="700" font-style="italic" fill="#fff" letter-spacing="-0.3">Kinoko</text>
+      </svg>
+      <small>E-commerce</small>
+    </div>
+    <div class="cl">
+      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="18" font-family="Arial Black,Arial,sans-serif" font-size="16" font-weight="900" fill="#fff" letter-spacing="1">HARFA</text>
+        <text x="0" y="34" font-family="Arial,sans-serif" font-size="12" font-weight="500" fill="#fff" letter-spacing="2">SPORT</text>
+      </svg>
+      <small>Retail</small>
+    </div>
+    <div class="cl">
+      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="20" r="12" fill="none" stroke="#fff" stroke-width="2"/>
+        <text x="12" y="26" font-family="Georgia,serif" font-size="16" font-weight="700" font-style="italic" fill="#fff">A</text>
+        <text x="36" y="28" font-family="Georgia,serif" font-size="22" font-weight="700" font-style="italic" fill="#fff" letter-spacing="-0.3">Albi</text>
+      </svg>
+      <small>Retail</small>
+    </div>
+    <div class="cl">
+      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="10" width="28" height="20" fill="#fff" rx="2"/>
+        <text x="6" y="24" font-family="Arial Black,Arial,sans-serif" font-size="10" font-weight="900" fill="#1a1a1a">TF</text>
+        <text x="36" y="22" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#fff" letter-spacing="1">TRAVEL</text>
+        <text x="36" y="35" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#fff" letter-spacing="1">FREE</text>
+      </svg>
+      <small>Loyalty</small>
+    </div>
   </div>
 </div>
 
 <!-- ===================== STATEMENT ===================== -->
 <section class="statement reveal">
   <div class="wrap">
+    <div class="statement-tag">Od roku 1999 tvoříme digitální řešení</div>
     <p class="big">
-      27 let stavíme <span class="red">weby</span>, které nejsou jen vizitka, ale nástroj, který <span class="red">přináší výsledky</span>.
+      <span class="year-counter" data-final="27">1</span> let stavíme <span class="red">weby</span>, které nejsou jen vizitka, ale nástroj, který <span class="red">přináší výsledky</span>.
     </p>
     <div class="meta">
       <div class="who">
@@ -907,10 +988,6 @@ footer .base .right{text-align:right}
           <div class="name">Luděk Vorel</div>
           <div class="role">CEO</div>
         </div>
-      </div>
-      <div></div>
-      <div class="yrs">
-        Na trhu<b>Od 1999</b>
       </div>
     </div>
   </div>
@@ -1159,7 +1236,7 @@ footer .base .right{text-align:right}
   <div class="wrap">
     <div class="sec-head">
       <div class="idx">§ 04 / Reference</div>
-      <h2>Další vybraná <span class="red">práce.</span></h2>
+      <h2>Práce, která <span class="red">mluví za nás.</span></h2>
       <div class="aside">180+ projektů<br><b><a href="#" class="lnk">Všechny reference <span class="arr">→</span></a></b></div>
     </div>
 
@@ -1420,20 +1497,90 @@ footer .base .right{text-align:right}
     b.addEventListener('mouseleave',()=>{b.style.transform=''});
   });
 
-  // ======== Hero text rotator ========
-  const rotItems=document.querySelectorAll('.rotator .rot-item');
-  if(rotItems.length>1){
-    let cur=0;
-    setInterval(()=>{
-      const prev=rotItems[cur];
-      prev.classList.remove('active');
-      prev.classList.add('out');
-      cur=(cur+1)%rotItems.length;
-      const next=rotItems[cur];
-      next.classList.remove('out');
-      next.classList.add('active');
-      setTimeout(()=>prev.classList.remove('out'),900);
-    },3500);
+  // ======== Year counter (1 → 27) ========
+  const yearEl=document.querySelector('.year-counter');
+  if(yearEl){
+    const final=parseInt(yearEl.dataset.final,10);
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(!e.isIntersecting)return;
+        io.unobserve(e.target);
+        let n=1;
+        const step=()=>{
+          yearEl.textContent=n;
+          if(n<final){
+            n++;
+            setTimeout(step, n<10?50:n<20?40:60);
+          }
+        };
+        step();
+      });
+    },{threshold:.5});
+    io.observe(yearEl);
+  }
+
+  // ======== Hero typewriter ========
+  const tw=document.querySelector('.typewriter');
+  if(tw){
+    const words=JSON.parse(tw.dataset.words);
+    const txt=tw.querySelector('.tw-text');
+    let wi=0;
+    
+    // Helper: type/erase HTML string char by char
+    const typeHTML=(target,html,done)=>{
+      // Parse HTML into sequence of tokens (text chars + HTML tags)
+      const tokens=[];
+      let i=0;
+      while(i<html.length){
+        if(html[i]==='<'){
+          const end=html.indexOf('>',i);
+          tokens.push({type:'tag',val:html.substring(i,end+1)});
+          i=end+1;
+        }else{
+          tokens.push({type:'char',val:html[i]});
+          i++;
+        }
+      }
+      let cur='';
+      let ti=0;
+      const tick=()=>{
+        if(ti>=tokens.length){done&&done();return}
+        cur+=tokens[ti].val;
+        target.innerHTML=cur;
+        ti++;
+        // type chars slowly, tags instantly
+        setTimeout(tick, tokens[ti-1].type==='char'?55:0);
+      };
+      tick();
+    };
+    
+    const eraseHTML=(target,done)=>{
+      const finish=()=>done&&done();
+      const step=()=>{
+        const html=target.innerHTML;
+        if(!html){finish();return}
+        // If ends with a tag, remove the whole tag
+        if(html.endsWith('>')){
+          const openIdx=html.lastIndexOf('<');
+          target.innerHTML=html.substring(0,openIdx);
+        }else{
+          target.innerHTML=html.substring(0,html.length-1);
+        }
+        setTimeout(step,30);
+      };
+      step();
+    };
+    
+    const loop=()=>{
+      setTimeout(()=>{
+        eraseHTML(txt,()=>{
+          wi=(wi+1)%words.length;
+          typeHTML(txt,words[wi],loop);
+        });
+      },2200);
+    };
+    // Start loop after initial show
+    loop();
   }
 
   // ======== Load website screenshots for ref cards & service thumbs ========
