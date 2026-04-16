@@ -829,7 +829,7 @@ footer .base .right{text-align:right}
 
     <h1>
       <span class="ln"><span class="word">Tvoříme eshopy, weby a&nbsp;aplikace,</span></span>
-      <span class="ln"><span class="word">které <span class="typewriter" data-words='["umí &lt;span class=\"red\"&gt;prodávat.&lt;/span&gt;","tvoří &lt;span class=\"red\"&gt;zákazníky.&lt;/span&gt;","posouvají &lt;span class=\"red\"&gt;byznys dál.&lt;/span&gt;","myslí na &lt;span class=\"red\"&gt;konverze.&lt;/span&gt;"]'><span class="tw-text">umí <span class="red">prodávat.</span></span><span class="tw-caret"></span></span></span></span>
+      <span class="ln"><span class="word">které <span class="typewriter"><span class="tw-text"><span class="tw-plain">umí </span><span class="tw-red red">prodávat.</span></span><span class="tw-caret"></span></span></span></span>
     </h1>
 
     <div class="below">
@@ -1522,64 +1522,57 @@ footer .base .right{text-align:right}
   // ======== Hero typewriter ========
   const tw=document.querySelector('.typewriter');
   if(tw){
-    const words=JSON.parse(tw.dataset.words);
-    const txt=tw.querySelector('.tw-text');
+    const words=[
+      {plain:'umí ', red:'prodávat.'},
+      {plain:'tvoří ', red:'zákazníky.'},
+      {plain:'posouvají ', red:'byznys dál.'},
+      {plain:'myslí na ', red:'konverze.'}
+    ];
+    const plainEl=tw.querySelector('.tw-plain');
+    const redEl=tw.querySelector('.tw-red');
     let wi=0;
     
-    // Helper: type/erase HTML string char by char
-    const typeHTML=(target,html,done)=>{
-      // Parse HTML into sequence of tokens (text chars + HTML tags)
-      const tokens=[];
+    const typeSpeed=60;
+    const eraseSpeed=30;
+    const pauseAfter=2200;
+    
+    const typeText=(el,text,done)=>{
       let i=0;
-      while(i<html.length){
-        if(html[i]==='<'){
-          const end=html.indexOf('>',i);
-          tokens.push({type:'tag',val:html.substring(i,end+1)});
-          i=end+1;
-        }else{
-          tokens.push({type:'char',val:html[i]});
-          i++;
-        }
-      }
-      let cur='';
-      let ti=0;
+      el.textContent='';
       const tick=()=>{
-        if(ti>=tokens.length){done&&done();return}
-        cur+=tokens[ti].val;
-        target.innerHTML=cur;
-        ti++;
-        // type chars slowly, tags instantly
-        setTimeout(tick, tokens[ti-1].type==='char'?55:0);
+        if(i>=text.length){done();return}
+        el.textContent=text.substring(0,i+1);
+        i++;
+        setTimeout(tick,typeSpeed);
       };
       tick();
     };
     
-    const eraseHTML=(target,done)=>{
-      const finish=()=>done&&done();
-      const step=()=>{
-        const html=target.innerHTML;
-        if(!html){finish();return}
-        // If ends with a tag, remove the whole tag
-        if(html.endsWith('>')){
-          const openIdx=html.lastIndexOf('<');
-          target.innerHTML=html.substring(0,openIdx);
-        }else{
-          target.innerHTML=html.substring(0,html.length-1);
-        }
-        setTimeout(step,30);
+    const eraseText=(el,done)=>{
+      const tick=()=>{
+        const cur=el.textContent;
+        if(!cur){done();return}
+        el.textContent=cur.substring(0,cur.length-1);
+        setTimeout(tick,eraseSpeed);
       };
-      step();
+      tick();
     };
     
     const loop=()=>{
       setTimeout(()=>{
-        eraseHTML(txt,()=>{
-          wi=(wi+1)%words.length;
-          typeHTML(txt,words[wi],loop);
+        // Erase red first, then plain
+        eraseText(redEl,()=>{
+          eraseText(plainEl,()=>{
+            wi=(wi+1)%words.length;
+            const w=words[wi];
+            // Type plain first, then red
+            typeText(plainEl,w.plain,()=>{
+              typeText(redEl,w.red,loop);
+            });
+          });
         });
-      },2200);
+      },pauseAfter);
     };
-    // Start loop after initial show
     loop();
   }
 
