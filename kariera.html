@@ -38,15 +38,23 @@
 .j-row .go-j{width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,236,224,.2);display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease)}
 
 /* Inactive positions */
-.j-row.inactive{opacity:.45;pointer-events:none}
+.j-row.inactive{opacity:.55}
+.j-row.inactive:hover{opacity:.75;background:rgba(242,236,224,.03);padding-left:50px}
 .j-row.inactive h4::after{
   content:"Aktuálně nehledáme";display:inline-block;margin-left:12px;
   font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   padding:4px 10px;background:rgba(242,236,224,.1);border-radius:999px;color:rgba(242,236,224,.5);
   vertical-align:middle;
 }
-.j-row.inactive .go-j{display:none}
 .j-row.inactive .salary{opacity:.5}
+.j-row.inactive .cv-note{
+  grid-column:1/-1;padding:4px 0 0 80px;
+  font-size:14px;color:rgba(242,236,224,.55);line-height:1.5;
+}
+.j-row.inactive .cv-note a{
+  color:var(--red);font-weight:600;text-decoration:underline;text-underline-offset:3px;
+}
+.j-row.inactive .cv-note a:hover{color:#fff}
 .j-row:hover .go-j{background:var(--red);border-color:var(--red);transform:rotate(-45deg)}
 .j-row .go-j svg{width:16px;height:16px;stroke:var(--paper);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
 
@@ -268,6 +276,7 @@
           </div>
           <div class="salary">65 — 95 k Kč<small>Měsíčně, dle praxe</small></div>
           <div class="go-j"></div>
+          <div class="cv-note">Tuto pozici aktuálně neobsazujeme, ale pokud byste s námi chtěli pracovat, <a href="mailto:kariera@praguebest.cz?subject=CV — UX Designer">pošlete nám své CV</a>.</div>
         </div>
 
         <div class="j-row inactive">
@@ -279,6 +288,7 @@
           </div>
           <div class="salary">70 — 105 k Kč<small>Měsíčně, dle praxe</small></div>
           <div class="go-j"></div>
+          <div class="cv-note">Tuto pozici aktuálně neobsazujeme, ale pokud byste s námi chtěli pracovat, <a href="mailto:kariera@praguebest.cz?subject=CV — Project Manager">pošlete nám své CV</a>.</div>
         </div>
 
         <div class="j-row inactive">
@@ -290,6 +300,7 @@
           </div>
           <div class="salary">60 — 90 k Kč<small>Měsíčně, dle praxe</small></div>
           <div class="go-j"></div>
+          <div class="cv-note">Tuto pozici aktuálně neobsazujeme, ale pokud byste s námi chtěli pracovat, <a href="mailto:kariera@praguebest.cz?subject=CV — Data Analyst">pošlete nám své CV</a>.</div>
         </div>
 
         <div class="j-row inactive">
@@ -301,6 +312,7 @@
           </div>
           <div class="salary">38 — 55 k Kč<small>Měsíčně, dle praxe</small></div>
           <div class="go-j"></div>
+          <div class="cv-note">Tuto pozici aktuálně neobsazujeme, ale pokud byste s námi chtěli pracovat, <a href="mailto:kariera@praguebest.cz?subject=CV — Junior Frontend Developer">pošlete nám své CV</a>.</div>
         </div>
       </div>
 
