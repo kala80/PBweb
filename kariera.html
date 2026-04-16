@@ -36,6 +36,17 @@
 .j-row .salary{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--paper);letter-spacing:.02em}
 .j-row .salary small{display:block;color:rgba(242,236,224,.5);font-size:10px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-top:3px}
 .j-row .go-j{width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,236,224,.2);display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease)}
+
+/* Inactive positions */
+.j-row.inactive{opacity:.45;pointer-events:none}
+.j-row.inactive h4::after{
+  content:"Aktuálně nehledáme";display:inline-block;margin-left:12px;
+  font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 10px;background:rgba(242,236,224,.1);border-radius:999px;color:rgba(242,236,224,.5);
+  vertical-align:middle;
+}
+.j-row.inactive .go-j{display:none}
+.j-row.inactive .salary{opacity:.5}
 .j-row:hover .go-j{background:var(--red);border-color:var(--red);transform:rotate(-45deg)}
 .j-row .go-j svg{width:16px;height:16px;stroke:var(--paper);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
 
@@ -180,7 +191,7 @@
     <li><a href="kontakt.html"><span class="t" data-t="Kontakt"><span>Kontakt</span></span></a></li>
   </ul>
   <div class="meta">
-    <span><span class="dot"></span>6 otevřených pozic</span>
+    <span><span class="dot"></span>2 otevřené pozice</span>
     <a href="mailto:kariera@praguebest.cz" class="btn sm"><span class="lbl" data-t="Poslat CV"><span>Poslat CV</span></span><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
   </div>
 </nav>
@@ -194,7 +205,7 @@
 
 <section class="title">
   <div class="wrap">
-    <div class="idx reveal">Kariéra &nbsp;—&nbsp; Přijímáme &nbsp;—&nbsp; Praha · Karlín &nbsp;—&nbsp; 6 otevřených pozic</div>
+    <div class="idx reveal">Kariéra — Přijímáme — Praha · Karlín — 2 otevřené pozice</div>
     <h1 class="reveal d1">Přidej<br>se <span class="red">k nám.</span></h1>
 
     <div class="below">
@@ -208,7 +219,7 @@
     </div>
 
     <div class="meta-bar reveal d4">
-      <div class="m"><h6>Otevřené pozice</h6><p>6<small>K&nbsp;dubnu 2026</small></p></div>
+      <div class="m"><h6>Otevřené pozice</h6><p>2<small>K dubnu 2026</small></p></div>
       <div class="m"><h6>Lokalita</h6><p>Praha, Karlín<small>Hybrid / Remote friendly</small></p></div>
       <div class="m"><h6>Průměrná délka</h6><p>6 let ve&nbsp;firmě<small>Low turnover</small></p></div>
       <div class="m"><h6>Reakce</h6><p>Do 48 hodin<small>Na každé&nbsp;CV</small></p></div>
@@ -221,8 +232,8 @@
   <div class="wrap">
     <div class="jobs-card reveal">
       <div class="bar-j">
-        <div class="lbl-j"><span class="d"></span>Open positions &middot; Live</div>
-        <div class="cnt-j">Zobrazeno <b>6 z 6</b> pozic</div>
+        <div class="lbl-j"><span class="d"></span>Open positions · Live</div>
+        <div class="cnt-j">Aktivní <b>2 z 6</b> pozic · 4 obsazené</div>
       </div>
 
       <div class="j-list">
@@ -231,9 +242,9 @@
           <div><h4>Senior Frontend Developer</h4></div>
           <div class="meta-j">
             <div>Vue · Nuxt · TS</div>
-            <div>Praha / Remote &middot; Full-time</div>
+            <div>Praha / Remote · Full-time</div>
           </div>
-          <div class="salary">85 &mdash; 130 k Kč<small>Měsíčně, dle praxe</small></div>
+          <div class="salary">85 — 130 k Kč<small>Měsíčně, dle praxe</small></div>
           <div class="go-j"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
         </a>
 
@@ -242,55 +253,55 @@
           <div><h4>Backend Developer</h4></div>
           <div class="meta-j">
             <div>PHP · Node.js · Python</div>
-            <div>Praha / Remote &middot; Full-time</div>
+            <div>Praha / Remote · Full-time</div>
           </div>
-          <div class="salary">75 &mdash; 120 k Kč<small>Měsíčně, dle praxe</small></div>
+          <div class="salary">75 — 120 k Kč<small>Měsíčně, dle praxe</small></div>
           <div class="go-j"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
         </a>
 
-        <a href="#" class="j-row">
+        <div class="j-row inactive">
           <div class="no-j">/ 03</div>
           <div><h4>UX Designer</h4></div>
           <div class="meta-j">
             <div>Figma · Research · Prototypes</div>
-            <div>Praha / Hybrid &middot; Full-time</div>
+            <div>Praha / Hybrid · Full-time</div>
           </div>
-          <div class="salary">65 &mdash; 95 k Kč<small>Měsíčně, dle praxe</small></div>
-          <div class="go-j"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-        </a>
+          <div class="salary">65 — 95 k Kč<small>Měsíčně, dle praxe</small></div>
+          <div class="go-j"></div>
+        </div>
 
-        <a href="#" class="j-row">
+        <div class="j-row inactive">
           <div class="no-j">/ 04</div>
           <div><h4>Project Manager</h4></div>
           <div class="meta-j">
             <div>Scrum · Delivery · B2B</div>
-            <div>Praha &middot; Full-time</div>
+            <div>Praha · Full-time</div>
           </div>
-          <div class="salary">70 &mdash; 105 k Kč<small>Měsíčně, dle praxe</small></div>
-          <div class="go-j"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-        </a>
+          <div class="salary">70 — 105 k Kč<small>Měsíčně, dle praxe</small></div>
+          <div class="go-j"></div>
+        </div>
 
-        <a href="#" class="j-row">
+        <div class="j-row inactive">
           <div class="no-j">/ 05</div>
           <div><h4>Data Analyst</h4></div>
           <div class="meta-j">
             <div>SQL · Python · Looker</div>
-            <div>Praha / Hybrid &middot; Full-time</div>
+            <div>Praha / Hybrid · Full-time</div>
           </div>
-          <div class="salary">60 &mdash; 90 k Kč<small>Měsíčně, dle praxe</small></div>
-          <div class="go-j"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-        </a>
+          <div class="salary">60 — 90 k Kč<small>Měsíčně, dle praxe</small></div>
+          <div class="go-j"></div>
+        </div>
 
-        <a href="#" class="j-row">
+        <div class="j-row inactive">
           <div class="no-j">/ 06</div>
           <div><h4>Junior Frontend Developer</h4></div>
           <div class="meta-j">
             <div>HTML · CSS · JS</div>
-            <div>Praha / Hybrid &middot; Full-time</div>
+            <div>Praha / Hybrid · Full-time</div>
           </div>
-          <div class="salary">38 &mdash; 55 k Kč<small>Měsíčně, dle praxe</small></div>
-          <div class="go-j"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-        </a>
+          <div class="salary">38 — 55 k Kč<small>Měsíčně, dle praxe</small></div>
+          <div class="go-j"></div>
+        </div>
       </div>
 
       <div class="jobs-footer">
@@ -429,9 +440,9 @@
   <div class="wrap">
     <div class="talent-card reveal">
       <div class="left">
-        <div class="lbl-t">§ 04 / Talent pool</div>
-        <h3>Nenašli jste svou <span class="red">pozici?</span></h3>
-        <p>Nevadí &mdash; pošlete nám svůj&nbsp;životopis a&nbsp;my se&nbsp;ozveme, <b>až&nbsp;budeme hledat někoho jako vy</b>. Průměrně otevíráme 8&mdash;12 nových pozic ročně. Všechna CV v&nbsp;talent poolu držíme 12&nbsp;měsíců.</p>
+        <div class="lbl-t">§ 04 / Pošlete nám CV</div>
+        <h3>Aktuálně nehledáme? <span class="red">Nevadí.</span></h3>
+        <p>I když je pozice momentálně obsazená, <b>pošlete nám své CV</b>. Tým průběžně roste a tyto role otevíráme opakovaně. Jakmile budeme hledat, ozveme se vám mezi prvními. Všechna CV držíme 12 měsíců.</p>
         <a href="mailto:kariera@praguebest.cz" class="btn"><span class="lbl" data-t="Poslat životopis"><span>Poslat životopis</span></span><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
       </div>
 
@@ -501,7 +512,7 @@
         <a href="index.html">Úvod <span class="ar">→</span></a>
         <a href="reference.html">Reference <span class="ar">→</span></a>
         <a href="o-nas.html">O nás <span class="ar">→</span></a>
-        <a href="kariera.html">Kariéra · 6 pozic <span class="ar">→</span></a>
+        <a href="kariera.html">Kariéra · 2 pozice <span class="ar">→</span></a>
       </div>
       <div>
         <h5>Kontakt</h5>
