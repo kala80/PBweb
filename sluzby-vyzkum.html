@@ -33,8 +33,8 @@
 /* Sticky notes */
 .note{position:absolute;padding:18px 20px;border-radius:3px;box-shadow:0 20px 40px -15px rgba(0,0,0,.4);font-size:12px;line-height:1.4;max-width:200px;transform:rotate(var(--r,0deg));transition:transform .4s var(--ease)}
 .note:hover{transform:rotate(0deg) translateY(-4px);z-index:5}
-.note .tag{display:block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;opacity:.6}
-.note b{font-weight:600;display:block;font-size:13px;margin-bottom:4px}
+.note .tag{display:block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;opacity:.6}
+.note b{font-weight:600;display:block;font-size:14px;margin-bottom:4px}
 .note.y{background:#f4e58a;color:#3a2a00;--r:-3deg}
 .note.p{background:#f8b8c4;color:#4a0a18;--r:2deg}
 .note.g{background:#b8e4b0;color:#0a3a0a;--r:-2deg}
@@ -67,7 +67,7 @@
 .pstep .big-n{font-size:57px;font-weight:700;letter-spacing:-.05em;line-height:.85;color:var(--ink);margin-bottom:20px}
 .pstep .big-n .mk{color:var(--red)}
 .pstep .lbl{font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;font-weight:700}
-.pstep h3{font-size:26px;font-weight:700;letter-spacing:-.025em;line-height:1.1;margin-bottom:12px}
+.pstep h3{font-size:22px;font-weight:700;letter-spacing:-.025em;line-height:1.1;margin-bottom:12px}
 .pstep p{font-size:14px;color:var(--mute);line-height:1.6;max-width:30ch}
 .pstep:hover{background:var(--paper-2)}
 
@@ -87,8 +87,8 @@
 .o-card .head-txt{flex:1;padding-top:4px}
 .o-card .n{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
 .o-card:hover .n{color:rgba(242,236,224,.5)}
-.o-card h4{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
-.o-card ul{list-style:none;font-family:var(--mono);font-size:13px;color:var(--ink-3);line-height:2}
+.o-card h4{font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.o-card ul{list-style:none;font-family:var(--mono);font-size:14px;color:var(--ink-3);line-height:2}
 .o-card:hover ul{color:rgba(242,236,224,.75)}
 .o-card ul li{display:flex;align-items:center;gap:10px;padding:3px 0;border-bottom:1px dashed var(--line)}
 .o-card:hover ul li{border-color:rgba(242,236,224,.12)}
@@ -103,7 +103,7 @@
 .ds-grid .lbl{font-family:var(--mono);font-size:12px;color:var(--red);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;font-weight:600;display:flex;align-items:center;gap:12px}
 .ds-grid .lbl::before{content:"";width:28px;height:1px;background:var(--red)}
 .ds-grid p{font-size:16px;color:var(--ink-3);line-height:1.6;max-width:48ch;margin-bottom:24px}
-.ds-grid ul{list-style:none;font-family:var(--mono);font-size:13px;color:var(--ink-3);line-height:2;margin-bottom:32px}
+.ds-grid ul{list-style:none;font-family:var(--mono);font-size:14px;color:var(--ink-3);line-height:2;margin-bottom:32px}
 .ds-grid ul li{padding-left:18px;position:relative}
 .ds-grid ul li::before{content:"—";position:absolute;left:0;color:var(--red)}
 .ds-grid ul li b{color:var(--ink);font-weight:600;letter-spacing:-.01em;font-family:var(--sans);font-size:14px}
@@ -113,7 +113,7 @@
 .tokens .t-lbl{font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;font-weight:700}
 .tokens .row-t{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:24px}
 .tokens .sw{aspect-ratio:1;border-radius:10px;position:relative;box-shadow:0 6px 14px -6px rgba(0,0,0,.2);display:flex;flex-direction:column;justify-content:flex-end;padding:10px;color:#fff;overflow:hidden}
-.tokens .sw b{font-family:var(--mono);font-size:9px;font-weight:700}
+.tokens .sw b{font-family:var(--mono);font-size:10px;font-weight:700}
 .tokens .sw small{font-family:var(--mono);font-size:8px;opacity:.7}
 .tokens .sw.c1{background:#e30613}
 .tokens .sw.c2{background:#0a0a0a}
@@ -123,14 +123,14 @@
 .tokens .sw.c6{background:#ffffff;color:#0a0a0a;border:1px solid #eee}
 .tokens .types{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding-top:22px;border-top:1px solid var(--line)}
 .tokens .types .ty{padding:14px}
-.tokens .types .ty .k{font-family:var(--mono);font-size:9px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.tokens .types .ty .k{font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
 .tokens .types .ty b{font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--ink);display:block}
-.tokens .types .ty small{font-family:var(--mono);font-size:9px;color:var(--mute)}
+.tokens .types .ty small{font-family:var(--mono);font-size:10px;color:var(--mute)}
 .tokens .comp{margin-top:22px;padding-top:22px;border-top:1px solid var(--line);display:flex;gap:10px;align-items:center}
 .tokens .comp .btn-demo{padding:8px 14px;background:var(--ink);color:#fff;border-radius:99px;font-size:11px;font-weight:600}
 .tokens .comp .btn-demo.red{background:var(--red)}
 .tokens .comp .btn-demo.ghost{background:transparent;border:1px solid var(--ink);color:var(--ink)}
-.tokens .comp .lbl-c{font-family:var(--mono);font-size:9px;color:var(--mute);margin-left:auto;letter-spacing:.06em;text-transform:uppercase}
+.tokens .comp .lbl-c{font-family:var(--mono);font-size:10px;color:var(--mute);margin-left:auto;letter-spacing:.06em;text-transform:uppercase}
 
 /* Deliverables */
 .deliv{padding:80px 0;border-top:1px solid var(--ink)}
@@ -143,7 +143,7 @@
 .d-card:hover .ico{background:var(--ink);border-color:var(--ink)}
 .d-card .ico svg{width:20px;height:20px;stroke:var(--ink);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s var(--ease)}
 .d-card:hover .ico svg{stroke:var(--paper)}
-.d-card h4{font-size:20px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+.d-card h4{font-size:16px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
 .d-card p{font-size:14px;color:var(--mute);line-height:1.55}
 
 @media (max-width:1100px){

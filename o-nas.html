@@ -18,7 +18,7 @@
 .manifesto-card > *{position:relative;z-index:2}
 .manifesto-card .lbl{font-family:var(--mono);font-size:11px;color:rgba(242,236,224,.5);letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:40px;display:flex;align-items:center;gap:14px}
 .manifesto-card .lbl::before{content:"";width:28px;height:1px;background:var(--red)}
-.manifesto-card h3{font-size:clamp(23px,2.9vw,47px);font-weight:500;letter-spacing:-.03em;line-height:1.1;max-width:28ch;margin-bottom:40px}
+.manifesto-card h3{font-size:clamp(28px,3.5vw,52px);font-weight:500;letter-spacing:-.03em;line-height:1.1;max-width:28ch;margin-bottom:40px}
 .manifesto-card h3 b{font-weight:700}
 .manifesto-card h3 .red{color:var(--red)}
 .manifesto-card h3 .strike{position:relative;display:inline-block}
@@ -27,10 +27,10 @@
 .manifesto-card .sig{margin-top:40px;padding-top:28px;border-top:1px solid rgba(242,236,224,.15);display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center}
 .manifesto-card .sig .who{display:flex;align-items:center;gap:16px}
 .manifesto-card .sig .av{width:52px;height:52px;border-radius:50%;background:url(assets/ludek-vorel.jpg) center/cover;border:2px solid var(--ink);box-shadow:0 0 0 1px rgba(242,236,224,.15)}
-.manifesto-card .sig .tx b{display:block;font-size:15px;font-weight:600;letter-spacing:-.005em}
+.manifesto-card .sig .tx b{display:block;font-size:14px;font-weight:600;letter-spacing:-.005em}
 .manifesto-card .sig .tx small{display:block;font-family:var(--mono);font-size:11px;color:rgba(242,236,224,.5);margin-top:3px;letter-spacing:.02em}
 .manifesto-card .sig .year{text-align:right;font-family:var(--mono);font-size:11px;color:rgba(242,236,224,.4);letter-spacing:.06em;text-transform:uppercase}
-.manifesto-card .sig .year b{display:block;font-family:var(--sans);font-size:32px;font-weight:700;letter-spacing:-.025em;color:var(--paper);margin-top:4px;text-transform:none}
+.manifesto-card .sig .year b{display:block;font-family:var(--sans);font-size:22px;font-weight:700;letter-spacing:-.025em;color:var(--paper);margin-top:4px;text-transform:none}
 .manifesto-card .sig .year b .red{color:var(--red)}
 
 /* ===== VALUES ===== */
@@ -41,11 +41,11 @@
 .v-card:hover::before{transform:translateY(0)}
 .v-card > *{position:relative;z-index:1;transition:color .5s var(--ease)}
 .v-card:hover > *{color:var(--paper)}
-.v-card .big-n{font-family:var(--mono);font-size:13px;color:var(--red);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:30px;display:flex;justify-content:space-between;align-items:baseline}
+.v-card .big-n{font-family:var(--mono);font-size:14px;color:var(--red);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:30px;display:flex;justify-content:space-between;align-items:baseline}
 .v-card .big-n .n{font-family:var(--sans);font-size:36px;font-weight:700;letter-spacing:-.04em;color:var(--ink);line-height:.85;text-transform:none}
 .v-card:hover .big-n .n{color:var(--paper)}
 .v-card h3{font-size:30px;font-weight:700;letter-spacing:-.025em;line-height:1.1;margin-bottom:16px}
-.v-card p{font-size:15px;color:var(--ink-3);line-height:1.6;margin-bottom:22px}
+.v-card p{font-size:14px;color:var(--ink-3);line-height:1.6;margin-bottom:22px}
 .v-card:hover p{color:rgba(242,236,224,.75)}
 .v-card .q{font-family:var(--mono);font-size:12px;color:var(--mute);line-height:1.7;padding-top:20px;border-top:1px dashed var(--line);max-width:38ch}
 .v-card:hover .q{color:rgba(242,236,224,.55);border-color:rgba(242,236,224,.2)}
@@ -65,8 +65,8 @@
 .leader .yrs{position:absolute;bottom:16px;left:16px;font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.7);letter-spacing:.06em;text-transform:uppercase;z-index:2}
 .leader .info{padding:24px 26px 28px}
 .leader h4{font-size:22px;font-weight:700;letter-spacing:-.015em;line-height:1.1;margin-bottom:4px}
-.leader .role{font-size:13px;color:var(--mute);font-family:var(--mono);margin-bottom:14px}
-.leader .bio{font-size:13px;color:var(--ink-3);line-height:1.55;padding-top:14px;border-top:1px solid var(--line);min-height:52px}
+.leader .role{font-size:14px;color:var(--mute);font-family:var(--mono);margin-bottom:14px}
+.leader .bio{font-size:14px;color:var(--ink-3);line-height:1.55;padding-top:14px;border-top:1px solid var(--line);min-height:52px}
 
 /* Team grid (8 members) */
 .team-sub-head{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:baseline;margin-bottom:36px;padding-bottom:22px;border-bottom:1px solid var(--line)}
@@ -126,8 +126,8 @@
 /* Comp info */
 .comp-info{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:50px}
 .comp-info .ci{padding:30px 32px;background:var(--paper);border:1px solid var(--line);border-radius:16px}
-.comp-info .ci h4{font-size:18px;font-weight:700;letter-spacing:-.015em;margin-bottom:8px}
-.comp-info .ci p{font-size:13px;color:var(--ink-3);line-height:1.6}
+.comp-info .ci h4{font-size:16px;font-weight:700;letter-spacing:-.015em;margin-bottom:8px}
+.comp-info .ci p{font-size:14px;color:var(--ink-3);line-height:1.6}
 
 /* ===== PARTNERS ===== */
 .partners{padding:80px 0;border-top:1px solid var(--ink)}
@@ -148,7 +148,7 @@
 .ip-group h4{font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--ink)}
 .ip-group h4::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
 .ip-logos{display:flex;flex-wrap:wrap;gap:8px}
-.ip-logos span{padding:10px 16px;background:var(--paper);border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:500;color:var(--ink);letter-spacing:-.005em;transition:all .3s var(--ease)}
+.ip-logos span{padding:10px 16px;background:var(--paper);border:1px solid var(--line);border-radius:999px;font-size:14px;font-weight:500;color:var(--ink);letter-spacing:-.005em;transition:all .3s var(--ease)}
 .ip-logos span:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
 /* ===== PROCESS ===== */
@@ -160,7 +160,7 @@
 .pstep.reveal.on::before{transform:scaleX(1)}
 .pstep .n-big{font-size:42px;font-weight:700;letter-spacing:-.04em;line-height:.85;color:var(--ink);margin-bottom:16px}
 .pstep .n-big .mk{color:var(--red)}
-.pstep h4{font-size:18px;font-weight:700;letter-spacing:-.015em;line-height:1.2;margin-bottom:10px}
+.pstep h4{font-size:16px;font-weight:700;letter-spacing:-.015em;line-height:1.2;margin-bottom:10px}
 .pstep p{font-size:12px;color:var(--mute);line-height:1.55}
 .pstep:hover{background:var(--paper-2)}
 

@@ -21,7 +21,7 @@
 .dash::after{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;background:linear-gradient(rgba(242,236,224,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(242,236,224,.03) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 80% 80% at 50% 30%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 30%,#000 30%,transparent 80%)}
 
 .dash .bar{position:relative;z-index:3;padding:20px 28px;display:flex;align-items:center;gap:20px;border-bottom:1px solid rgba(242,236,224,.1)}
-.dash .bar .logo-d{font-weight:800;font-size:15px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.dash .bar .logo-d{font-weight:800;font-size:14px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
 .dash .bar .logo-d::before{content:"";width:12px;height:12px;background:var(--red);border-radius:3px}
 .dash .bar .title-d{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--paper);margin-left:8px}
 .dash .bar .title-d small{font-family:var(--mono);font-size:10px;color:rgba(242,236,224,.4);margin-left:10px;font-weight:500}
@@ -35,9 +35,9 @@
 .kpi{padding:28px 28px;background:var(--ink);position:relative;transition:background .4s var(--ease)}
 .kpi:hover{background:var(--ink-2)}
 .kpi .lbl-k{font-family:var(--mono);font-size:10px;color:rgba(242,236,224,.5);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
-.kpi .lbl-k .trend{padding:2px 7px;background:rgba(43,182,93,.18);color:#5fcd86;border-radius:99px;font-weight:700;font-size:9px}
+.kpi .lbl-k .trend{padding:2px 7px;background:rgba(43,182,93,.18);color:#5fcd86;border-radius:99px;font-weight:700;font-size:10px}
 .kpi .lbl-k .trend.down{background:rgba(227,6,19,.18);color:#f58080}
-.kpi .val{font-size:25px;font-weight:700;letter-spacing:-.03em;line-height:.9}
+.kpi .val{font-size:22px;font-weight:700;letter-spacing:-.03em;line-height:.9}
 .kpi .val .red{color:var(--red)}
 .kpi .val sub{font-family:var(--mono);font-size:11px;font-weight:500;color:rgba(242,236,224,.4);letter-spacing:.02em;margin-left:4px;vertical-align:baseline}
 .kpi .delta{margin-top:6px;font-family:var(--mono);font-size:10px;color:rgba(242,236,224,.5)}
@@ -52,7 +52,7 @@
 .dash-body .chart-main .head-c{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px}
 .dash-body .chart-main .head-c h5{font-size:16px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px}
 .dash-body .chart-main .head-c .sub-c{font-family:var(--mono);font-size:10px;color:rgba(242,236,224,.45);letter-spacing:.02em}
-.dash-body .chart-main .legend{display:flex;gap:14px;font-family:var(--mono);font-size:9px;color:rgba(242,236,224,.55);letter-spacing:.04em;text-transform:uppercase}
+.dash-body .chart-main .legend{display:flex;gap:14px;font-family:var(--mono);font-size:10px;color:rgba(242,236,224,.55);letter-spacing:.04em;text-transform:uppercase}
 .dash-body .chart-main .legend span{display:flex;align-items:center;gap:6px}
 .dash-body .chart-main .legend span::before{content:"";width:10px;height:2px;border-radius:1px}
 .dash-body .chart-main .legend .l1::before{background:var(--red)}
@@ -61,14 +61,14 @@
 
 .chart-svg{width:100%;height:200px}
 .chart-svg .grid-l{stroke:rgba(242,236,224,.08);stroke-width:1}
-.chart-svg .axis{fill:rgba(242,236,224,.4);font-family:'Geist Mono',monospace;font-size:9px}
+.chart-svg .axis{fill:rgba(242,236,224,.4);font-family:'Geist Mono',monospace;font-size:10px}
 .chart-svg .line-r{fill:none;stroke:var(--red);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .chart-svg .line-g{fill:none;stroke:#5fcd86;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:4 4}
 .chart-svg .area-r{fill:url(#grad-r);opacity:.4}
 .chart-svg .dot-r{fill:var(--red);stroke:var(--ink);stroke-width:2}
 
 .dash-body .side-c{padding:30px 32px;background:var(--ink);display:flex;flex-direction:column;gap:20px}
-.dash-body .side-c h5{font-size:13px;font-weight:700;letter-spacing:-.01em;margin-bottom:14px}
+.dash-body .side-c h5{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:14px}
 .dash-body .side-c .top-q{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(242,236,224,.06);font-size:12px}
 .dash-body .side-c .top-q b{font-weight:500}
 .dash-body .side-c .top-q .cnt{font-family:var(--mono);font-size:10px;color:var(--red);font-weight:600}
@@ -97,10 +97,10 @@
 .o-card .head-txt{flex:1;padding-top:4px}
 .o-card .n{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
 .o-card:hover .n{color:rgba(242,236,224,.5)}
-.o-card h4{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.o-card h4{font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
 .o-card p.desc{font-size:14px;color:var(--ink-3);line-height:1.55;margin-bottom:22px}
 .o-card:hover p.desc{color:rgba(242,236,224,.75)}
-.o-card ul{list-style:none;font-family:var(--mono);font-size:13px;color:var(--ink-3);line-height:2}
+.o-card ul{list-style:none;font-family:var(--mono);font-size:14px;color:var(--ink-3);line-height:2}
 .o-card:hover ul{color:rgba(242,236,224,.75)}
 .o-card ul li{display:flex;align-items:center;gap:10px;padding:3px 0;border-bottom:1px dashed var(--line)}
 .o-card:hover ul li{border-color:rgba(242,236,224,.12)}
@@ -129,8 +129,8 @@
 .t-cell:hover{background:var(--paper-2)}
 .t-cell::before{content:"";position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-out)}
 .t-cell:hover::before{transform:scaleX(1)}
-.t-cell .lg{font-size:18px;font-weight:700;letter-spacing:-.015em;color:var(--ink);text-align:center}
-.t-cell .cat{font-family:var(--mono);font-size:9px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.t-cell .lg{font-size:16px;font-weight:700;letter-spacing:-.015em;color:var(--ink);text-align:center}
+.t-cell .cat{font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
 
 @media (max-width:1100px){
   .dash-grid{grid-template-columns:1fr 1fr}
