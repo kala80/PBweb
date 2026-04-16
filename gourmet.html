@@ -9,55 +9,87 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/shared.css">
 <style>
-.cs-hero{padding:160px 0 80px;position:relative}
-.cs-hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:32px}
+.cs-hero{padding:140px 0 50px;position:relative}
+.cs-hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:24px;flex-wrap:wrap}
 .cs-hero .eyebrow .d{width:6px;height:6px;background:var(--red);border-radius:50%}
-.cs-hero h1{font-size:clamp(40px,6vw,88px);font-weight:900;letter-spacing:-.04em;line-height:.9;margin-bottom:32px}
+.cs-hero .award-pill{display:inline-block;background:var(--red);color:#fff;padding:6px 12px;border-radius:999px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+
+.cs-hero .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center}
+.cs-hero h1{font-size:clamp(36px,5vw,72px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin-bottom:22px}
 .cs-hero h1 .red{color:var(--red)}
-.cs-hero .lede{font-size:clamp(18px,1.8vw,24px);color:var(--mute);max-width:60ch;line-height:1.45;letter-spacing:-.01em;margin-bottom:48px}
-.cs-hero .meta-bar{display:flex;flex-wrap:wrap;gap:32px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.05em;text-transform:uppercase}
+.cs-hero .lede{font-size:clamp(16px,1.4vw,19px);color:var(--mute);max-width:56ch;line-height:1.5;letter-spacing:-.005em;margin-bottom:32px}
+.cs-hero .meta-bar{display:flex;flex-wrap:wrap;gap:28px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:.05em;text-transform:uppercase}
 .cs-hero .meta-bar b{color:var(--ink);font-weight:600;margin-left:6px}
-.cs-hero .award-pill{display:inline-block;background:var(--red);color:#fff;padding:8px 16px;border-radius:999px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
 
-.cs-shot{padding:0 0 80px}
-.cs-shot .shot-wrap{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#1a1a1a}
-.cs-shot img{width:100%;height:auto;display:block}
+/* Small preview screenshot - not full width */
+.cs-hero .shot-preview{
+  position:relative;border-radius:12px;overflow:hidden;
+  background:#1a1a1a;border:1px solid var(--line);
+  box-shadow:0 20px 50px -20px rgba(10,10,10,.35);
+}
+.cs-hero .shot-preview .chrome{
+  display:flex;align-items:center;gap:6px;padding:10px 14px;background:#2a2a2a;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.cs-hero .shot-preview .chrome i{width:8px;height:8px;border-radius:50%;display:block}
+.cs-hero .shot-preview .chrome i:nth-child(1){background:#ff5f57}
+.cs-hero .shot-preview .chrome i:nth-child(2){background:#ffbd2e}
+.cs-hero .shot-preview .chrome i:nth-child(3){background:#28c840}
+.cs-hero .shot-preview .chrome .u{margin-left:10px;font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.02em}
+.cs-hero .shot-preview .img{
+  aspect-ratio:4/3;overflow:hidden;background:#1a1a1a;
+}
+.cs-hero .shot-preview img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
+}
 
-.cs-kpis{padding:80px 0;border-top:1px solid var(--line)}
-.cs-kpis .sec-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:48px;gap:40px;flex-wrap:wrap}
+.cs-kpis{padding:60px 0;border-top:1px solid var(--line)}
+.cs-kpis .sec-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;gap:40px;flex-wrap:wrap}
 .cs-kpis .idx{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
-.cs-kpis h2{font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-.035em;line-height:1}
+.cs-kpis h2{font-size:clamp(28px,3.6vw,46px);font-weight:800;letter-spacing:-.035em;line-height:1;margin-top:8px}
 .cs-kpis h2 .red{color:var(--red)}
-.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.kpi-item{padding:40px 32px;background:var(--paper-2);border-radius:16px;border:1px solid var(--line)}
-.kpi-item .n{font-size:clamp(48px,6vw,88px);font-weight:900;letter-spacing:-.04em;line-height:.95;color:var(--red);margin-bottom:12px}
-.kpi-item .l{font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.05em;text-transform:uppercase}
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.kpi-item{padding:32px 28px;background:var(--paper-2);border-radius:16px;border:1px solid var(--line)}
+.kpi-item .n{font-size:clamp(38px,5vw,64px);font-weight:900;letter-spacing:-.04em;line-height:.95;color:var(--red);margin-bottom:10px}
+.kpi-item .l{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.05em;text-transform:uppercase}
 
-.cs-block{padding:80px 0;border-top:1px solid var(--line)}
-.cs-block .grid-2{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:start}
-.cs-block .idx{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
-.cs-block h2{font-size:clamp(28px,3.4vw,44px);font-weight:800;letter-spacing:-.035em;line-height:1.05;position:sticky;top:120px}
+.cs-block{padding:70px 0;border-top:1px solid var(--line)}
+.cs-block .grid-2{display:grid;grid-template-columns:1fr 1.5fr;gap:72px;align-items:start}
+.cs-block .idx{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.cs-block h2{font-size:clamp(26px,3.2vw,40px);font-weight:800;letter-spacing:-.035em;line-height:1.05;position:sticky;top:110px}
 .cs-block h2 .red{color:var(--red)}
-.cs-block .content{font-size:17px;line-height:1.65;color:var(--ink-3)}
-.cs-block .content p{margin-bottom:20px}
-.cs-block .content ul{list-style:none;padding:0;margin:24px 0}
-.cs-block .content ul li{padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative;font-size:16px}
+.cs-block .content{font-size:16px;line-height:1.65;color:var(--ink-3)}
+.cs-block .content p{margin-bottom:18px}
+.cs-block .content ul{list-style:none;padding:0;margin:20px 0}
+.cs-block .content ul li{padding:13px 0 13px 26px;border-bottom:1px solid var(--line);position:relative;font-size:15px}
 .cs-block .content ul li::before{content:"→";position:absolute;left:0;color:var(--red);font-weight:700}
 
-.cs-details{padding:80px 0;border-top:1px solid var(--line);background:var(--paper-2)}
+.cs-specs{padding:70px 0;border-top:1px solid var(--line);background:var(--paper-2)}
+.cs-specs .sec-head{margin-bottom:36px}
+.cs-specs .idx{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.cs-specs h2{font-size:clamp(28px,3.6vw,46px);font-weight:800;letter-spacing:-.035em;line-height:1}
+.cs-specs h2 .red{color:var(--red)}
+.specs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.spec-item{padding:24px 26px;background:var(--paper);border-radius:12px;border:1px solid var(--line);position:relative}
+.spec-item::before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:3px;background:var(--red);border-radius:2px}
+.spec-item h4{font-size:16px;font-weight:700;letter-spacing:-.015em;margin-bottom:6px;margin-left:12px}
+.spec-item p{font-size:14px;line-height:1.55;color:var(--mute);margin-left:12px}
+
+.cs-details{padding:70px 0;border-top:1px solid var(--line)}
 .cs-details .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:60px}
-.cs-details h3{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.cs-details h3{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
 .cs-details p{font-size:15px;line-height:1.55;color:var(--ink-3)}
 
-.cs-cta{padding:120px 0;text-align:center;border-top:1px solid var(--line)}
-.cs-cta h2{font-size:clamp(32px,5vw,72px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin-bottom:32px}
+.cs-cta{padding:100px 0;text-align:center;border-top:1px solid var(--line)}
+.cs-cta h2{font-size:clamp(30px,4.5vw,64px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin-bottom:24px}
 .cs-cta h2 .red{color:var(--red)}
-.cs-cta .actions{display:inline-flex;gap:14px;margin-top:24px;flex-wrap:wrap;justify-content:center}
+.cs-cta p{color:var(--mute);font-size:17px;max-width:50ch;margin:0 auto 28px}
+.cs-cta .actions{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center}
 
 @media(max-width:960px){
-  .cs-block .grid-2{grid-template-columns:1fr;gap:40px}
+  .cs-hero .grid{grid-template-columns:1fr;gap:40px}
+  .cs-block .grid-2{grid-template-columns:1fr;gap:32px}
   .cs-block h2{position:static}
-  .cs-details .grid-2{grid-template-columns:1fr}
+  .cs-details .grid-2,.specs-grid{grid-template-columns:1fr}
   .kpi-grid{grid-template-columns:1fr}
 }
 </style>
@@ -82,38 +114,34 @@
   </ul>
   <div class="actions">
     <span><span class="dot"></span>Přijímáme projekty Q3/26</span>
-    <a href="https://pbweb-jet.vercel.app/kontakt.html" class="btn sm">
+    <a href="kontakt.html" class="btn sm">
       <span class="lbl" data-t="Napište nám"><span>Napište nám</span></span>
       <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
     </a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="cs-hero">
   <div class="wrap">
-    <div class="eyebrow"><span class="d"></span>Case Study · Web · Food · Kurzy vaření</div>
-    
-    <h1>Gourmet Academy<span class="red">.</span></h1>
-    <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <div class="meta-bar">
-      <div>Klient<b>Gourmet Academy</b></div>
-      <div>URL<b>gourmetacademy.cz</b></div>
-      <div>Rok<b>2022</b></div>
+    <div class="eyebrow"><span class="d"></span>Case Study · Web · Food · Kurzy</div>
+    <div class="grid">
+      <div>
+        <h1>Gourmet Academy<span class="red">.</span></h1>
+        <p class="lede">Prémiová škola vaření v Praze s rezervací kurzů online</p>
+        <div class="meta-bar">
+          <div>Klient<b>Gourmet Academy</b></div>
+          <div>URL<b>gourmetacademy.cz</b></div>
+          <div>Rok<b>2022</b></div>
+        </div>
+      </div>
+      <div class="shot-preview">
+        <div class="chrome"><i></i><i></i><i></i><span class="u">gourmetacademy.cz</span></div>
+        <div class="img"><img src="assets/ref-gourmet.png" alt="Gourmet Academy"></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SCREENSHOT -->
-<section class="cs-shot">
-  <div class="wrap">
-    <div class="shot-wrap">
-      <img src="assets/ref-gourmet.png" alt="Gourmet Academy">
-    </div>
-  </div>
-</section>
-
-<!-- KPIS -->
 <section class="cs-kpis">
   <div class="wrap">
     <div class="sec-head">
@@ -130,7 +158,6 @@
   </div>
 </section>
 
-<!-- INTRO / O KLIENTOVI -->
 <section class="cs-block">
   <div class="wrap">
     <div class="grid-2">
@@ -139,13 +166,12 @@
         <h2>Kdo je <span class="red">Gourmet Academy</span></h2>
       </div>
       <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VÝZVA -->
 <section class="cs-block">
   <div class="wrap">
     <div class="grid-2">
@@ -154,18 +180,31 @@
         <h2>Co jsme <span class="red">řešili</span></h2>
       </div>
       <div class="content">
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VÝSLEDKY -->
+<section class="cs-specs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="idx">§ 04 / Speciality</div>
+      <h2>Co jsme <span class="red">postavili</span></h2>
+    </div>
+    <div class="specs-grid">
+      <div class="spec-item"><h4>Lorem ipsum</h4><p>dolor sit amet, consectetur adipiscing elit</p></div>
+<div class="spec-item"><h4>Sed do eiusmod</h4><p>tempor incididunt ut labore et dolore magna</p></div>
+<div class="spec-item"><h4>Ut enim ad minim</h4><p>veniam, quis nostrud exercitation ullamco laboris</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="cs-block">
   <div class="wrap">
     <div class="grid-2">
       <div>
-        <div class="idx">§ 04 / Výsledky</div>
+        <div class="idx">§ 05 / Výsledky</div>
         <h2>Čeho jsme <span class="red">dosáhli</span></h2>
       </div>
       <div class="content">
@@ -180,7 +219,6 @@
   </div>
 </section>
 
-<!-- O PROJEKTU -->
 <section class="cs-details">
   <div class="wrap">
     <div class="grid-2">
@@ -196,11 +234,10 @@
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cs-cta">
   <div class="wrap">
     <h2>Máte podobný <span class="red">projekt?</span></h2>
-    <p style="color:var(--mute);font-size:18px;max-width:50ch;margin:0 auto">Pojďme si o něm promluvit. První schůzka je zdarma a bez závazků.</p>
+    <p>Pojďme si o něm promluvit. První schůzka je zdarma a bez závazků.</p>
     <div class="actions">
       <a href="kontakt.html" class="btn red">
         <span class="lbl" data-t="Napište nám"><span>Napište nám</span></span>
