@@ -264,6 +264,62 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 .grid-row .proj .kpis b{font-size:18px}
 .grid-row .proj .go{width:42px;height:42px}
 
+/* ===================== PROJECT GRID (new uniform) ===================== */
+.ref-all{padding:20px 0 60px}
+.ref-all .rg{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.ref-card{
+  position:relative;display:block;border-radius:16px;overflow:hidden;
+  background:var(--ink);transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+  cursor:none;
+}
+.ref-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -20px rgba(10,10,10,.35)}
+.ref-card .shot{
+  aspect-ratio:16/10;overflow:hidden;position:relative;background:#1a1a1a;
+}
+.ref-card .shot img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  filter:grayscale(1) brightness(.88);
+  transition:filter .6s var(--ease),transform .8s var(--ease);
+}
+.ref-card:hover .shot img{filter:grayscale(0) brightness(1);transform:scale(1.04)}
+.ref-card .shot .year{
+  position:absolute;top:14px;right:14px;z-index:2;
+  font-family:var(--mono);font-size:10px;color:#fff;
+  padding:5px 10px;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);
+  border-radius:999px;letter-spacing:.05em;
+}
+.ref-card .body{
+  padding:22px 26px;color:#fff;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:20px;
+}
+.ref-card h3{
+  font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.15;
+  margin-bottom:6px;
+}
+.ref-card .cat{
+  font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.55);
+  text-transform:uppercase;letter-spacing:.08em;
+}
+.ref-card .arr{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;
+  transition:background .3s,color .3s;
+}
+.ref-card:hover .arr{background:var(--red);color:#fff}
+.ref-card .arr svg{width:16px;height:16px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ref-card .award{
+  position:absolute;top:14px;left:14px;z-index:2;
+  font-family:var(--mono);font-size:9px;font-weight:700;
+  padding:6px 10px;background:var(--red);color:#fff;
+  border-radius:4px;letter-spacing:.08em;text-transform:uppercase;
+}
+@media(max-width:960px){
+  .ref-all .rg{grid-template-columns:1fr 1fr;gap:20px}
+}
+@media(max-width:640px){
+  .ref-all .rg{grid-template-columns:1fr}
+}
+
 /* ===================== LOAD MORE ===================== */
 .loadmore{padding:80px 0 120px;text-align:center;border-top:1px solid var(--line);margin-top:40px}
 .loadmore .meta{margin-bottom:32px;font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
@@ -467,306 +523,287 @@ footer .base .right{text-align:right}
 <!-- ===================== RESULT COUNT ===================== -->
 <div class="wrap">
   <div class="result-count">
-    <div>Zobrazeno<span class="num"><span id="shown">12</span>&nbsp;z&nbsp;<span>180+</span></span>projektů</div>
+    <div>Zobrazeno<span class="num"><span id="shown">19</span>&nbsp;z&nbsp;<span>180+</span></span>projektů</div>
     <div>Filtr: <b id="active-filter">Vše</b></div>
   </div>
 </div>
 
-<!-- ===================== FEATURED ROW 1 ===================== -->
-<section class="featured">
+<!-- ===================== PROJECT GRID ===================== -->
+<section class="ref-all">
   <div class="wrap">
+    <div class="rg">
 
-    <!-- Big feature 1: Elnino -->
-    <div class="feat-row">
-      <a class="proj big bg-elnino" href="elnino.html" data-tags="eshop b2b b2c retail fashion">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>Case Study 026</span>
-            <span class="year">2025</span>
-          </div>
+      <a class="ref-card" href="fotoskoda.html" data-tags="eshop b2c retail">
+        <div class="shot">
+          <span class="year">2012–dnes</span>
+          <img src="assets/ref-fotoskoda.png" alt="Fotoškoda">
+        </div>
+        <div class="body">
           <div>
-            <div class="brandmark">Elnino<sup>®</sup></div>
-            <h3>Evropská síť parfumerií sjednocená do&nbsp;jedné headless platformy pro&nbsp;13 zemí.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>Konverze B2B<b><span class="red">+</span>214<span style="font-size:.6em">%</span></b></div>
-                <div>LCP mobil<b>0,8 s</b></div>
-                <div>Trhů<b>13</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
+            <h3>Fotoškoda</h3>
+            <div class="cat">E-shop · 360° portál · 16k obj./měs</div>
           </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
         </div>
       </a>
 
-      <a class="proj small bg-bestdrive" href="#" data-tags="eshop b2b auto">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>Case Study 027</span>
-            <span class="year">2024</span>
-          </div>
+      <a class="ref-card" href="harfasport.html" data-tags="eshop b2c retail headless">
+        <div class="shot">
+          <span class="award">IEA 2025</span>
+          <span class="year">2024</span>
+          <img src="assets/ref-harfasport.png" alt="HarfaSport">
+        </div>
+        <div class="body">
           <div>
-            <div class="brandmark">BestDrive</div>
-            <h3>B2B portál pro&nbsp;330 autoservisů s&nbsp;ERP integrací.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>B2B obrat<b><span class="red">+</span>89%</b></div>
-                <div>SKU/den<b>4 200</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
+            <h3>HarfaSport</h3>
+            <div class="cat">Headless · Sport · +349 % organika</div>
           </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
         </div>
       </a>
+
+      <a class="ref-card" href="albi-b2b.html" data-tags="eshop b2b">
+        <div class="shot">
+          <span class="year">2024</span>
+          <img src="assets/ref-albi.png" alt="Albi B2B">
+        </div>
+        <div class="body">
+          <div>
+            <h3>Albi B2B</h3>
+            <div class="cat">B2B · Headless · +138 % tržby</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="albi-b2c.html" data-tags="eshop b2c">
+        <div class="shot">
+          <span class="year">2024</span>
+          <img src="assets/ref-albi.png" alt="Albi B2C">
+        </div>
+        <div class="body">
+          <div>
+            <h3>Albi B2C</h3>
+            <div class="cat">B2C · CZ/SK/PL · +36 % objednávek</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="bal.html" data-tags="eshop b2c retail">
+        <div class="shot">
+          <span class="year">2023</span>
+          <img src="assets/ref-bal.png" alt="BAL">
+        </div>
+        <div class="body">
+          <div>
+            <h3>BAL</h3>
+            <div class="cat">Barvy a Laky · 140+ prodejen · bounce 3 %</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="mkluzkoviny.html" data-tags="eshop b2c retail">
+        <div class="shot">
+          <span class="year">2024</span>
+          <img src="assets/ref-luzkoviny.png" alt="MK Lůžkoviny">
+        </div>
+        <div class="body">
+          <div>
+            <h3>MK Lůžkoviny</h3>
+            <div class="cat">E-shop · +56 % tržby · Heureka finalista</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="dpppraha.html" data-tags="web portal">
+        <div class="shot">
+          <span class="year">2023</span>
+          <img src="assets/ref-dpp.png" alt="DPP Praha">
+        </div>
+        <div class="body">
+          <div>
+            <h3>DPP Praha</h3>
+            <div class="cat">Web · Portál · Doprava</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="dppfanshop.html" data-tags="eshop b2c">
+        <div class="shot">
+          <span class="year">2023</span>
+          <img src="assets/ref-dppfanshop.png" alt="DPP Fanshop">
+        </div>
+        <div class="body">
+          <div>
+            <h3>DPP Fanshop</h3>
+            <div class="cat">E-shop · Merchandise</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="konsepti.html" data-tags="eshop b2c retail">
+        <div class="shot">
+          <span class="year">2023</span>
+          <img src="assets/ref-konsepti.png" alt="Konsepti">
+        </div>
+        <div class="body">
+          <div>
+            <h3>Konsepti</h3>
+            <div class="cat">Designový nábytek · B2B + B2C</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="travelfree.html" data-tags="eshop b2c retail">
+        <div class="shot">
+          <span class="year">2022</span>
+          <img src="assets/ref-travelfree.png" alt="Travel Free">
+        </div>
+        <div class="body">
+          <div>
+            <h3>Travel Free</h3>
+            <div class="cat">E-shop · Loyalty · Retail</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="kinoko.html" data-tags="eshop b2c fashion">
+        <div class="shot">
+          <span class="year">2024</span>
+          <img src="assets/ref-kinoko.png" alt="Kinoko">
+        </div>
+        <div class="body">
+          <div>
+            <h3>Kinoko</h3>
+            <div class="cat">E-shop · Sportswear · Česká výroba</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="hyundai.html" data-tags="webapp auto">
+        <div class="shot">
+          <span class="year">2023</span>
+          <img src="assets/ref-hyundai.png" alt="Hyundai">
+        </div>
+        <div class="body">
+          <div>
+            <h3>Hyundai</h3>
+            <div class="cat">Web · Automotive · Louda Auto</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="softdent.html" data-tags="webapp b2c">
+        <div class="shot">
+          <span class="year">2023</span>
+          <img src="assets/ref-softdent.png" alt="SoftDent">
+        </div>
+        <div class="body">
+          <div>
+            <h3>SoftDent</h3>
+            <div class="cat">Produktový web · Dental care</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="elarte.html" data-tags="eshop b2c retail">
+        <div class="shot">
+          <span class="year">2022</span>
+          <img src="assets/ref-elarte.png" alt="Elarte">
+        </div>
+        <div class="body">
+          <div>
+            <h3>Elarte</h3>
+            <div class="cat">E-shop · Designový nábytek</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="europlasma.html" data-tags="webapp b2c">
+        <div class="shot">
+          <span class="year">2024</span>
+          <img src="assets/ref-europlasma.png" alt="Europlasma">
+        </div>
+        <div class="body">
+          <div>
+            <h3>Europlasma</h3>
+            <div class="cat">Web · Healthcare · Věrnostní program</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="generali.html" data-tags="webapp b2c fintech">
+        <div class="shot">
+          <span class="year">2023</span>
+          <img src="assets/ref-generali.png" alt="Generali PFČP">
+        </div>
+        <div class="body">
+          <div>
+            <h3>Generali PFČP</h3>
+            <div class="cat">Web · Finance · Kalkulačky</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="gourmet.html" data-tags="webapp b2c food">
+        <div class="shot">
+          <span class="year">2022</span>
+          <img src="assets/ref-gourmet.png" alt="Gourmet Academy">
+        </div>
+        <div class="body">
+          <div>
+            <h3>Gourmet Academy</h3>
+            <div class="cat">Web · Food · Kurzy vaření</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="nkcr.html" data-tags="webapp b2c">
+        <div class="shot">
+          <span class="year">2024</span>
+          <img src="assets/ref-nkcr.png" alt="NKČR">
+        </div>
+        <div class="body">
+          <div>
+            <h3>NKČR</h3>
+            <div class="cat">Notářská komora · Portál · Rejstřík</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="ref-card" href="terezia.html" data-tags="eshop b2c food">
+        <div class="shot">
+          <span class="year">2023</span>
+          <img src="assets/ref-terezia.png" alt="Terezia Company">
+        </div>
+        <div class="body">
+          <div>
+            <h3>Terezia</h3>
+            <div class="cat">E-shop · Doplňky stravy · 36 let tradice</div>
+          </div>
+          <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
     </div>
-
-    <!-- Big feature 2: Albi -->
-    <div class="feat-row" style="grid-template-columns:1fr 1.6fr">
-      <a class="proj small bg-hyundai" href="#" data-tags="webapp auto">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>Web aplikace</span>
-            <span class="year">2024</span>
-          </div>
-          <div>
-            <div class="brandmark">Hyundai</div>
-            <h3>Konfigurátor a&nbsp;dealer portál pro CZ&amp;SK síť.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>Dealerů<b>52</b></div>
-                <div>Configů/měs<b>12k</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a class="proj big bg-albi" href="#" data-tags="eshop b2c retail">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>Case Study 025</span>
-            <span class="year">2024</span>
-          </div>
-          <div>
-            <div class="brandmark">Albi<sup>®</sup></div>
-            <h3>Omnichannel e-shop propojující 120 poboček v&nbsp;CZ&nbsp;&amp;&nbsp;SK.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>Online obrat<b><span class="red">+</span>156%</b></div>
-                <div>Poboček<b>120</b></div>
-                <div>SKU<b>24 000</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Grid row 1 -->
-    <div class="grid-row">
-      <a class="proj bg-bushman" href="#" data-tags="eshop b2c fashion retail">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>E-shop</span>
-            <span class="year">2023</span>
-          </div>
-          <div>
-            <div class="brandmark">Bushman</div>
-            <h3>Outdoor fashion brand, CZ/SK/PL markety.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>Trhů<b>3</b></div>
-                <div>Konverze<b><span class="red">+</span>48%</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a class="proj bg-konsepti" href="#" data-tags="eshop b2b retail">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>B2B platforma</span>
-            <span class="year">2023</span>
-          </div>
-          <div>
-            <div class="brandmark">Konsepti</div>
-            <h3>Luxusní design nábytek s&nbsp;PIM a&nbsp;ceníky pro architekty.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>Role<b>8</b></div>
-                <div>Značek<b>120</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a class="proj bg-travel" href="#" data-tags="eshop b2c retail">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>Loyalty platform</span>
-            <span class="year">2023</span>
-          </div>
-          <div>
-            <div class="brandmark">Travel Free</div>
-            <h3>Věrnostní program a&nbsp;personalizace pro&nbsp;26 retail prodejen.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>Prodejen<b>26</b></div>
-                <div>Členů<b>380k</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Grid row 2 -->
-    <div class="grid-row">
-      <a class="proj bg-stampol" href="#" data-tags="eshop b2b">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>B2B e-shop</span>
-            <span class="year">2022</span>
-          </div>
-          <div>
-            <div class="brandmark">Stampol</div>
-            <h3>Velkoobchod s&nbsp;papírnickým zbožím &mdash; 18k SKU.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>SKU<b>18k</b></div>
-                <div>Objednávek/den<b>850</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a class="proj bg-ekosport" href="#" data-tags="eshop b2c retail">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>E-shop</span>
-            <span class="year">2022</span>
-          </div>
-          <div>
-            <div class="brandmark">Ekosport</div>
-            <h3>Sportovní potřeby s&nbsp;inteligentním doporučováním.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>Cross-sell<b><span class="red">+</span>72%</b></div>
-                <div>AOV<b><span class="red">+</span>38%</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a class="proj bg-armed" href="#" data-tags="eshop b2c retail">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>E-shop</span>
-            <span class="year">2022</span>
-          </div>
-          <div>
-            <div class="brandmark">Armed</div>
-            <h3>Specializovaný retailer s&nbsp;věkovou verifikací a&nbsp;licencemi.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>Konverze<b><span class="red">+</span>54%</b></div>
-                <div>RMA<b>&minus;68%</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Grid row 3 -->
-    <div class="grid-row">
-      <a class="proj bg-kofola" href="#" data-tags="webapp food">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>Web aplikace</span>
-            <span class="year">2021</span>
-          </div>
-          <div>
-            <div class="brandmark">Kofola</div>
-            <h3>B2B portál pro&nbsp;distributory a&nbsp;gastro partnery.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>Uživatelů<b>2 400</b></div>
-                <div>Objednávek/měs<b>32k</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a class="proj bg-skoda" href="#" data-tags="webapp auto">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>Web aplikace</span>
-            <span class="year">2021</span>
-          </div>
-          <div>
-            <div class="brandmark">Škoda Auto</div>
-            <h3>Interní tréninkový portál pro&nbsp;dealery a&nbsp;servisní techniky.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>Uživatelů<b>8 200</b></div>
-                <div>Kurzů<b>140</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a class="proj bg-timous" href="#" data-tags="eshop b2c fashion">
-        <div class="content">
-          <div class="top">
-            <span class="tag"><span class="d"></span>E-shop</span>
-            <span class="year">2021</span>
-          </div>
-          <div>
-            <div class="brandmark">Timous</div>
-            <h3>Designové hodinky a&nbsp;šperky, prémiový online zážitek.</h3>
-            <div class="meta">
-              <div class="kpis">
-                <div>AOV<b>8 400 Kč</b></div>
-                <div>NPS<b>68</b></div>
-              </div>
-              <div class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-
   </div>
 </section>
 
-<!-- ===================== LOAD MORE ===================== -->
-<div class="loadmore">
-  <div class="wrap">
-    <div class="meta">Zobrazeno <b>12</b> z&nbsp;<b>180+</b> projektů</div>
-    <div class="bar"></div>
-    <a href="#" class="btn">
-      <span class="lbl" data-t="Načíst dalších 12"><span>Načíst dalších 12</span></span>
-      <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
-    </a>
-  </div>
-</div>
 
 <!-- ===================== CLIENT LOGO GRID ===================== -->
 <section class="logos">

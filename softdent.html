@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SoftDent — Case Study — PragueBest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+.cs-hero{padding:160px 0 80px;position:relative}
+.cs-hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:32px}
+.cs-hero .eyebrow .d{width:6px;height:6px;background:var(--red);border-radius:50%}
+.cs-hero h1{font-size:clamp(40px,6vw,88px);font-weight:900;letter-spacing:-.04em;line-height:.9;margin-bottom:32px}
+.cs-hero h1 .red{color:var(--red)}
+.cs-hero .lede{font-size:clamp(18px,1.8vw,24px);color:var(--mute);max-width:60ch;line-height:1.45;letter-spacing:-.01em;margin-bottom:48px}
+.cs-hero .meta-bar{display:flex;flex-wrap:wrap;gap:32px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.05em;text-transform:uppercase}
+.cs-hero .meta-bar b{color:var(--ink);font-weight:600;margin-left:6px}
+.cs-hero .award-pill{display:inline-block;background:var(--red);color:#fff;padding:8px 16px;border-radius:999px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+
+.cs-shot{padding:0 0 80px}
+.cs-shot .shot-wrap{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#1a1a1a}
+.cs-shot img{width:100%;height:auto;display:block}
+
+.cs-kpis{padding:80px 0;border-top:1px solid var(--line)}
+.cs-kpis .sec-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:48px;gap:40px;flex-wrap:wrap}
+.cs-kpis .idx{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+.cs-kpis h2{font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-.035em;line-height:1}
+.cs-kpis h2 .red{color:var(--red)}
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.kpi-item{padding:40px 32px;background:var(--paper-2);border-radius:16px;border:1px solid var(--line)}
+.kpi-item .n{font-size:clamp(48px,6vw,88px);font-weight:900;letter-spacing:-.04em;line-height:.95;color:var(--red);margin-bottom:12px}
+.kpi-item .l{font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.05em;text-transform:uppercase}
+
+.cs-block{padding:80px 0;border-top:1px solid var(--line)}
+.cs-block .grid-2{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:start}
+.cs-block .idx{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.cs-block h2{font-size:clamp(28px,3.4vw,44px);font-weight:800;letter-spacing:-.035em;line-height:1.05;position:sticky;top:120px}
+.cs-block h2 .red{color:var(--red)}
+.cs-block .content{font-size:17px;line-height:1.65;color:var(--ink-3)}
+.cs-block .content p{margin-bottom:20px}
+.cs-block .content ul{list-style:none;padding:0;margin:24px 0}
+.cs-block .content ul li{padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative;font-size:16px}
+.cs-block .content ul li::before{content:"→";position:absolute;left:0;color:var(--red);font-weight:700}
+
+.cs-details{padding:80px 0;border-top:1px solid var(--line);background:var(--paper-2)}
+.cs-details .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.cs-details h3{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.cs-details p{font-size:15px;line-height:1.55;color:var(--ink-3)}
+
+.cs-cta{padding:120px 0;text-align:center;border-top:1px solid var(--line)}
+.cs-cta h2{font-size:clamp(32px,5vw,72px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin-bottom:32px}
+.cs-cta h2 .red{color:var(--red)}
+.cs-cta .actions{display:inline-flex;gap:14px;margin-top:24px;flex-wrap:wrap;justify-content:center}
+
+@media(max-width:960px){
+  .cs-block .grid-2{grid-template-columns:1fr;gap:40px}
+  .cs-block h2{position:static}
+  .cs-details .grid-2{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<nav class="top" id="nav">
+  <a class="logo" href="index.html">
+    <span class="mark"></span>
+    <span class="name"><b>PragueBest</b><sup>®</sup></span>
+  </a>
+  <ul>
+    <li><a href="eshop.html">Produkty</a></li>
+    <li><a href="sluzby.html">Služby</a></li>
+    <li><a href="reference.html" class="active">Case Studies</a></li>
+    <li><a href="o-nas.html">O nás</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="kariera.html">Kariéra</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <div class="actions">
+    <span><span class="dot"></span>Přijímáme projekty Q3/26</span>
+    <a href="https://pbweb-jet.vercel.app/kontakt.html" class="btn sm">
+      <span class="lbl" data-t="Napište nám"><span>Napište nám</span></span>
+      <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="cs-hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="d"></span>Case Study · Produktový web · Dental care</div>
+    
+    <h1>SoftDent<span class="red">.</span></h1>
+    <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <div class="meta-bar">
+      <div>Klient<b>SoftDent</b></div>
+      <div>URL<b>softdent.cz</b></div>
+      <div>Rok<b>2023</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOT -->
+<section class="cs-shot">
+  <div class="wrap">
+    <div class="shot-wrap">
+      <img src="assets/ref-softdent.png" alt="SoftDent">
+    </div>
+  </div>
+</section>
+
+<!-- KPIS -->
+<section class="cs-kpis">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="idx">§ 01 / Výsledky</div>
+        <h2>Čísla, která <span class="red">mluví za nás.</span></h2>
+      </div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-item"><div class="n">+120%</div><div class="l">nárůst tržeb</div></div>
+<div class="kpi-item"><div class="n"><25%</div><div class="l">bounce rate</div></div>
+<div class="kpi-item"><div class="n">85+</div><div class="l">Lighthouse score</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO / O KLIENTOVI -->
+<section class="cs-block">
+  <div class="wrap">
+    <div class="grid-2">
+      <div>
+        <div class="idx">§ 02 / O klientovi</div>
+        <h2>Kdo je <span class="red">SoftDent</span></h2>
+      </div>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VÝZVA -->
+<section class="cs-block">
+  <div class="wrap">
+    <div class="grid-2">
+      <div>
+        <div class="idx">§ 03 / Výzva</div>
+        <h2>Co jsme <span class="red">řešili</span></h2>
+      </div>
+      <div class="content">
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VÝSLEDKY -->
+<section class="cs-block">
+  <div class="wrap">
+    <div class="grid-2">
+      <div>
+        <div class="idx">§ 04 / Výsledky</div>
+        <h2>Čeho jsme <span class="red">dosáhli</span></h2>
+      </div>
+      <div class="content">
+        <ul>
+          <li>Lorem ipsum dolor sit amet consectetur</li>
+<li>Adipiscing elit sed do eiusmod tempor</li>
+<li>Ut labore et dolore magna aliqua</li>
+<li>Enim ad minim veniam quis nostrud</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O PROJEKTU -->
+<section class="cs-details">
+  <div class="wrap">
+    <div class="grid-2">
+      <div>
+        <h3>Technologie</h3>
+        <p>Vlastní e-shop platforma, StorefrontX, UpSearch, Elasticsearch, Varnish Cache</p>
+      </div>
+      <div>
+        <h3>Služby</h3>
+        <p>UX design, Frontend vývoj, Backend vývoj, Integrace, SEO, Content strategy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cs-cta">
+  <div class="wrap">
+    <h2>Máte podobný <span class="red">projekt?</span></h2>
+    <p style="color:var(--mute);font-size:18px;max-width:50ch;margin:0 auto">Pojďme si o něm promluvit. První schůzka je zdarma a bez závazků.</p>
+    <div class="actions">
+      <a href="kontakt.html" class="btn red">
+        <span class="lbl" data-t="Napište nám"><span>Napište nám</span></span>
+        <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="reference.html" class="btn">
+        <span class="lbl" data-t="← Všechny case studies"><span>← Všechny case studies</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="big">PragueBest<sup>®</sup></div>
+    <div class="cols">
+      <div>
+        <h5>Produkty</h5>
+        <a href="eshop.html">E-commerce</a>
+        <a href="weby.html">Weby a portály</a>
+        <a href="bigdata.html">BigDataManager</a>
+        <a href="upsearch.html">UpSearch</a>
+        <a href="aplikace.html">Aplikace</a>
+      </div>
+      <div>
+        <h5>Firma</h5>
+        <a href="o-nas.html">O nás</a>
+        <a href="reference.html">Case Studies</a>
+        <a href="blog.html">Blog</a>
+        <a href="kariera.html">Kariéra</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div>
+        <h5>Kontakt</h5>
+        <a href="#">Karlín, Praha</a>
+        <a href="#">hello@praguebest.cz</a>
+        <a href="#">+420 222 263 300</a>
+      </div>
+    </div>
+    <div class="bot">
+      <div>© 2026 PragueBest, s.r.o. · IČ: 25057220</div>
+      <div>Stavíme weby od roku 1999.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/shared.js"></script>
+</body>
+</html>
