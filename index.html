@@ -710,6 +710,25 @@ section.sx{padding:100px 0;position:relative}
 .cta .sub{margin-top:32px;font-size:18px;color:var(--mute);max-width:44ch;margin-left:auto;margin-right:auto;line-height:1.55}
 .cta .ctas{margin-top:56px;display:flex;gap:14px;justify-content:center}
 
+/* ===================== ASSOCIATIONS ===================== */
+.assoc-strip{
+  padding:28px 0;border-top:1px solid var(--line);
+}
+.assoc-strip .wrap{
+  display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;
+}
+.assoc-text{
+  font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase;font-weight:500;
+}
+.assoc-logos{
+  display:flex;align-items:center;gap:36px;
+}
+.assoc-link{
+  display:block;color:var(--mute);opacity:.55;transition:opacity .3s,color .3s;
+}
+.assoc-link:hover{opacity:1;color:var(--ink)}
+.assoc-link svg{height:22px;width:auto;display:block}
+
 /* ===================== FOOTER ===================== */
 footer{
   background:var(--ink);color:var(--paper);padding:80px 0 40px;position:relative;overflow:hidden;
@@ -1344,6 +1363,27 @@ footer .base .right{text-align:right}
     </div>
   </div>
 </section>
+
+<!-- ===================== ASSOCIATIONS ===================== -->
+<div class="assoc-strip">
+  <div class="wrap">
+    <div class="assoc-text">Jsme členem profesních organizací</div>
+    <div class="assoc-logos">
+      <a href="https://www.asociace.biz" target="_blank" rel="noopener" class="assoc-link">
+        <svg viewBox="0 0 120 28" xmlns="http://www.w3.org/2000/svg"><text x="0" y="20" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="currentColor" letter-spacing="-0.3">Asociace</text><text x="76" y="20" font-family="Arial,sans-serif" font-size="14" font-weight="400" fill="currentColor" opacity=".7">.BIZ</text></svg>
+      </a>
+      <a href="https://www.apek.cz" target="_blank" rel="noopener" class="assoc-link">
+        <svg viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg"><text x="0" y="20" font-family="Arial,sans-serif" font-size="16" font-weight="900" fill="currentColor" letter-spacing="1">APEK</text></svg>
+      </a>
+      <a href="https://www.iea.cz" target="_blank" rel="noopener" class="assoc-link">
+        <svg viewBox="0 0 60 28" xmlns="http://www.w3.org/2000/svg"><text x="0" y="20" font-family="Arial,sans-serif" font-size="16" font-weight="800" fill="currentColor" letter-spacing="0.5">IEA</text></svg>
+      </a>
+      <a href="https://www.webtop100.cz" target="_blank" rel="noopener" class="assoc-link">
+        <svg viewBox="0 0 130 28" xmlns="http://www.w3.org/2000/svg"><text x="0" y="20" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="currentColor" letter-spacing="-0.3">WebTop</text><text x="60" y="20" font-family="Arial,sans-serif" font-size="14" font-weight="900" fill="currentColor">100</text></svg>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ===================== FOOTER ===================== -->
 <footer>
