@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Styleguide — PragueBest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2ece0;--paper-2:#ebe4d4;--paper-3:#e3dac8;
+  --ink:#0a0a0a;--ink-2:#1a1a1a;--ink-3:#2a2a2a;
+  --mute:#6b6862;--mute-2:#8a8680;
+  --line:rgba(10,10,10,.12);--line-2:rgba(10,10,10,.06);
+  --red:#e30613;--red-2:#b8050f;--red-3:#fff2f3;
+  --sans:"Geist",system-ui,-apple-system,sans-serif;
+  --mono:"Geist Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+::selection{background:var(--red);color:#fff}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+
+/* Header */
+.sg-header{padding:80px 0 40px;border-bottom:1px solid var(--ink)}
+.sg-header h1{font-size:48px;font-weight:900;letter-spacing:-.04em;line-height:.95}
+.sg-header h1 .red{color:var(--red)}
+.sg-header p{margin-top:16px;font-size:16px;color:var(--mute);max-width:60ch}
+.sg-header .meta{margin-top:24px;font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+
+/* Section */
+.sg-section{padding:60px 0;border-bottom:1px solid var(--line)}
+.sg-section .sg-title{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.sg-section h2{font-size:28px;font-weight:800;letter-spacing:-.03em;margin-bottom:32px}
+
+/* Color swatches */
+.swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.swatch{border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.swatch .color{height:80px}
+.swatch .info{padding:10px 12px;font-size:12px}
+.swatch .info .name{font-weight:700;margin-bottom:2px}
+.swatch .info .hex{font-family:var(--mono);font-size:11px;color:var(--mute)}
+.swatch .info .var{font-family:var(--mono);font-size:10px;color:var(--mute-2)}
+
+/* Type scale */
+.type-row{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line-2)}
+.type-row:last-child{border-bottom:none}
+.type-label{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.04em}
+.type-label .size{display:block;color:var(--ink);font-weight:600;margin-top:2px}
+
+/* Spacing */
+.space-row{display:flex;align-items:center;gap:20px;padding:12px 0;border-bottom:1px solid var(--line-2)}
+.space-bar{background:var(--red);height:12px;border-radius:3px;opacity:.25}
+.space-label{font-family:var(--mono);font-size:11px;color:var(--mute);min-width:120px}
+.space-val{font-family:var(--mono);font-size:11px;font-weight:600;min-width:60px}
+
+/* Buttons */
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:-.01em;border:1px solid var(--ink);transition:all .4s var(--ease);cursor:pointer;background:transparent;color:var(--ink)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.red{background:var(--red);color:#fff;border-color:var(--red)}
+.btn.red:hover{background:var(--red-2)}
+.btn.ghost{border-color:var(--line);color:var(--mute)}
+.btn.ghost:hover{border-color:var(--ink);color:var(--ink)}
+.btn.sm{padding:10px 20px;font-size:12px}
+
+/* Components */
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.comp-box{padding:32px;background:var(--paper-2);border-radius:16px;border:1px solid var(--line)}
+.comp-box h4{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:16px}
+
+/* Tags */
+.tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(10,10,10,.06);border:1px solid var(--line);border-radius:999px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.tag .d{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.tag.dark{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25);color:#fff}
+
+/* Cards */
+.card-demo{background:var(--ink);color:var(--paper);border-radius:16px;overflow:hidden}
+.card-demo .card-img{height:160px;background:linear-gradient(135deg,#1a0408,#0a0a0a);position:relative}
+.card-demo .card-img::after{content:"Screenshot";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em}
+.card-demo .card-body{padding:22px 26px}
+.card-demo .card-body h3{font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
+.card-demo .card-body .cat{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.08em}
+
+/* Logo */
+.logo-demo{display:flex;align-items:center;gap:14px;font-weight:700;font-size:22px;letter-spacing:-.02em}
+.logo-demo .mark{width:14px;height:14px;border-radius:50%;background:var(--red)}
+.logo-dark{background:var(--ink);color:var(--paper);padding:24px 32px;border-radius:12px;display:inline-flex}
+
+/* Easing demo */
+.ease-row{display:flex;gap:24px;margin-bottom:16px}
+.ease-box{padding:16px 20px;background:var(--paper-2);border-radius:10px;border:1px solid var(--line);flex:1;cursor:pointer;transition:transform .5s var(--ease),background .3s}
+.ease-box:hover{transform:translateY(-4px);background:var(--paper-3)}
+.ease-box .name{font-family:var(--mono);font-size:11px;font-weight:700;margin-bottom:4px}
+.ease-box .val{font-family:var(--mono);font-size:10px;color:var(--mute)}
+
+/* Icon */
+.icon-grid{display:flex;gap:16px;flex-wrap:wrap}
+.icon-box{width:56px;height:56px;border-radius:12px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.icon-box svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+@media(max-width:768px){
+  .comp-grid{grid-template-columns:1fr}
+  .type-row{grid-template-columns:1fr;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="sg-header">
+  <h1>Prague<span class="red">Best</span> Styleguide</h1>
+  <p>Designový systém pro web PragueBest — barvy, typografie, komponenty, pravidla a tokeny.</p>
+  <div class="meta">Verze 1.0 · Duben 2026 · Aktualizováno 17. 4. 2026</div>
+</div>
+
+<!-- ===== COLORS ===== -->
+<div class="sg-section">
+  <div class="sg-title">01 / Barvy</div>
+  <h2>Barevná paleta</h2>
+  
+  <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">Primární</h3>
+  <div class="swatch-grid" style="margin-bottom:32px">
+    <div class="swatch"><div class="color" style="background:#e30613"></div><div class="info"><div class="name">Red</div><div class="hex">#E30613</div><div class="var">--red</div></div></div>
+    <div class="swatch"><div class="color" style="background:#b8050f"></div><div class="info"><div class="name">Red Dark</div><div class="hex">#B8050F</div><div class="var">--red-2</div></div></div>
+    <div class="swatch"><div class="color" style="background:#fff2f3"></div><div class="info"><div class="name">Red Light</div><div class="hex">#FFF2F3</div><div class="var">--red-3</div></div></div>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">Pozadí (Paper)</h3>
+  <div class="swatch-grid" style="margin-bottom:32px">
+    <div class="swatch"><div class="color" style="background:#f2ece0"></div><div class="info"><div class="name">Paper</div><div class="hex">#F2ECE0</div><div class="var">--paper</div></div></div>
+    <div class="swatch"><div class="color" style="background:#ebe4d4"></div><div class="info"><div class="name">Paper 2</div><div class="hex">#EBE4D4</div><div class="var">--paper-2</div></div></div>
+    <div class="swatch"><div class="color" style="background:#e3dac8"></div><div class="info"><div class="name">Paper 3</div><div class="hex">#E3DAC8</div><div class="var">--paper-3</div></div></div>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">Text (Ink)</h3>
+  <div class="swatch-grid" style="margin-bottom:32px">
+    <div class="swatch"><div class="color" style="background:#0a0a0a"></div><div class="info"><div class="name">Ink</div><div class="hex">#0A0A0A</div><div class="var">--ink</div></div></div>
+    <div class="swatch"><div class="color" style="background:#1a1a1a"></div><div class="info"><div class="name">Ink 2</div><div class="hex">#1A1A1A</div><div class="var">--ink-2</div></div></div>
+    <div class="swatch"><div class="color" style="background:#2a2a2a"></div><div class="info"><div class="name">Ink 3</div><div class="hex">#2A2A2A</div><div class="var">--ink-3</div></div></div>
+    <div class="swatch"><div class="color" style="background:#6b6862"></div><div class="info"><div class="name">Mute</div><div class="hex">#6B6862</div><div class="var">--mute</div></div></div>
+    <div class="swatch"><div class="color" style="background:#8a8680"></div><div class="info"><div class="name">Mute 2</div><div class="hex">#8A8680</div><div class="var">--mute-2</div></div></div>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">Linky</h3>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="color" style="background:rgba(10,10,10,.12)"></div><div class="info"><div class="name">Line</div><div class="hex">rgba(10,10,10,.12)</div><div class="var">--line</div></div></div>
+    <div class="swatch"><div class="color" style="background:rgba(10,10,10,.06)"></div><div class="info"><div class="name">Line 2</div><div class="hex">rgba(10,10,10,.06)</div><div class="var">--line-2</div></div></div>
+  </div>
+</div>
+
+<!-- ===== TYPOGRAPHY ===== -->
+<div class="sg-section">
+  <div class="sg-title">02 / Typografie</div>
+  <h2>Typografická škála</h2>
+
+  <div style="margin-bottom:32px">
+    <div class="type-row">
+      <div class="type-label">H1 — Hero<div class="size">clamp(42px, 7vw, 120px)</div></div>
+      <div style="font-size:clamp(42px,7vw,72px);font-weight:900;letter-spacing:-.04em;line-height:.95">Tvoříme eshopy<span style="color:var(--red)">.</span></div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">H2 — Sekce<div class="size">clamp(32px, 4.5vw, 72px)</div></div>
+      <div style="font-size:clamp(32px,4.5vw,48px);font-weight:800;letter-spacing:-.035em;line-height:1">Vybraný <span style="color:var(--red)">projekt.</span></div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">H3 — Podnadpis<div class="size">clamp(28px, 3.5vw, 52px)</div></div>
+      <div style="font-size:clamp(28px,3.5vw,36px);font-weight:800;letter-spacing:-.035em;line-height:1.05">Co pro vás <span style="color:var(--red)">postavíme.</span></div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">H4 — Card title<div class="size">22px</div></div>
+      <div style="font-size:22px;font-weight:700;letter-spacing:-.02em">HarfaSport</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Body<div class="size">16px</div></div>
+      <div style="font-size:16px;line-height:1.55;color:var(--ink-3)">Stavíme e-shopy, webové aplikace a datové platformy. Vždy od základu, ve vlastním stacku a ve vlastním studiu v Karlíně.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Small<div class="size">14px</div></div>
+      <div style="font-size:14px;color:var(--mute)">Luděk Vorel · CEO · Ve firmě od 1999</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Mono / Label<div class="size">11–12px</div></div>
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">§ 03 / Case study · Headless · B2C</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Micro<div class="size">10px</div></div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--mute-2)">Zobrazeno 19 z 180+ projektů · Filtr: Vše</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;margin-bottom:12px">Font families</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div class="comp-box">
+      <h4>Sans — Geist</h4>
+      <div style="font-size:28px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px">PragueBest®</div>
+      <div style="font-size:14px;color:var(--mute)">Hlavní font. Nadpisy, body copy, navigace. Váhy: 300–900.</div>
+    </div>
+    <div class="comp-box">
+      <h4>Mono — Geist Mono</h4>
+      <div style="font-family:var(--mono);font-size:22px;font-weight:600;letter-spacing:.02em;margin-bottom:8px">§ 03 / CASE STUDY</div>
+      <div style="font-size:14px;color:var(--mute)">Labely, tagy, číselné hodnoty, meta info. Váhy: 400–600.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SPACING ===== -->
+<div class="sg-section">
+  <div class="sg-title">03 / Spacing</div>
+  <h2>Odsazení a mezery</h2>
+  
+  <div class="space-row"><div class="space-label">Sekce padding</div><div class="space-val">70–100px</div><div class="space-bar" style="width:200px"></div></div>
+  <div class="space-row"><div class="space-label">Sec-head margin</div><div class="space-val">40–48px</div><div class="space-bar" style="width:120px"></div></div>
+  <div class="space-row"><div class="space-label">Grid gap</div><div class="space-val">20–28px</div><div class="space-bar" style="width:70px"></div></div>
+  <div class="space-row"><div class="space-label">Card padding</div><div class="space-val">22–32px</div><div class="space-bar" style="width:80px"></div></div>
+  <div class="space-row"><div class="space-label">Element gap</div><div class="space-val">12–16px</div><div class="space-bar" style="width:40px"></div></div>
+  <div class="space-row"><div class="space-label">Wrap max-width</div><div class="space-val">1480px</div><div class="space-bar" style="width:280px"></div></div>
+  <div class="space-row"><div class="space-label">Wrap padding</div><div class="space-val">40px</div><div class="space-bar" style="width:100px"></div></div>
+</div>
+
+<!-- ===== BUTTONS ===== -->
+<div class="sg-section">
+  <div class="sg-title">04 / Tlačítka</div>
+  <h2>Buttony a CTA</h2>
+  
+  <div class="btn-row">
+    <button class="btn red">Primární CTA</button>
+    <button class="btn">Sekundární</button>
+    <button class="btn ghost">Ghost</button>
+    <button class="btn sm">Small</button>
+  </div>
+  <div style="font-family:var(--mono);font-size:11px;color:var(--mute);margin-top:8px">
+    border-radius: 999px · padding: 14px 28px · font-weight: 600 · transition: .4s var(--ease)
+  </div>
+</div>
+
+<!-- ===== COMPONENTS ===== -->
+<div class="sg-section">
+  <div class="sg-title">05 / Komponenty</div>
+  <h2>Základní prvky</h2>
+  
+  <div class="comp-grid">
+    <!-- Logo -->
+    <div class="comp-box">
+      <h4>Logo</h4>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div class="logo-demo"><span class="mark"></span><span><b>PragueBest</b><sup style="font-size:.4em;color:var(--mute)">®</sup></span></div>
+        <div class="logo-dark"><div class="logo-demo" style="color:var(--paper)"><span class="mark"></span><span><b>PragueBest</b><sup style="font-size:.4em;color:var(--mute-2)">®</sup></span></div></div>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div class="comp-box">
+      <h4>Tagy & Pills</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span class="tag"><span class="d"></span>Case Study · Headless</span>
+        <span class="tag" style="background:var(--red);color:#fff;border-color:var(--red)">IEA 2025</span>
+        <span class="tag" style="font-weight:400;text-transform:none;letter-spacing:0">E-shop · B2C · Retail</span>
+      </div>
+    </div>
+
+    <!-- Reference card -->
+    <div class="comp-box">
+      <h4>Reference karta</h4>
+      <div class="card-demo">
+        <div class="card-img"></div>
+        <div class="card-body">
+          <h3>HarfaSport</h3>
+          <div class="cat">Headless · Sport · +349 % organika</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section header -->
+    <div class="comp-box">
+      <h4>Section header</h4>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding-bottom:16px;border-bottom:1px solid var(--line)">
+        <div>
+          <div style="font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase">§ 03 / Case study</div>
+          <div style="font-size:28px;font-weight:800;letter-spacing:-.035em;margin-top:6px">Vybraný <span style="color:var(--red)">projekt.</span></div>
+        </div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--mute);text-align:right;letter-spacing:.04em">Sport · B2C<br><b style="color:var(--ink)">Headless</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ICONS ===== -->
+<div class="sg-section">
+  <div class="sg-title">06 / Ikony</div>
+  <h2>Ikonový set</h2>
+  <p style="font-size:14px;color:var(--mute);margin-bottom:24px">Inline SVG, stroke-based, 24×24 viewBox, stroke-width: 2–2.5, round caps/joins.</p>
+  
+  <div class="icon-grid">
+    <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+    <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg></div>
+    <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 7h18l-1.5 11a2 2 0 0 1-2 1.7H6.5a2 2 0 0 1-2-1.7L3 7z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></div>
+    <div class="icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+    <div class="icon-box"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="2.5"/><path d="M4 5v6c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5V5M4 11v6c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-6"/></svg></div>
+    <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+    <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+  </div>
+</div>
+
+<!-- ===== MOTION ===== -->
+<div class="sg-section">
+  <div class="sg-title">07 / Motion</div>
+  <h2>Animace a easing</h2>
+  
+  <div class="ease-row">
+    <div class="ease-box">
+      <div class="name">--ease</div>
+      <div class="val">cubic-bezier(.22, 1, .36, 1)</div>
+      <div style="font-size:12px;color:var(--mute);margin-top:6px">Hlavní easing — karty, navigace, hover efekty</div>
+    </div>
+    <div class="ease-box">
+      <div class="name">--ease-out</div>
+      <div class="val">cubic-bezier(.16, 1, .3, 1)</div>
+      <div style="font-size:12px;color:var(--mute);margin-top:6px">Reveal animace, scroll efekty, fade-in</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;margin:24px 0 12px">Pravidla</h3>
+  <div style="font-size:14px;color:var(--ink-3);line-height:1.7;max-width:60ch">
+    Žádná animace nad 1s. Hover: 0.3–0.5s. Reveal: 0.6–1s. Typewriter: 55ms/char psaní, 30ms/char mazání. Scroll progress: 2px červený bar nahoře. IntersectionObserver pro reveal animace (threshold: .12, rootMargin: -60px).
+  </div>
+</div>
+
+<!-- ===== RULES ===== -->
+<div class="sg-section" style="border-bottom:none">
+  <div class="sg-title">08 / Pravidla</div>
+  <h2>Design principy</h2>
+  
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div class="comp-box">
+      <h4>✓ Vždy</h4>
+      <div style="font-size:14px;color:var(--ink-3);line-height:1.8">
+        Paper pozadí (#F2ECE0) jako základ<br>
+        Červená (#E30613) pouze jako akcent<br>
+        Geist font pro vše<br>
+        Mono pro labely, tagy, meta<br>
+        Grain overlay na body (opacity .18)<br>
+        Border-radius: 12–16px karty, 999px pilly<br>
+        Grayscale screenshoty → color on hover<br>
+        Konzistentní section numbering (§ 01, § 02...)
+      </div>
+    </div>
+    <div class="comp-box">
+      <h4>✗ Nikdy</h4>
+      <div style="font-size:14px;color:var(--ink-3);line-height:1.8">
+        Bílé pozadí (#fff) jako hlavní barva<br>
+        Více než 3 clamp úrovně nadpisů<br>
+        Font-size pod 10px<br>
+        Animace nad 1s<br>
+        Gradientové tlačítka<br>
+        Box-shadow na kartách (používáme border)<br>
+        Více než 2 fonty na stránce<br>
+        Obrázky bez grayscale filtru v gridech
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div style="background:var(--ink);color:var(--paper);padding:40px 0;margin-top:60px;text-align:center">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,236,224,.5)">PragueBest® Styleguide · v1.0 · 2026</div>
+</div>
+
+</body>
+</html>
