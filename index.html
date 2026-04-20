@@ -636,96 +636,92 @@ section.sx{padding:100px 0;position:relative}
 .ref.r5 .img{background:url(assets/ref-konsepti.png) top center/cover}
 .ref.r6 .img{background:url(assets/ref-travelfree.png) top center/cover}
 
-/* ===================== MASCOT DUO ===================== */
-.mascot-wrap{
-  position:relative;height:150px;overflow:hidden;border-top:1px solid var(--line);
-  background:var(--paper-2);
+/* ===================== ROI CALCULATOR ===================== */
+.roi-calc{
+  padding:80px 0;border-top:1px solid var(--line);background:var(--paper-2);position:relative;overflow:hidden;
 }
-.mascot-wrap .m-label{
-  position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:10;
-  font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);opacity:.6;
+.roi-calc .sec-head{margin-bottom:40px}
+.roi-calc .idx{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.roi-calc h2{font-size:clamp(28px,3.5vw,52px);font-weight:800;letter-spacing:-.035em;line-height:1}
+.roi-calc h2 .red{color:var(--red)}
+.roi-calc .subtitle{font-size:14px;color:var(--mute);margin-top:10px;max-width:55ch}
+
+.roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+
+/* Inputs */
+.roi-inputs{display:flex;flex-direction:column;gap:24px}
+.roi-field label{
+  display:block;font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:10px;
+}
+.roi-field .slider-wrap{display:flex;align-items:center;gap:16px}
+.roi-field input[type=range]{
+  flex:1;height:4px;-webkit-appearance:none;appearance:none;
+  background:var(--line);border-radius:2px;outline:none;cursor:pointer;
+}
+.roi-field input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:20px;height:20px;border-radius:50%;
+  background:var(--red);cursor:pointer;border:3px solid var(--paper);
+  box-shadow:0 2px 8px rgba(227,6,19,.3);
+}
+.roi-field .val{
+  font-size:22px;font-weight:800;letter-spacing:-.02em;min-width:100px;text-align:right;
+}
+.roi-field .val small{font-size:12px;font-weight:500;color:var(--mute);margin-left:2px}
+
+.roi-note{
+  font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:.04em;
+  padding:12px 0;border-top:1px dashed var(--line);margin-top:8px;
 }
 
-.guy{position:absolute;bottom:12px;display:flex;flex-direction:column;align-items:center;width:70px}
-.guy .g-head{
-  width:48px;height:48px;border-radius:50%;overflow:hidden;
-  border:2px solid var(--paper);box-shadow:0 2px 10px rgba(0,0,0,.12);
-  position:relative;z-index:2;background-size:cover;background-position:center;
+/* Results */
+.roi-results{
+  background:var(--ink);color:var(--paper);border-radius:20px;padding:36px 40px;
+  position:relative;overflow:hidden;
 }
-.guy.left .g-head{background-image:url(assets/mascot-head.png)}
-.guy.right .g-head{background-image:url(assets/ludek-vorel.jpg)}
-.guy .g-torso{width:28px;height:20px;background:var(--ink);border-radius:5px 5px 0 0;margin-top:-3px;z-index:1;position:relative}
-.guy .g-arm{
-  position:absolute;top:48px;width:3px;height:18px;
-  background:var(--ink);border-radius:2px;
-  transform-origin:top center;
+.roi-results::before{
+  content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;
+  border-radius:50%;background:radial-gradient(circle,rgba(227,6,19,.25),transparent 70%);
 }
-.guy .g-arm .g-hand{width:8px;height:8px;border-radius:50%;background:#f0c8a0;position:absolute;bottom:-5px;left:-2.5px}
-.guy.left .g-arm.out{left:10px}
-.guy.left .g-arm.in{right:10px}
-.guy.right .g-arm.out{right:10px}
-.guy.right .g-arm.in{left:10px}
-.guy .g-leg{
-  width:3px;height:16px;background:var(--ink);border-radius:2px;
-  position:absolute;bottom:-16px;transform-origin:top center;
+.roi-results .r-label{
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(242,236,224,.5);margin-bottom:6px;
 }
-.guy .g-leg.l{left:24px}
-.guy .g-leg.r{right:24px}
-.guy .g-foot{width:8px;height:3px;background:var(--ink);border-radius:0 0 2px 2px;position:absolute;bottom:-2px;left:-2.5px}
-.guy .g-name{
-  position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);
-  font-family:var(--mono);font-size:9px;color:var(--mute);white-space:nowrap;font-weight:600;letter-spacing:.04em;
+.roi-results .r-big{
+  font-size:clamp(36px,4vw,56px);font-weight:900;letter-spacing:-.04em;line-height:.95;
+  color:var(--red);margin-bottom:4px;
+}
+.roi-results .r-big small{font-size:.4em;color:rgba(242,236,224,.6);font-weight:500}
+.roi-results .r-sub{font-size:14px;color:rgba(242,236,224,.6);margin-bottom:28px}
+
+.roi-results .r-rows{display:flex;flex-direction:column;gap:0}
+.roi-results .r-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 0;border-bottom:1px solid rgba(242,236,224,.08);
+  font-size:14px;
+}
+.roi-results .r-row:last-child{border-bottom:none}
+.roi-results .r-row .r-k{color:rgba(242,236,224,.55)}
+.roi-results .r-row .r-v{font-weight:700;font-family:var(--mono);font-size:14px}
+.roi-results .r-row .r-v.up{color:#2bb65d}
+.roi-results .r-row .r-v.red{color:var(--red)}
+
+.roi-results .r-cta{
+  margin-top:28px;display:inline-flex;align-items:center;gap:10px;
+  padding:14px 28px;background:var(--red);color:#fff;border-radius:999px;
+  font-weight:700;font-size:14px;letter-spacing:-.01em;
+  transition:background .3s;cursor:pointer;border:none;font-family:var(--sans);
+}
+.roi-results .r-cta:hover{background:var(--red-2)}
+.roi-results .r-cta svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+.roi-results .r-disclaimer{
+  margin-top:16px;font-family:var(--mono);font-size:9px;color:rgba(242,236,224,.3);
+  letter-spacing:.03em;line-height:1.5;
 }
 
-/* Walking animation */
-.guy.walking .g-leg.l{animation:gLeg .4s ease-in-out infinite alternate}
-.guy.walking .g-leg.r{animation:gLeg .4s ease-in-out infinite alternate-reverse}
-.guy.walking .g-arm.out{animation:gArmSwing .4s ease-in-out infinite alternate}
-.guy.walking .g-arm.in{animation:gArmSwing .4s ease-in-out infinite alternate-reverse}
-@keyframes gLeg{0%{transform:rotate(-12deg)}100%{transform:rotate(12deg)}}
-@keyframes gArmSwing{0%{transform:rotate(-12deg)}100%{transform:rotate(12deg)}}
-
-/* High five pose */
-.guy.hifive .g-arm.in{transform:rotate(-70deg);transition:transform .3s var(--ease)}
-.guy.right.hifive .g-arm.in{transform:rotate(70deg)}
-.guy.hifive .g-leg.l,.guy.hifive .g-leg.r{animation:none;transform:rotate(0)}
-.guy.hifive .g-arm.out{animation:none;transform:rotate(8deg)}
-
-/* Speech bubble */
-.m-speech{
-  position:absolute;top:8px;left:50%;transform:translateX(-50%);z-index:20;
-  background:var(--ink);color:var(--paper);
-  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.03em;
-  padding:8px 16px;border-radius:10px;white-space:nowrap;
-  opacity:0;transform:translateX(-50%) translateY(6px);
-  transition:opacity .4s,transform .4s var(--ease);
-}
-.m-speech.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.m-speech::after{
-  content:"";position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);
-  border:5px solid transparent;border-top-color:var(--ink);
-}
-
-/* High five spark */
-.hf-spark{
-  position:absolute;z-index:25;pointer-events:none;
-  width:20px;height:20px;
-}
-.hf-spark i{
-  position:absolute;width:3px;height:10px;background:var(--red);border-radius:2px;
-  top:50%;left:50%;transform-origin:bottom center;
-  animation:sparkBurst .6s ease-out forwards;
-}
-.hf-spark i:nth-child(1){transform:rotate(0deg) translateY(-100%)}
-.hf-spark i:nth-child(2){transform:rotate(60deg) translateY(-100%)}
-.hf-spark i:nth-child(3){transform:rotate(120deg) translateY(-100%)}
-.hf-spark i:nth-child(4){transform:rotate(180deg) translateY(-100%)}
-.hf-spark i:nth-child(5){transform:rotate(240deg) translateY(-100%)}
-.hf-spark i:nth-child(6){transform:rotate(300deg) translateY(-100%)}
-@keyframes sparkBurst{
-  0%{opacity:1;height:4px}
-  50%{opacity:1;height:14px}
-  100%{opacity:0;height:6px;transform:rotate(var(--r,0deg)) translateY(-180%)}
+@media(max-width:960px){
+  .roi-grid{grid-template-columns:1fr}
 }
 
 /* ===================== CTA STRIP ===================== */
@@ -1357,31 +1353,76 @@ footer .base .right{text-align:right}
   </div>
 </section>
 
-<!-- ===================== MASCOT DUO ===================== -->
-<div class="mascot-wrap" id="mascot-duo">
-  <div class="m-label">PragueBest crew</div>
-  <div class="m-speech" id="hf-speech"></div>
+<!-- ===================== ROI CALCULATOR ===================== -->
+<section class="roi-calc reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="idx">§ 05 / Kalkulačka</div>
+      <h2>Kolik vám může vydělat nový <span class="red">e-shop?</span></h2>
+      <p class="subtitle">Zadejte svá aktuální čísla — ukážeme vám potenciál na základě reálných výsledků našich klientů.</p>
+    </div>
 
-  <div class="guy left" id="guy-l">
-    <div class="g-head"></div>
-    <div class="g-torso"></div>
-    <div class="g-arm out"><div class="g-hand"></div></div>
-    <div class="g-arm in"><div class="g-hand"></div></div>
-    <div class="g-leg l"><div class="g-foot"></div></div>
-    <div class="g-leg r"><div class="g-foot"></div></div>
-    <div class="g-name">Vladimír</div>
-  </div>
+    <div class="roi-grid">
+      <div class="roi-inputs">
+        <div class="roi-field">
+          <label>Měsíční návštěvnost webu</label>
+          <div class="slider-wrap">
+            <input type="range" id="roi-traffic" min="5000" max="500000" step="5000" value="50000">
+            <div class="val" id="roi-traffic-val">50 000<small>návštěv</small></div>
+          </div>
+        </div>
+        <div class="roi-field">
+          <label>Aktuální konverzní poměr</label>
+          <div class="slider-wrap">
+            <input type="range" id="roi-conv" min="0.3" max="5" step="0.1" value="1.5">
+            <div class="val" id="roi-conv-val">1,5<small>%</small></div>
+          </div>
+        </div>
+        <div class="roi-field">
+          <label>Průměrná hodnota objednávky</label>
+          <div class="slider-wrap">
+            <input type="range" id="roi-aov" min="200" max="15000" step="100" value="1500">
+            <div class="val" id="roi-aov-val">1 500<small>Kč</small></div>
+          </div>
+        </div>
+        <div class="roi-note">
+          Průměrné výsledky našich klientů: +88 % tržby, +36 % objednávek, konverze až 2× vyšší po redesignu.
+        </div>
+      </div>
 
-  <div class="guy right" id="guy-r">
-    <div class="g-head"></div>
-    <div class="g-torso"></div>
-    <div class="g-arm out"><div class="g-hand"></div></div>
-    <div class="g-arm in"><div class="g-hand"></div></div>
-    <div class="g-leg l"><div class="g-foot"></div></div>
-    <div class="g-leg r"><div class="g-foot"></div></div>
-    <div class="g-name">Luděk</div>
+      <div class="roi-results" id="roi-results">
+        <div class="r-label">Potenciální měsíční nárůst tržeb</div>
+        <div class="r-big" id="roi-gain">+660 000 <small>Kč/měs</small></div>
+        <div class="r-sub">oproti současnému stavu</div>
+
+        <div class="r-rows">
+          <div class="r-row">
+            <span class="r-k">Aktuální tržby</span>
+            <span class="r-v" id="roi-current">1 125 000 Kč</span>
+          </div>
+          <div class="r-row">
+            <span class="r-k">Tržby po optimalizaci</span>
+            <span class="r-v up" id="roi-new">1 785 000 Kč</span>
+          </div>
+          <div class="r-row">
+            <span class="r-k">Nový konverzní poměr</span>
+            <span class="r-v up" id="roi-newconv">2,4 %</span>
+          </div>
+          <div class="r-row">
+            <span class="r-k">Roční nárůst</span>
+            <span class="r-v red" id="roi-annual">+7 920 000 Kč</span>
+          </div>
+        </div>
+
+        <a href="kontakt.html" class="r-cta">
+          Chci vědět víc
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <div class="r-disclaimer">Odhad na základě průměrných výsledků klientů PragueBest. Skutečné výsledky se mohou lišit dle odvětví a výchozího stavu.</div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- ===================== CTA STRIP ===================== -->
 <section class="cta">
@@ -1653,83 +1694,47 @@ footer .base .right{text-align:right}
     loop();
   }
 
-  // ======== Mascot duo high-five ========
-  const guyL=document.getElementById('guy-l');
-  const guyR=document.getElementById('guy-r');
-  const hfSpeech=document.getElementById('hf-speech');
-  const duoWrap=document.getElementById('mascot-duo');
-  if(guyL&&guyR&&duoWrap){
-    const msgs=['Pojďme něco vytvořit!','High five! 🖐️','Tým snů 💪','Další projekt? 🚀','Karlín rules!','Let\'s build!','Na to si plácnem!'];
-    let cycle=0;
+  // ======== ROI Calculator ========
+  const roiTraffic=document.getElementById('roi-traffic');
+  const roiConv=document.getElementById('roi-conv');
+  const roiAov=document.getElementById('roi-aov');
+  if(roiTraffic&&roiConv&&roiAov){
+    const fmt=n=>Math.round(n).toLocaleString('cs-CZ');
     
-    function runDuo(){
-      const w=duoWrap.offsetWidth;
-      const mid=w/2;
+    function calcROI(){
+      const traffic=parseInt(roiTraffic.value);
+      const conv=parseFloat(roiConv.value)/100;
+      const aov=parseInt(roiAov.value);
       
-      // Reset
-      guyL.style.transition='none';
-      guyR.style.transition='none';
-      guyL.style.left='-80px';
-      guyR.style.right='-80px';
-      guyL.classList.add('walking');
-      guyR.classList.add('walking');
-      guyL.classList.remove('hifive');
-      guyR.classList.remove('hifive');
-      hfSpeech.classList.remove('show');
+      // Current
+      const currentOrders=Math.round(traffic*conv);
+      const currentRev=currentOrders*aov;
       
-      // Phase 1: Walk towards center (2.5s)
-      requestAnimationFrame(()=>{
-        guyL.style.transition='left 2.5s ease-out';
-        guyR.style.transition='right 2.5s ease-out';
-        guyL.style.left=(mid-55)+'px';
-        guyR.style.right=(mid-55)+'px';
-      });
+      // After optimization (based on real client averages)
+      // +58% conversion lift (average of our case studies)
+      // Conservative estimate
+      const newConvRate=conv*1.58;
+      const newOrders=Math.round(traffic*newConvRate);
+      const newRev=newOrders*aov;
+      const gain=newRev-currentRev;
+      const annualGain=gain*12;
       
-      // Phase 2: Stop & high five (at 2.5s)
-      setTimeout(()=>{
-        guyL.classList.remove('walking');
-        guyR.classList.remove('walking');
-        guyL.classList.add('hifive');
-        guyR.classList.add('hifive');
-        
-        // Spark effect
-        const spark=document.createElement('div');
-        spark.className='hf-spark';
-        spark.style.left=(mid-10)+'px';
-        spark.style.top='42px';
-        spark.innerHTML='<i></i><i></i><i></i><i></i><i></i><i></i>';
-        duoWrap.appendChild(spark);
-        setTimeout(()=>spark.remove(),700);
-        
-        // Speech bubble
-        hfSpeech.textContent=msgs[cycle%msgs.length];
-        hfSpeech.classList.add('show');
-        cycle++;
-      },2600);
+      // Update display values
+      document.getElementById('roi-traffic-val').innerHTML=fmt(traffic)+'<small>návštěv</small>';
+      document.getElementById('roi-conv-val').innerHTML=(parseFloat(roiConv.value)).toFixed(1).replace('.',',')+'<small>%</small>';
+      document.getElementById('roi-aov-val').innerHTML=fmt(aov)+'<small>Kč</small>';
       
-      // Phase 3: Walk away (at 5s)
-      setTimeout(()=>{
-        hfSpeech.classList.remove('show');
-        guyL.classList.remove('hifive');
-        guyR.classList.remove('hifive');
-        guyL.classList.add('walking');
-        guyR.classList.add('walking');
-        
-        guyL.style.transition='left 2.5s ease-in';
-        guyR.style.transition='right 2.5s ease-in';
-        guyL.style.left=(w+80)+'px';
-        guyR.style.right=(w+80)+'px';
-      },5000);
-      
-      // Phase 4: Restart (at 8s)
-      setTimeout(runDuo,8500);
+      document.getElementById('roi-current').textContent=fmt(currentRev)+' Kč';
+      document.getElementById('roi-new').textContent=fmt(newRev)+' Kč';
+      document.getElementById('roi-newconv').textContent=(newConvRate*100).toFixed(1).replace('.',',')+' %';
+      document.getElementById('roi-gain').innerHTML='+'+fmt(gain)+' <small>Kč/měs</small>';
+      document.getElementById('roi-annual').textContent='+'+fmt(annualGain)+' Kč';
     }
     
-    // Start when visible
-    const dIO=new IntersectionObserver((es)=>{
-      if(es[0].isIntersecting){dIO.unobserve(duoWrap);runDuo()}
-    },{threshold:.3});
-    dIO.observe(duoWrap);
+    roiTraffic.addEventListener('input',calcROI);
+    roiConv.addEventListener('input',calcROI);
+    roiAov.addEventListener('input',calcROI);
+    calcROI();
   }
 
   // ======== Load website screenshots for ref cards & service thumbs ========
