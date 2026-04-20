@@ -21,10 +21,10 @@ img,svg{display:block;max-width:100%}
 
 body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.18;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 
-.cursor{position:fixed;top:0;left:0;width:10px;height:10px;border-radius:50%;background:var(--ink);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease);mix-blend-mode:difference}
-.cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border-radius:50%;border:1px solid rgba(10,10,10,.35);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .4s var(--ease),height .4s var(--ease),border-color .3s,background .3s}
-body.cursor-hover .cursor{width:4px;height:4px;background:#fff}
-body.cursor-hover .cursor-ring{width:56px;height:56px;border-color:var(--ink);background:rgba(10,10,10,.08)}
+.cursor{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:#fff;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s var(--ease),height .15s var(--ease),background .15s;mix-blend-mode:difference}
+.cursor-ring{position:fixed;top:0;left:0;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.6);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .18s var(--ease),height .18s var(--ease),border-color .15s,background .15s;mix-blend-mode:difference}
+body.cursor-hover .cursor{width:4px;height:4px}
+body.cursor-hover .cursor-ring{width:48px;height:48px;background:rgba(255,255,255,.08)}
 @media (hover:none){body{cursor:auto}.cursor,.cursor-ring{display:none}a,button,input,textarea,select{cursor:auto}}
 
 .scroll-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:200}
@@ -36,7 +36,7 @@ body.cursor-hover .cursor-ring{width:56px;height:56px;border-color:var(--ink);ba
 /* ===================== NAV ===================== */
 nav.top{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 40px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:40px;transition:padding .4s var(--ease),background .3s,backdrop-filter .3s}
 nav.top.scrolled{padding:14px 40px;background:rgba(242,236,224,.82);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
-.logo{display:flex;align-items:center;gap:14px;font-weight:700;font-size:16px;letter-spacing:-.02em;position:relative}
+.logo{display:flex;align-items:center;gap:14px;font-weight:800;font-size:26px;letter-spacing:-.03em;position:relative}
 .logo .mark{width:14px;height:14px;border-radius:50%;background:var(--red);animation:breath 3.2s var(--ease) infinite;position:relative}
 .logo .mark::after{content:"";position:absolute;inset:-5px;border-radius:50%;background:radial-gradient(circle,rgba(227,6,19,.4),transparent 70%);animation:halo 3.2s var(--ease) infinite}
 @keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(.85)}}

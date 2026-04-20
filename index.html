@@ -51,21 +51,21 @@ body::before{
 
 /* ===================== CUSTOM CURSOR ===================== */
 .cursor{
-  position:fixed;top:0;left:0;width:10px;height:10px;border-radius:50%;
-  background:var(--ink);pointer-events:none;z-index:9999;
-  transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),background .25s var(--ease);
+  position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;
+  background:#fff;pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .15s var(--ease),height .15s var(--ease),background .15s;
   mix-blend-mode:difference;
 }
 .cursor-ring{
-  position:fixed;top:0;left:0;width:36px;height:36px;border-radius:50%;
-  border:1px solid rgba(10,10,10,.35);pointer-events:none;z-index:9998;
+  position:fixed;top:0;left:0;width:32px;height:32px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.6);pointer-events:none;z-index:9998;
   transform:translate(-50%,-50%);
-  transition:width .4s var(--ease),height .4s var(--ease),border-color .3s var(--ease),background .3s var(--ease);
+  transition:width .18s var(--ease),height .18s var(--ease),border-color .15s,background .15s;
+  mix-blend-mode:difference;
 }
-body.cursor-hover .cursor{width:4px;height:4px;background:#fff}
-body.cursor-hover .cursor-ring{width:56px;height:56px;border-color:var(--ink);background:rgba(10,10,10,.08)}
-body.cursor-red .cursor{background:#fff}
-body.cursor-red .cursor-ring{border-color:var(--red);background:rgba(227,6,19,.12)}
+body.cursor-hover .cursor{width:4px;height:4px}
+body.cursor-hover .cursor-ring{width:48px;height:48px;background:rgba(255,255,255,.08)}
 @media (hover:none){
   body{cursor:auto}
   .cursor,.cursor-ring{display:none}
@@ -100,7 +100,7 @@ nav.top.scrolled{
   -webkit-backdrop-filter:blur(14px) saturate(140%);
   border-bottom:1px solid var(--line);
 }
-.logo{display:flex;align-items:center;gap:14px;font-weight:700;font-size:16px;letter-spacing:-.02em;position:relative}
+.logo{display:flex;align-items:center;gap:14px;font-weight:800;font-size:26px;letter-spacing:-.03em;position:relative}
 .logo .mark{
   width:14px;height:14px;border-radius:50%;background:var(--red);position:relative;
   animation:breath 3.2s var(--ease) infinite;
@@ -197,7 +197,8 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 .lnk:hover .arr{transform:translateX(4px)}
 
 /* ===================== HERO ===================== */
-.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:center;padding:120px 0 0}
+.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 0}
+.hero .wrap{flex:1;display:flex;flex-direction:column;justify-content:center}
 .hero .blob{
   position:absolute;top:50%;left:50%;width:900px;height:900px;border-radius:50%;
   background:radial-gradient(circle,rgba(227,6,19,.16) 0%,transparent 60%);
@@ -635,91 +636,96 @@ section.sx{padding:100px 0;position:relative}
 .ref.r5 .img{background:url(assets/ref-konsepti.png) top center/cover}
 .ref.r6 .img{background:url(assets/ref-travelfree.png) top center/cover}
 
-/* ===================== MASCOT GAME ===================== */
+/* ===================== MASCOT DUO ===================== */
 .mascot-wrap{
-  position:relative;height:140px;overflow:hidden;border-top:1px solid var(--line);
-  background:var(--paper-2);cursor:crosshair;user-select:none;
+  position:relative;height:150px;overflow:hidden;border-top:1px solid var(--line);
+  background:var(--paper-2);
 }
-.mascot-wrap .game-ui{
+.mascot-wrap .m-label{
   position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:10;
-  display:flex;align-items:center;gap:16px;
-  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);
+  font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);opacity:.6;
 }
-.mascot-wrap .game-ui .score{color:var(--red);font-weight:700;font-size:14px}
-.mascot-wrap .game-ui .hint{opacity:.6;font-size:10px}
-.mascot{
-  position:absolute;bottom:10px;
-  transition:none;cursor:crosshair;
+
+.guy{position:absolute;bottom:12px;display:flex;flex-direction:column;align-items:center;width:70px}
+.guy .g-head{
+  width:48px;height:48px;border-radius:50%;overflow:hidden;
+  border:2px solid var(--paper);box-shadow:0 2px 10px rgba(0,0,0,.12);
+  position:relative;z-index:2;background-size:cover;background-position:center;
 }
-.mascot.walking{animation:mascotRun var(--speed,8s) linear infinite}
-@keyframes mascotRun{
-  0%{left:-100px}
-  100%{left:calc(100% + 100px)}
-}
-.mascot.hit{animation:mascotHit .6s ease-out forwards}
-@keyframes mascotHit{
-  0%{transform:translateY(0) rotate(0)}
-  30%{transform:translateY(-60px) rotate(-15deg)}
-  60%{transform:translateY(-40px) rotate(10deg)}
-  100%{transform:translateY(0) rotate(0)}
-}
-.mascot .body{position:relative;width:80px;display:flex;flex-direction:column;align-items:center}
-.mascot .head{
-  width:56px;height:56px;border-radius:50%;overflow:hidden;
-  background:url(assets/mascot-head.png) center/cover;
-  border:2px solid var(--paper);box-shadow:0 2px 12px rgba(0,0,0,.15);
-  position:relative;z-index:2;transition:transform .2s;
-}
-.mascot.hit .head{transform:scale(1.2)}
-.mascot .torso{
-  width:32px;height:24px;background:var(--ink);
-  border-radius:6px 6px 0 0;margin-top:-4px;position:relative;z-index:1;
-}
-.mascot .arm-l,.mascot .arm-r{
-  position:absolute;top:56px;width:4px;height:22px;
+.guy.left .g-head{background-image:url(assets/mascot-head.png)}
+.guy.right .g-head{background-image:url(assets/ludek-vorel.jpg)}
+.guy .g-torso{width:28px;height:20px;background:var(--ink);border-radius:5px 5px 0 0;margin-top:-3px;z-index:1;position:relative}
+.guy .g-arm{
+  position:absolute;top:48px;width:3px;height:18px;
   background:var(--ink);border-radius:2px;
   transform-origin:top center;
 }
-.mascot .arm-l{left:14px;animation:armSwing 0.4s ease-in-out infinite alternate}
-.mascot .arm-r{right:14px;animation:armWave 0.3s ease-in-out infinite alternate}
-@keyframes armSwing{0%{transform:rotate(-15deg)}100%{transform:rotate(15deg)}}
-@keyframes armWave{0%{transform:rotate(-40deg)}100%{transform:rotate(30deg)}}
-.mascot .hand{
-  width:10px;height:10px;border-radius:50%;
-  background:#f0c8a0;position:absolute;bottom:-6px;left:-3px;
+.guy .g-arm .g-hand{width:8px;height:8px;border-radius:50%;background:#f0c8a0;position:absolute;bottom:-5px;left:-2.5px}
+.guy.left .g-arm.out{left:10px}
+.guy.left .g-arm.in{right:10px}
+.guy.right .g-arm.out{right:10px}
+.guy.right .g-arm.in{left:10px}
+.guy .g-leg{
+  width:3px;height:16px;background:var(--ink);border-radius:2px;
+  position:absolute;bottom:-16px;transform-origin:top center;
 }
-.mascot .leg-l,.mascot .leg-r{
-  width:4px;height:20px;background:var(--ink);border-radius:2px;
-  position:absolute;bottom:-20px;
-  transform-origin:top center;
+.guy .g-leg.l{left:24px}
+.guy .g-leg.r{right:24px}
+.guy .g-foot{width:8px;height:3px;background:var(--ink);border-radius:0 0 2px 2px;position:absolute;bottom:-2px;left:-2.5px}
+.guy .g-name{
+  position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:9px;color:var(--mute);white-space:nowrap;font-weight:600;letter-spacing:.04em;
 }
-.mascot .leg-l{left:28px;animation:legWalk .35s ease-in-out infinite alternate}
-.mascot .leg-r{right:28px;animation:legWalk .35s ease-in-out infinite alternate-reverse}
-@keyframes legWalk{0%{transform:rotate(-15deg)}100%{transform:rotate(15deg)}}
-.mascot .foot{
-  width:10px;height:4px;background:var(--ink);border-radius:0 0 2px 2px;
-  position:absolute;bottom:-3px;left:-3px;
-}
-.mascot .speech{
-  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+
+/* Walking animation */
+.guy.walking .g-leg.l{animation:gLeg .4s ease-in-out infinite alternate}
+.guy.walking .g-leg.r{animation:gLeg .4s ease-in-out infinite alternate-reverse}
+.guy.walking .g-arm.out{animation:gArmSwing .4s ease-in-out infinite alternate}
+.guy.walking .g-arm.in{animation:gArmSwing .4s ease-in-out infinite alternate-reverse}
+@keyframes gLeg{0%{transform:rotate(-12deg)}100%{transform:rotate(12deg)}}
+@keyframes gArmSwing{0%{transform:rotate(-12deg)}100%{transform:rotate(12deg)}}
+
+/* High five pose */
+.guy.hifive .g-arm.in{transform:rotate(-70deg);transition:transform .3s var(--ease)}
+.guy.right.hifive .g-arm.in{transform:rotate(70deg)}
+.guy.hifive .g-leg.l,.guy.hifive .g-leg.r{animation:none;transform:rotate(0)}
+.guy.hifive .g-arm.out{animation:none;transform:rotate(8deg)}
+
+/* Speech bubble */
+.m-speech{
+  position:absolute;top:8px;left:50%;transform:translateX(-50%);z-index:20;
   background:var(--ink);color:var(--paper);
-  font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.03em;
-  padding:5px 10px;border-radius:8px;white-space:nowrap;
-  opacity:0;pointer-events:none;transition:opacity .3s;
+  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.03em;
+  padding:8px 16px;border-radius:10px;white-space:nowrap;
+  opacity:0;transform:translateX(-50%) translateY(6px);
+  transition:opacity .4s,transform .4s var(--ease);
 }
-.mascot .speech::after{
+.m-speech.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.m-speech::after{
   content:"";position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);
   border:5px solid transparent;border-top-color:var(--ink);
 }
-.mascot .speech.show{opacity:1}
-.hit-fx{
-  position:absolute;pointer-events:none;z-index:20;
-  font-size:22px;font-weight:900;color:var(--red);
-  animation:hitFx .8s ease-out forwards;
+
+/* High five spark */
+.hf-spark{
+  position:absolute;z-index:25;pointer-events:none;
+  width:20px;height:20px;
 }
-@keyframes hitFx{
-  0%{opacity:1;transform:translateY(0) scale(1)}
-  100%{opacity:0;transform:translateY(-40px) scale(1.5)}
+.hf-spark i{
+  position:absolute;width:3px;height:10px;background:var(--red);border-radius:2px;
+  top:50%;left:50%;transform-origin:bottom center;
+  animation:sparkBurst .6s ease-out forwards;
+}
+.hf-spark i:nth-child(1){transform:rotate(0deg) translateY(-100%)}
+.hf-spark i:nth-child(2){transform:rotate(60deg) translateY(-100%)}
+.hf-spark i:nth-child(3){transform:rotate(120deg) translateY(-100%)}
+.hf-spark i:nth-child(4){transform:rotate(180deg) translateY(-100%)}
+.hf-spark i:nth-child(5){transform:rotate(240deg) translateY(-100%)}
+.hf-spark i:nth-child(6){transform:rotate(300deg) translateY(-100%)}
+@keyframes sparkBurst{
+  0%{opacity:1;height:4px}
+  50%{opacity:1;height:14px}
+  100%{opacity:0;height:6px;transform:rotate(var(--r,0deg)) translateY(-180%)}
 }
 
 /* ===================== CTA STRIP ===================== */
@@ -797,6 +803,7 @@ footer .base .right{text-align:right}
   nav.top .meta{display:none}
   .wrap{padding:0 20px}
   .hero{min-height:auto;padding:100px 0 0}
+  .hero .wrap{flex:none}
   .num-grid,.ref-grid,footer .cols,footer .base{grid-template-columns:1fr}
   .case-card .meta{padding:36px 28px}
   .case-card h3{font-size:22px}
@@ -1350,22 +1357,29 @@ footer .base .right{text-align:right}
   </div>
 </section>
 
-<!-- ===================== MASCOT GAME ===================== -->
-<div class="mascot-wrap" id="mascot-game">
-  <div class="game-ui">
-    <span class="hint">Klikni na panáčka!</span>
-    <span>Skóre: <span class="score" id="m-score">0</span></span>
+<!-- ===================== MASCOT DUO ===================== -->
+<div class="mascot-wrap" id="mascot-duo">
+  <div class="m-label">PragueBest crew</div>
+  <div class="m-speech" id="hf-speech"></div>
+
+  <div class="guy left" id="guy-l">
+    <div class="g-head"></div>
+    <div class="g-torso"></div>
+    <div class="g-arm out"><div class="g-hand"></div></div>
+    <div class="g-arm in"><div class="g-hand"></div></div>
+    <div class="g-leg l"><div class="g-foot"></div></div>
+    <div class="g-leg r"><div class="g-foot"></div></div>
+    <div class="g-name">Vladimír</div>
   </div>
-  <div class="mascot walking" id="mascot" style="--speed:6s">
-    <div class="speech" id="m-speech">Ahoj! 👋</div>
-    <div class="body">
-      <div class="head"></div>
-      <div class="torso"></div>
-      <div class="arm-l"><div class="hand"></div></div>
-      <div class="arm-r"><div class="hand"></div></div>
-      <div class="leg-l"><div class="foot"></div></div>
-      <div class="leg-r"><div class="foot"></div></div>
-    </div>
+
+  <div class="guy right" id="guy-r">
+    <div class="g-head"></div>
+    <div class="g-torso"></div>
+    <div class="g-arm out"><div class="g-hand"></div></div>
+    <div class="g-arm in"><div class="g-hand"></div></div>
+    <div class="g-leg l"><div class="g-foot"></div></div>
+    <div class="g-leg r"><div class="g-foot"></div></div>
+    <div class="g-name">Luděk</div>
   </div>
 </div>
 
@@ -1639,65 +1653,83 @@ footer .base .right{text-align:right}
     loop();
   }
 
-  // ======== Mascot mini-game ========
-  const mascot=document.getElementById('mascot');
-  const scoreEl=document.getElementById('m-score');
-  const speechEl=document.getElementById('m-speech');
-  const gameWrap=document.getElementById('mascot-game');
-  if(mascot&&scoreEl){
-    let score=0;
-    let speed=6;
-    const msgs=['Au!','Hele!','To bolí!','Zase?!','Dost!','Nene!','Ááá!','Stop!','Proč?!','😵','🤕','💫','Ha, minul!','Rychlý!','Wow!'];
-    const bigMsgs={
-      5:'🏆 5 zásahů!',
-      10:'🔥 10! Jsi sniper!',
-      15:'👑 15! Legendární!',
-      20:'🚀 20! Neuvěřitelné!'
-    };
+  // ======== Mascot duo high-five ========
+  const guyL=document.getElementById('guy-l');
+  const guyR=document.getElementById('guy-r');
+  const hfSpeech=document.getElementById('hf-speech');
+  const duoWrap=document.getElementById('mascot-duo');
+  if(guyL&&guyR&&duoWrap){
+    const msgs=['Pojďme něco vytvořit!','High five! 🖐️','Tým snů 💪','Další projekt? 🚀','Karlín rules!','Let\'s build!','Na to si plácnem!'];
+    let cycle=0;
     
-    mascot.addEventListener('click',(e)=>{
-      e.preventDefault();
-      e.stopPropagation();
-      score++;
-      scoreEl.textContent=score;
+    function runDuo(){
+      const w=duoWrap.offsetWidth;
+      const mid=w/2;
       
-      // Hit animation
-      mascot.classList.remove('walking');
-      mascot.classList.add('hit');
+      // Reset
+      guyL.style.transition='none';
+      guyR.style.transition='none';
+      guyL.style.left='-80px';
+      guyR.style.right='-80px';
+      guyL.classList.add('walking');
+      guyR.classList.add('walking');
+      guyL.classList.remove('hifive');
+      guyR.classList.remove('hifive');
+      hfSpeech.classList.remove('show');
       
-      // Speech bubble
-      const msg=bigMsgs[score]||msgs[Math.floor(Math.random()*msgs.length)];
-      speechEl.textContent=msg;
-      speechEl.classList.add('show');
+      // Phase 1: Walk towards center (2.5s)
+      requestAnimationFrame(()=>{
+        guyL.style.transition='left 2.5s ease-out';
+        guyR.style.transition='right 2.5s ease-out';
+        guyL.style.left=(mid-55)+'px';
+        guyR.style.right=(mid-55)+'px';
+      });
       
-      // Float +1 effect
-      const fx=document.createElement('div');
-      fx.className='hit-fx';
-      fx.textContent='+1';
-      fx.style.left=(e.clientX-gameWrap.getBoundingClientRect().left)+'px';
-      fx.style.top=(e.clientY-gameWrap.getBoundingClientRect().top)+'px';
-      gameWrap.appendChild(fx);
-      setTimeout(()=>fx.remove(),800);
-      
-      // Speed up every 3 hits
-      if(score%3===0&&speed>2){
-        speed=Math.max(2,speed-.6);
-      }
-      
-      // Reset after hit animation
+      // Phase 2: Stop & high five (at 2.5s)
       setTimeout(()=>{
-        speechEl.classList.remove('show');
-        mascot.classList.remove('hit');
-        mascot.style.setProperty('--speed',speed+'s');
-        // Random direction
-        if(Math.random()>.5){
-          mascot.style.animationDirection='reverse';
-        }else{
-          mascot.style.animationDirection='normal';
-        }
-        mascot.classList.add('walking');
-      },700);
-    });
+        guyL.classList.remove('walking');
+        guyR.classList.remove('walking');
+        guyL.classList.add('hifive');
+        guyR.classList.add('hifive');
+        
+        // Spark effect
+        const spark=document.createElement('div');
+        spark.className='hf-spark';
+        spark.style.left=(mid-10)+'px';
+        spark.style.top='42px';
+        spark.innerHTML='<i></i><i></i><i></i><i></i><i></i><i></i>';
+        duoWrap.appendChild(spark);
+        setTimeout(()=>spark.remove(),700);
+        
+        // Speech bubble
+        hfSpeech.textContent=msgs[cycle%msgs.length];
+        hfSpeech.classList.add('show');
+        cycle++;
+      },2600);
+      
+      // Phase 3: Walk away (at 5s)
+      setTimeout(()=>{
+        hfSpeech.classList.remove('show');
+        guyL.classList.remove('hifive');
+        guyR.classList.remove('hifive');
+        guyL.classList.add('walking');
+        guyR.classList.add('walking');
+        
+        guyL.style.transition='left 2.5s ease-in';
+        guyR.style.transition='right 2.5s ease-in';
+        guyL.style.left=(w+80)+'px';
+        guyR.style.right=(w+80)+'px';
+      },5000);
+      
+      // Phase 4: Restart (at 8s)
+      setTimeout(runDuo,8500);
+    }
+    
+    // Start when visible
+    const dIO=new IntersectionObserver((es)=>{
+      if(es[0].isIntersecting){dIO.unobserve(duoWrap);runDuo()}
+    },{threshold:.3});
+    dIO.observe(duoWrap);
   }
 
   // ======== Load website screenshots for ref cards & service thumbs ========
