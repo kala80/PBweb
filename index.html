@@ -198,7 +198,7 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 
 /* ===================== HERO ===================== */
 .hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 0}
-.hero .wrap{flex:1;display:flex;flex-direction:column;justify-content:center}
+.hero .wrap{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
 .hero .blob{
   position:absolute;top:50%;left:50%;width:900px;height:900px;border-radius:50%;
   background:radial-gradient(circle,rgba(227,6,19,.16) 0%,transparent 60%);
@@ -233,7 +233,7 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 }
 @keyframes twBlink{50%{opacity:0}}
 .hero .below{
-  margin-top:48px;display:grid;grid-template-columns:minmax(280px,1.4fr) 1fr 1fr;gap:80px;align-items:end;
+  margin-top:48px;display:grid;grid-template-columns:minmax(280px,1.4fr) 1fr 1fr;gap:80px;align-items:end;align-self:stretch;
 }
 .hero .below .lede{font-size:16px;font-weight:400;line-height:1.45;max-width:46ch;color:var(--ink-3);letter-spacing:-.01em}
 .hero .below .lede b{font-weight:600;color:var(--ink)}
