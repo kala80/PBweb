@@ -197,8 +197,8 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 .lnk:hover .arr{transform:translateX(4px)}
 
 /* ===================== HERO ===================== */
-.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;padding:70px 0 0}
-.hero .wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding-bottom:40px}
+.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;padding:0}
+.hero .wrap{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-top:80px}
 .hero .blob{
   position:absolute;top:50%;left:50%;width:900px;height:900px;border-radius:50%;
   background:radial-gradient(circle,rgba(227,6,19,.16) 0%,transparent 60%);
@@ -332,7 +332,7 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 }
 .logo-strip .logos{
   display:grid;grid-template-columns:repeat(5,1fr);gap:0;
-  position:relative;z-index:2;max-width:1100px;margin:0 auto;
+  position:relative;z-index:2;max-width:1200px;margin:0 auto;
 }
 .logo-strip .cl{
   text-align:center;padding:28px 16px;
@@ -345,9 +345,9 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
   border-color:rgba(242,236,224,.12);
 }
 .logo-strip .cl .lg{
-  display:block;width:100%;max-width:140px;height:auto;
-  margin:0 auto 10px;
-  opacity:.75;transition:opacity .3s;
+  display:block;width:auto;height:36px;max-width:130px;
+  margin:0 auto 10px;object-fit:contain;
+  opacity:.6;transition:opacity .3s;filter:brightness(1.2);
 }
 .logo-strip .cl:hover .lg{opacity:1}
 .logo-strip .cl .nm{
@@ -939,79 +939,64 @@ footer .base .right{text-align:right}
   </div>
   <div class="logos">
     <div class="cl">
-      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="26" font-family="Arial Black,Arial,sans-serif" font-size="22" font-weight="900" fill="#fff" letter-spacing="-0.5">Foto</text>
-        <text x="48" y="26" font-family="Georgia,serif" font-style="italic" font-size="22" font-weight="700" fill="#fff" letter-spacing="-0.5">škoda</text>
-      </svg>
+      <img class="lg" src="assets/fotoskoda-logo.png" alt="Fotoškoda">
       <small>E-commerce</small>
     </div>
     <div class="cl">
-      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="16" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#fff" letter-spacing="2">MK</text>
-        <text x="0" y="34" font-family="Georgia,serif" font-size="20" font-weight="700" font-style="italic" fill="#fff" letter-spacing="-0.3">Lůžkoviny</text>
-      </svg>
+      <img class="lg" src="assets/mk-logo.png" alt="MK Lůžkoviny">
       <small>E-shop</small>
     </div>
     <div class="cl">
-      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="8,8 16,8 12,32" fill="#fff"/>
-        <text x="24" y="28" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="#fff" letter-spacing="2">SPARKYS</text>
-      </svg>
+      <img class="lg" src="assets/sparkys-logo.png" alt="Sparkys">
       <small>Omnichannel</small>
     </div>
     <div class="cl">
-      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="18" cy="20" r="12" fill="none" stroke="#fff" stroke-width="2.5"/>
-        <text x="14" y="26" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#fff">D</text>
-        <text x="38" y="16" font-family="Arial,sans-serif" font-size="10" font-weight="500" fill="#fff" letter-spacing="1">DOPRAVNÍ</text>
-        <text x="38" y="28" font-family="Arial,sans-serif" font-size="10" font-weight="500" fill="#fff" letter-spacing="1">PODNIK</text>
-        <text x="38" y="38" font-family="Arial,sans-serif" font-size="8" font-weight="400" fill="#fff" opacity=".7" letter-spacing="1">hl. m. Prahy</text>
-      </svg>
+      <img class="lg" src="assets/dpp-logo.png" alt="DPP Praha">
       <small>Web &amp; systémy</small>
     </div>
     <div class="cl">
-      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="28" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#fff" letter-spacing="2">HYUNDAI</text>
-      </svg>
-      <small>Firemní web</small>
+      <img class="lg" src="assets/hyundai-logo.png" alt="Hyundai">
+      <small>Automotive</small>
     </div>
     <div class="cl">
-      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="28" font-family="Arial,sans-serif" font-size="22" font-weight="300" fill="#fff" letter-spacing="4">KONSEPTI</text>
-      </svg>
-      <small>B2C design</small>
+      <img class="lg" src="assets/konsepti-logo.png" alt="Konsepti">
+      <small>Design</small>
     </div>
     <div class="cl">
-      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="20" r="9" fill="#fff"/>
-        <circle cx="12" cy="20" r="4" fill="#1a1a1a"/>
-        <text x="28" y="28" font-family="Georgia,serif" font-size="22" font-weight="700" font-style="italic" fill="#fff" letter-spacing="-0.3">Kinoko</text>
-      </svg>
-      <small>E-commerce</small>
-    </div>
-    <div class="cl">
-      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="18" font-family="Arial Black,Arial,sans-serif" font-size="16" font-weight="900" fill="#fff" letter-spacing="1">HARFA</text>
-        <text x="0" y="34" font-family="Arial,sans-serif" font-size="12" font-weight="500" fill="#fff" letter-spacing="2">SPORT</text>
-      </svg>
+      <img class="lg" src="assets/albi-logo.png" alt="Albi">
       <small>Retail</small>
     </div>
     <div class="cl">
-      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="16" cy="20" r="12" fill="none" stroke="#fff" stroke-width="2"/>
-        <text x="12" y="26" font-family="Georgia,serif" font-size="16" font-weight="700" font-style="italic" fill="#fff">A</text>
-        <text x="36" y="28" font-family="Georgia,serif" font-size="22" font-weight="700" font-style="italic" fill="#fff" letter-spacing="-0.3">Albi</text>
-      </svg>
-      <small>Retail</small>
+      <img class="lg" src="assets/harfasport-logo.png" alt="HarfaSport">
+      <small>Sport</small>
     </div>
     <div class="cl">
-      <svg class="lg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="10" width="28" height="20" fill="#fff" rx="2"/>
-        <text x="6" y="24" font-family="Arial Black,Arial,sans-serif" font-size="10" font-weight="900" fill="#1a1a1a">TF</text>
-        <text x="36" y="22" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#fff" letter-spacing="1">TRAVEL</text>
-        <text x="36" y="35" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#fff" letter-spacing="1">FREE</text>
-      </svg>
-      <small>Loyalty</small>
+      <img class="lg" src="assets/terezia-logo.png" alt="Terezia">
+      <small>Healthcare</small>
+    </div>
+    <div class="cl">
+      <img class="lg" src="assets/pfcp2021-logo.png" alt="Generali">
+      <small>Finance</small>
+    </div>
+    <div class="cl">
+      <img class="lg" src="assets/bal-logo.png" alt="BAL">
+      <small>Barvy &amp; laky</small>
+    </div>
+    <div class="cl">
+      <img class="lg" src="assets/ge-aviation-logo.png" alt="GE Aviation">
+      <small>Průmysl</small>
+    </div>
+    <div class="cl">
+      <img class="lg" src="assets/bestdrive-logo.png" alt="BestDrive">
+      <small>Automotive</small>
+    </div>
+    <div class="cl">
+      <img class="lg" src="assets/grandoptical-logo.png" alt="GrandOptical">
+      <small>Optika</small>
+    </div>
+    <div class="cl">
+      <img class="lg" src="assets/armed-logo.png" alt="Armed">
+      <small>Outdoor</small>
     </div>
   </div>
 </div>
