@@ -324,22 +324,23 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 }
 .logo-strip .logos{
   display:grid;grid-template-columns:repeat(5,1fr);gap:0;
-  position:relative;z-index:2;
+  position:relative;z-index:2;max-width:1200px;margin:0 auto;
 }
 .logo-strip .cl{
-  text-align:center;padding:40px 20px;
+  text-align:center;padding:36px 20px;
   cursor:default;position:relative;
   transition:all .4s var(--ease);
+  display:flex;align-items:center;justify-content:center;
 }
 .logo-strip .cl:hover{
   background:rgba(242,236,224,.05);
 }
 .logo-strip .cl .lg{
-  display:block;width:auto;height:44px;max-width:160px;
-  margin:0 auto 12px;object-fit:contain;
-  opacity:.5;transition:opacity .4s;
+  display:block;width:auto;height:50px;max-width:170px;
+  object-fit:contain;
+  opacity:.7;transition:opacity .4s;
 }
-.logo-strip .cl:hover .lg{opacity:.9}
+.logo-strip .cl:hover .lg{opacity:1}
 .logo-strip .cl .nm{
   font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--paper);
   transition:color .3s;
@@ -928,63 +929,48 @@ footer .base .right{text-align:right}
   <div class="logos">
     <div class="cl">
       <img class="lg" src="assets/fotoskoda-logo.png" alt="Fotoškoda">
-      <small>E-commerce</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/mk-logo.png" alt="MK Lůžkoviny">
-      <small>E-shop</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/sparkys-logo.png" alt="Sparkys">
-      <small>Omnichannel</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/dpp-logo.png" alt="DPP Praha">
-      <small>Web &amp; systémy</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/hyundai-logo.png" alt="Hyundai">
-      <small>Automotive</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/konsepti-logo.png" alt="Konsepti">
-      <small>Design</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/albi-logo.png" alt="Albi">
-      <small>Retail</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/harfasport-logo.png" alt="HarfaSport">
-      <small>Sport</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/terezia-logo.png" alt="Terezia">
-      <small>Healthcare</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/pfcp2021-logo.png" alt="Generali">
-      <small>Finance</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/bal-logo.png" alt="BAL">
-      <small>Barvy &amp; laky</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/ge-aviation-logo.png" alt="GE Aviation">
-      <small>Průmysl</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/bestdrive-logo.png" alt="BestDrive">
-      <small>Automotive</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/grandoptical-logo.png" alt="GrandOptical">
-      <small>Optika</small>
     </div>
     <div class="cl">
       <img class="lg" src="assets/armed-logo.png" alt="Armed">
-      <small>Outdoor</small>
     </div>
   </div>
 </div>
@@ -1207,7 +1193,7 @@ footer .base .right{text-align:right}
       <div class="meta">
         <div>
           <div class="tag">Case Study — HarfaSport</div>
-          <h3>HarfaSport<small>První headless e-shop v&nbsp;portfoliu: +349 % obrat z&nbsp;organiky za měsíc.</small></h3>
+          <h3>HarfaSport<br><span style="font-size:.55em;font-weight:500;opacity:.7">První headless e-shop v portfoliu: +349 % obrat z organiky za měsíc.</span></h3>
           <p class="desc">Sportovní e-shop zaměřený na prémiové vybavení pro cyklistiku, lyžování a&nbsp;běh. Kompletní přestavba na headless architekturu, mobile-first design a&nbsp;SEO transformace. 90 % návštěvnosti z&nbsp;mobilů.</p>
         </div>
         <div>
@@ -1341,21 +1327,18 @@ footer .base .right{text-align:right}
           <label>Měsíční návštěvnost webu</label>
           <div class="slider-wrap">
             <input type="range" id="roi-traffic" min="5000" max="500000" step="5000" value="50000">
-            <div class="val" id="roi-traffic-val">50 000<small>návštěv</small></div>
           </div>
         </div>
         <div class="roi-field">
           <label>Aktuální konverzní poměr</label>
           <div class="slider-wrap">
             <input type="range" id="roi-conv" min="0.3" max="5" step="0.1" value="1.5">
-            <div class="val" id="roi-conv-val">1,5<small>%</small></div>
           </div>
         </div>
         <div class="roi-field">
           <label>Průměrná hodnota objednávky</label>
           <div class="slider-wrap">
             <input type="range" id="roi-aov" min="200" max="15000" step="100" value="1500">
-            <div class="val" id="roi-aov-val">1 500<small>Kč</small></div>
           </div>
         </div>
         <div class="roi-note">
@@ -1365,7 +1348,6 @@ footer .base .right{text-align:right}
 
       <div class="roi-results" id="roi-results">
         <div class="r-label">Potenciální měsíční nárůst tržeb</div>
-        <div class="r-big" id="roi-gain">+660 000 <small>Kč/měs</small></div>
         <div class="r-sub">oproti současnému stavu</div>
 
         <div class="r-rows">
@@ -1693,14 +1675,10 @@ footer .base .right{text-align:right}
       const annualGain=gain*12;
       
       // Update display values
-      document.getElementById('roi-traffic-val').innerHTML=fmt(traffic)+'<small>návštěv</small>';
-      document.getElementById('roi-conv-val').innerHTML=(parseFloat(roiConv.value)).toFixed(1).replace('.',',')+'<small>%</small>';
-      document.getElementById('roi-aov-val').innerHTML=fmt(aov)+'<small>Kč</small>';
       
       document.getElementById('roi-current').textContent=fmt(currentRev)+' Kč';
       document.getElementById('roi-new').textContent=fmt(newRev)+' Kč';
       document.getElementById('roi-newconv').textContent=(newConvRate*100).toFixed(1).replace('.',',')+' %';
-      document.getElementById('roi-gain').innerHTML='+'+fmt(gain)+' <small>Kč/měs</small>';
       document.getElementById('roi-annual').textContent='+'+fmt(annualGain)+' Kč';
     }
     
