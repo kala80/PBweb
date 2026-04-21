@@ -312,44 +312,34 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
   padding:80px 0 60px;border-bottom:1px solid var(--line);overflow:hidden;
   background:var(--ink);color:var(--paper);position:relative;
 }
-.logo-strip::before{
-  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(227,6,19,.12) 0%,transparent 65%);
-  pointer-events:none;
-}
 .logo-strip .ls-head{
-  text-align:center;margin-bottom:48px;max-width:540px;margin-left:auto;margin-right:auto;
-  position:relative;z-index:2;
+  text-align:center;margin-bottom:48px;padding:0 40px;
 }
 .logo-strip .ls-head h2{
-  font-size:clamp(28px,3.5vw,52px);font-weight:700;letter-spacing:-.035em;line-height:.95;margin-bottom:16px;
-  color:var(--paper);
+  font-size:clamp(32px,4.5vw,72px);font-weight:800;letter-spacing:-.04em;line-height:.95;
 }
 .logo-strip .ls-head h2 .red{color:var(--red)}
 .logo-strip .ls-head p{
-  font-size:14px;color:rgba(242,236,224,.5);line-height:1.6;letter-spacing:-.01em;
+  margin-top:16px;font-size:16px;color:rgba(242,236,224,.5);max-width:50ch;margin-left:auto;margin-right:auto;line-height:1.55;
 }
 .logo-strip .logos{
   display:grid;grid-template-columns:repeat(5,1fr);gap:0;
-  position:relative;z-index:2;max-width:1200px;margin:0 auto;
+  position:relative;z-index:2;
 }
 .logo-strip .cl{
-  text-align:center;padding:28px 16px;
-  border:1px solid rgba(242,236,224,.06);
+  text-align:center;padding:40px 20px;
   cursor:default;position:relative;
   transition:all .4s var(--ease);
 }
 .logo-strip .cl:hover{
-  background:rgba(242,236,224,.04);
-  border-color:rgba(242,236,224,.12);
+  background:rgba(242,236,224,.05);
 }
 .logo-strip .cl .lg{
-  display:block;width:auto;height:36px;max-width:130px;
-  margin:0 auto 10px;object-fit:contain;
-  opacity:.6;transition:opacity .3s;filter:brightness(1.2);
+  display:block;width:auto;height:44px;max-width:160px;
+  margin:0 auto 12px;object-fit:contain;
+  opacity:.5;transition:opacity .4s;
 }
-.logo-strip .cl:hover .lg{opacity:1}
+.logo-strip .cl:hover .lg{opacity:.9}
 .logo-strip .cl .nm{
   font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--paper);
   transition:color .3s;
@@ -361,12 +351,10 @@ nav.top .meta .dot{width:6px;height:6px;border-radius:50%;background:#2bb65d;mar
 }
 .logo-strip .cl small{
   font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
-  color:rgba(242,236,224,.3);display:block;margin-top:6px;font-family:var(--mono);
+  color:rgba(242,236,224,.25);display:block;margin-top:8px;font-family:var(--mono);
   transition:color .3s;
 }
-.logo-strip .cl:hover small{color:rgba(242,236,224,.6)}
-
-
+.logo-strip .cl:hover small{color:rgba(242,236,224,.55)}
 /* ===================== MARQUEE ===================== */
 .marquee{
   background:rgba(255,255,255,.35);backdrop-filter:blur(8px);
